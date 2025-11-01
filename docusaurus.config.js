@@ -77,6 +77,13 @@ const config = {
           label: 'Recommendations',
         },
         {
+          type: 'doc',
+          docId: 'ai-crawler/index',
+          position: 'left',
+          label: '🕷️ AI Crawler',
+          className: 'ai-crawler-nav-item',
+        },
+        {
           href: 'https://github.com/Alot1z',
           label: 'GitHub',
           position: 'right',

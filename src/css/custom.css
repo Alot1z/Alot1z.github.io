@@ -321,3 +321,11 @@ select:focus {
   border-left-color: var(--ifm-color-danger);
   background: var(--ifm-color-danger-contrast-background);
 }
+/* AI Crawler Navigation Tab */
+.ai-crawler-nav-item {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 4px 12px;
+  margin: 0 4px;
+  transition: all 0.2s ease;

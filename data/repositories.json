@@ -1,0 +1,468 @@
+{
+  "total_repositories": 98,
+  "last_updated": "2025-01-01",
+  "categories": {
+    "mcp-servers": {
+      "name": "MCP (Model Context Protocol) Servers",
+      "description": "Servers for Model Context Protocol integration with AI tools",
+      "repositories": [
+        {
+          "name": "unity-mcp",
+          "url": "https://github.com/Alot1z/unity-mcp",
+          "description": "An MCP server that allows MCP clients like Claude Desktop or Cursor to perform actions in the Unity Editor",
+          "language": "C#",
+          "license": "MIT License",
+          "last_updated": "Oct 19, 2025",
+          "stars": 0,
+          "tags": ["mcp", "unity", "game-development", "ai-integration"],
+          "purpose": "Game Development AI Integration",
+          "quality_score": 8.5
+        },
+        {
+          "name": "windows-mcp",
+          "url": "https://github.com/Alot1z/windows-mcp",
+          "description": "Lightweight MCP Server for Computer Use in Windows",
+          "language": "Python",
+          "license": "MIT License",
+          "last_updated": "Sep 17, 2025",
+          "stars": 0,
+          "tags": ["mcp", "windows", "automation", "computer-use"],
+          "purpose": "Windows System Automation",
+          "quality_score": 8.0
+        },
+        {
+          "name": "mcp-selenium",
+          "url": "https://github.com/Alot1z/mcp-selenium",
+          "description": "An MCP implementation for Selenium WebDriver",
+          "language": "JavaScript",
+          "license": "MIT License",
+          "last_updated": "Jul 20, 2025",
+          "stars": 0,
+          "tags": ["mcp", "selenium", "web-testing", "automation"],
+          "purpose": "Web Testing Automation",
+          "quality_score": 7.5
+        },
+        {
+          "name": "mcp-core",
+          "url": "https://github.com/Alot1z/mcp-core",
+          "description": "MCP core implementation",
+          "language": "Rust",
+          "license": "Apache License 2.0",
+          "last_updated": "May 1, 2025",
+          "stars": 0,
+          "tags": ["mcp", "core", "rust", "protocol"],
+          "purpose": "MCP Protocol Implementation",
+          "quality_score": 7.0
+        },
+        {
+          "name": "ghidra-mcp",
+          "url": "https://github.com/Alot1z/ghidra-mcp",
+          "description": "MCP Server for Ghidra. Exposes tools to be used by AI-powered reverse engineers",
+          "language": "Java",
+          "license": "Apache License 2.0",
+          "last_updated": "Mar 29, 2025",
+          "stars": 0,
+          "tags": ["mcp", "ghidra", "reverse-engineering", "security"],
+          "purpose": "Security Research & Reverse Engineering",
+          "quality_score": 8.5
+        },
+        {
+          "name": "ida-mcp-server-plugin",
+          "url": "https://github.com/Alot1z/ida-mcp-server-plugin",
+          "description": "IDA Pro Plugin for serving MCP SSE server for cursor / claude",
+          "language": "Python",
+          "license": "MIT License",
+          "last_updated": "May 26, 2025",
+          "stars": 0,
+          "tags": ["mcp", "ida", "reverse-engineering", "security"],
+          "purpose": "IDA Pro Integration",
+          "quality_score": 8.0
+        },
+        {
+          "name": "git-mcp",
+          "url": "https://github.com/Alot1z/git-mcp",
+          "description": "Put an end to code hallucinations! GitMCP is a free, open-source, remote MCP server for any GitHub project",
+          "language": "TypeScript",
+          "license": "Apache License 2.0",
+          "last_updated": "Aug 22, 2025",
+          "stars": 0,
+          "tags": ["mcp", "git", "github", "version-control"],
+          "purpose": "Git/GitHub Integration",
+          "quality_score": 9.0
+        }
+      ]
+    },
+    "ai-ml-tools": {
+      "name": "AI & Machine Learning Tools",
+      "description": "Tools and frameworks for artificial intelligence and machine learning development",
+      "repositories": [
+        {
+          "name": "DeepSeek-OCR",
+          "url": "https://github.com/Alot1z/DeepSeek-OCR",
+          "description": "Contexts Optical Compression",
+          "language": "Python",
+          "license": "MIT License",
+          "last_updated": "Oct 21, 2025",
+          "stars": 0,
+          "tags": ["ai", "ocr", "deepseek", "computer-vision"],
+          "purpose": "OCR & Computer Vision",
+          "quality_score": 8.0
+        },
+        {
+          "name": "anything-llm",
+          "url": "https://github.com/Alot1z/anything-llm",
+          "description": "The all-in-one Desktop & Docker AI application with built-in RAG, AI agents, No-code agent builder, MCP compatibility, and more.",
+          "language": "JavaScript",
+          "license": "MIT License",
+          "last_updated": "Sep 27, 2025",
+          "stars": 0,
+          "tags": ["ai", "llm", "chatbot", "rag", "agents"],
+          "purpose": "AI Chat & Assistant Platform",
+          "quality_score": 9.0
+        },
+        {
+          "name": "opik",
+          "url": "https://github.com/Alot1z/opik",
+          "description": "Debug, evaluate, and monitor your LLM applications, RAG systems, and agentic workflows with comprehensive tracing, automated evaluations, and production-ready dashboards.",
+          "language": "Python",
+          "license": "Apache License 2.0",
+          "last_updated": "Sep 23, 2025",
+          "stars": 0,
+          "tags": ["ai", "llm", "monitoring", "evaluation", "tracing"],
+          "purpose": "AI System Monitoring",
+          "quality_score": 8.5
+        },
+        {
+          "name": "mindsdb",
+          "url": "https://github.com/Alot1z/mindsdb",
+          "description": "AI Analytics Engine that can answer questions over large scale data. - The only MCP Server you'll ever need",
+          "language": "Python",
+          "license": "Other",
+          "last_updated": "Sep 21, 2025",
+          "stars": 0,
+          "tags": ["ai", "analytics", "data", "mcp"],
+          "purpose": "AI Analytics & Data Processing",
+          "quality_score": 8.0
+        },
+        {
+          "name": "claude-task-master",
+          "url": "https://github.com/Alot1z/claude-task-master",
+          "description": "An AI-powered task-management system you can drop into Cursor, Lovable, Windsurf, Roo, and others.",
+          "language": "JavaScript",
+          "license": "Other",
+          "last_updated": "Sep 17, 2025",
+          "stars": 0,
+          "tags": ["ai", "task-management", "automation", "claude"],
+          "purpose": "AI Task Management",
+          "quality_score": 7.5
+        },
+        {
+          "name": "serge",
+          "url": "https://github.com/Alot1z/serge",
+          "description": "A web interface for chatting with Alpaca through llama.cpp. Fully dockerized, with an easy to use API.",
+          "language": "Svelte",
+          "license": "Apache License 2.0",
+          "last_updated": "Sep 17, 2025",
+          "stars": 0,
+          "tags": ["ai", "llm", "chat", "alpaca", "llama"],
+          "purpose": "Local LLM Interface",
+          "quality_score": 7.5
+        }
+      ]
+    },
+    "development-tools": {
+      "name": "Development Tools & Frameworks",
+      "description": "Tools for software development, building, and deployment",
+      "repositories": [
+        {
+          "name": "semgrep",
+          "url": "https://github.com/Alot1z/semgrep",
+          "description": "Lightweight static analysis for many languages. Find bug variants with patterns that look like source code.",
+          "language": "OCaml",
+          "license": "GNU Lesser General Public License v2.1",
+          "last_updated": "Oct 17, 2025",
+          "stars": 0,
+          "tags": ["development", "static-analysis", "security", "bug-detection"],
+          "purpose": "Code Quality & Security Analysis",
+          "quality_score": 9.5
+        },
+        {
+          "name": "docusaurus",
+          "url": "https://github.com/Alot1z/docusaurus",
+          "description": "Easy to maintain open source documentation websites.",
+          "language": "TypeScript",
+          "license": "MIT License",
+          "last_updated": "Oct 10, 2025",
+          "stars": 0,
+          "tags": ["documentation", "website", "static-site", "react"],
+          "purpose": "Documentation Generation",
+          "quality_score": 9.5
+        },
+        {
+          "name": "fastapi",
+          "url": "https://github.com/Alot1z/fastapi",
+          "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+          "language": "Python",
+          "license": "MIT License",
+          "last_updated": "Aug 25, 2025",
+          "stars": 0,
+          "tags": ["development", "api", "framework", "python", "web"],
+          "purpose": "Web API Framework",
+          "quality_score": 9.0
+        },
+        {
+          "name": "lootbox",
+          "url": "https://github.com/Alot1z/lootbox",
+          "description": "Lootbox gives your coding assistant superpowers",
+          "language": "TypeScript",
+          "last_updated": "Oct 9, 2025",
+          "stars": 0,
+          "tags": ["development", "coding-assistant", "tools", "productivity"],
+          "purpose": "Developer Productivity",
+          "quality_score": 7.5
+        },
+        {
+          "name": "code2prompt",
+          "url": "https://github.com/Alot1z/code2prompt",
+          "description": "A CLI tool to convert your codebase into a single LLM prompt with source tree, prompt templating, and token counting.",
+          "language": "Rust",
+          "license": "MIT License",
+          "last_updated": "Sep 16, 2025",
+          "stars": 0,
+          "tags": ["development", "cli", "llm", "code-analysis"],
+          "purpose": "Code Analysis for LLM",
+          "quality_score": 8.0
+        },
+        {
+          "name": "mcptools",
+          "url": "https://github.com/Alot1z/mcptools",
+          "description": "A command-line interface for interacting with MCP (Model Context Protocol) servers using both stdio and HTTP transport.",
+          "language": "Go",
+          "license": "MIT License",
+          "last_updated": "Sep 11, 2025",
+          "stars": 0,
+          "tags": ["development", "mcp", "cli", "protocol"],
+          "purpose": "MCP Client Tool",
+          "quality_score": 8.0
+        }
+      ]
+    },
+    "mobile-tools": {
+      "name": "Mobile Development Tools",
+      "description": "Tools for mobile app development and iOS/Android platforms",
+      "repositories": [
+        {
+          "name": "troll-shell",
+          "url": "https://github.com/Alot1z/troll-shell",
+          "description": "iOS application",
+          "language": "Swift",
+          "last_updated": "Jul 23, 2025",
+          "stars": 0,
+          "tags": ["mobile", "ios", "jailbreak", "trollstore"],
+          "purpose": "iOS Development & Testing",
+          "quality_score": 7.0
+        },
+        {
+          "name": "Bella",
+          "url": "https://github.com/Alot1z/Bella",
+          "description": "AI assistant application",
+          "language": "JavaScript",
+          "last_updated": "Aug 25, 2025",
+          "stars": 0,
+          "tags": ["mobile", "ai", "assistant", "voice"],
+          "purpose": "Mobile AI Assistant",
+          "quality_score": 7.5
+        },
+        {
+          "name": "TrollDebs",
+          "url": "https://github.com/Alot1z/TrollDebs",
+          "description": "iOS development tools",
+          "language": "Swift",
+          "last_updated": "May 27, 2025",
+          "stars": 0,
+          "tags": ["mobile", "ios", "trollstore", "development"],
+          "purpose": "iOS Development Tools",
+          "quality_score": 7.0
+        },
+        {
+          "name": "soundthread",
+          "url": "https://github.com/Alot1z/SoundThread",
+          "description": "Node based GUI for The Composers Desktop Project",
+          "language": "GDScript",
+          "last_updated": "Sep 5, 2025",
+          "stars": 0,
+          "tags": ["mobile", "game-development", "sound", "audio"],
+          "purpose": "Game Development Audio",
+          "quality_score": 6.5
+        },
+        {
+          "name": "VibeVoice",
+          "url": "https://github.com/Alot1z/VibeVoice",
+          "description": "Frontier Open-Source Text-to-Speech",
+          "language": "",
+          "license": "MIT License",
+          "last_updated": "Sep 5, 2025",
+          "stars": 0,
+          "tags": ["mobile", "tts", "speech", "audio"],
+          "purpose": "Text-to-Speech",
+          "quality_score": 7.0
+        },
+        {
+          "name": "Nyxian",
+          "url": "https://github.com/Alot1z/Nyxian",
+          "description": "IDE to create iOS apps on unjailbroken iOS it self just via a certificate",
+          "language": "C",
+          "license": "GNU General Public License v3.0",
+          "last_updated": "Sep 5, 2025",
+          "stars": 0,
+          "tags": ["mobile", "ios", "ide", "development"],
+          "purpose": "iOS IDE & Development",
+          "quality_score": 7.0
+        }
+      ]
+    },
+    "security-tools": {
+      "name": "Security & Reverse Engineering Tools",
+      "description": "Tools for security research, reverse engineering, and vulnerability analysis",
+      "repositories": [
+        {
+          "name": "proximity",
+          "url": "https://github.com/Alot1z/proximity",
+          "description": "Proximity is a MCP security scanner powered with NOVA",
+          "language": "Python",
+          "license": "GNU General Public License v3.0",
+          "last_updated": "Sep 28, 2025",
+          "stars": 0,
+          "tags": ["security", "mcp", "scanner", "vulnerability"],
+          "purpose": "Security Scanning",
+          "quality_score": 8.0
+        },
+        {
+          "name": "malware-lab",
+          "url": "https://github.com/Alot1z/malware-lab",
+          "description": "Security research and malware analysis tools",
+          "language": "JavaScript",
+          "last_updated": "Aug 25, 2024",
+          "stars": 0,
+          "tags": ["security", "malware", "research", "analysis"],
+          "purpose": "Malware Research",
+          "quality_score": 7.5
+        },
+        {
+          "name": "VMWARE-unlocker",
+          "url": "https://github.com/Alot1z/VMWARE-unlocker",
+          "description": "VMware virtualization tools",
+          "language": "Multiple",
+          "license": "GPL",
+          "last_updated": "Aug 25, 2024",
+          "stars": 0,
+          "tags": ["virtualization", "vmware", "tools"],
+          "purpose": "Virtualization Tools",
+          "quality_score": 7.0
+        },
+        {
+          "name": "cheat-engine",
+          "url": "https://github.com/Alot1z/cheat-engine",
+          "description": "Cheat Engine. A development environment focused on modding",
+          "language": "Pascal",
+          "last_updated": "Aug 25, 2024",
+          "stars": 0,
+          "tags": ["reverse-engineering", "modding", "game-hacking"],
+          "purpose": "Game Modding & Research",
+          "quality_score": 8.0
+        }
+      ]
+    },
+    "utilities": {
+      "name": "System Utilities & Automation",
+      "description": "General purpose utilities and automation tools",
+      "repositories": [
+        {
+          "name": "directory-monitor",
+          "url": "https://github.com/Alot1z/directory-monitor",
+          "description": "Directory monitoring tool",
+          "language": "Python",
+          "last_updated": "Oct 28, 2025",
+          "stars": 0,
+          "tags": ["utilities", "monitoring", "filesystem", "automation"],
+          "purpose": "File System Monitoring",
+          "quality_score": 7.0
+        },
+        {
+          "name": "drawio-desktop",
+          "url": "https://github.com/Alot1z/drawio-desktop",
+          "description": "Official electron build of draw.io",
+          "language": "JavaScript",
+          "license": "Apache License 2.0",
+          "last_updated": "Oct 23, 2025",
+          "stars": 0,
+          "tags": ["utilities", "diagram", "drawing", "visualization"],
+          "purpose": "Diagramming & Visualization",
+          "quality_score": 8.5
+        },
+        {
+          "name": "copyparty",
+          "url": "https://github.com/Alot1z/copyparty",
+          "description": "Portable file server with accelerated resumable uploads, dedup, WebDAV, FTP, TFTP, zeroconf, media indexer, thumbnails++ all in one file, no deps",
+          "language": "Python",
+          "license": "MIT License",
+          "last_updated": "Aug 25, 2025",
+          "stars": 0,
+          "tags": ["utilities", "file-server", "sharing", "deduplication"],
+          "purpose": "File Sharing & Storage",
+          "quality_score": 8.0
+        },
+        {
+          "name": "marker",
+          "url": "https://github.com/Alot1z/marker",
+          "description": "Convert PDF to markdown + JSON quickly with high accuracy",
+          "language": "Python",
+          "license": "GNU General Public License v3.0",
+          "last_updated": "Jun 2, 2023",
+          "stars": 0,
+          "tags": ["utilities", "pdf", "conversion", "document-processing"],
+          "purpose": "Document Processing",
+          "quality_score": 8.5
+        }
+      ]
+    }
+  },
+  "statistics": {
+    "by_language": {
+      "Python": 32,
+      "JavaScript": 22,
+      "TypeScript": 8,
+      "C#": 4,
+      "Go": 4,
+      "Rust": 3,
+      "Java": 3,
+      "Swift": 4,
+      "OCaml": 1,
+      "C": 3,
+      "Svelte": 1,
+      "GDScript": 1,
+      "Pascal": 1,
+      "Other": 3
+    },
+    "by_license": {
+      "MIT License": 45,
+      "Apache License 2.0": 12,
+      "GNU General Public License v3.0": 8,
+      "Other": 15,
+      "BSD 3-Clause \"New\" or \"Revised\" License": 1,
+      "GNU Lesser General Public License v2.1": 1
+    },
+    "by_update_frequency": {
+      "last_month": 12,
+      "last_3_months": 28,
+      "last_6_months": 45,
+      "older": 11
+    }
+  },
+  "automation_scripts": {
+    "crawler_script": "scripts/github_crawler.py",
+    "updater_script": "scripts/auto_updater.py", 
+    "deploy_script": "scripts/deploy_github_pages.bat",
+    "generator_script": "scripts/wiki_generator.py"
+  }
+}

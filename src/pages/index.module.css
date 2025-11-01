@@ -1,0 +1,189 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+  background-size: cover;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.buttons a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.buttons a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stats {
+  padding: 4rem 0;
+  background: #f8f9fa;
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1.2rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.categories {
+  padding: 4rem 0;
+}
+
+.categoryCard {
+  margin-bottom: 2rem;
+}
+
+.categoryCard .card {
+  height: 100%;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.categoryCard .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.categoryCard .card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+.categoryCard .card__header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.categoryCard .card__body {
+  padding: 0 1.5rem 1.5rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.categoryCard .card__footer {
+  padding: 0 1.5rem 1.5rem;
+  border-top: none;
+}
+
+.featured {
+  padding: 4rem 0;
+  background: #f8f9fa;
+}
+
+.featured .card {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.featured .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.featured .card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+.featured .card__header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.featured .card__header h3 a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.featured .card__header h3 a:hover {
+  color: #667eea;
+}
+
+.featured .card__body {
+  padding: 0 1.5rem 1.5rem;
+  color: #666;
+}
+
+.featured .card__footer {
+  padding: 0 1.5rem 1.5rem;
+  border-top: none;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem 0;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .buttons a {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .statNumber {
+    font-size: 2.5rem;
+  }
+  
+  .categoryCard {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 1.5rem 0;
+  }
+  
+  .statNumber {
+    font-size: 2rem;
+  }
+  
+  .stats .col {
+    margin-bottom: 2rem;
+  }
+}

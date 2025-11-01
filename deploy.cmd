@@ -55,7 +55,39 @@ if not exist node_modules (
 )
 
 echo.
-echo [2/4] Building and deploying with Docusaurus...
+echo [2/4] Checking for uncommitted changes...
+git status --porcelain
+for /f "tokens=*" %%i in ('git status --porcelain') do (
+    if not "%%i"=="" (
+        echo Found uncommitted changes. Committing them...
+        git add .
+        if %ERRORLEVEL% NEQ 0 (
+            echo ERROR: Failed to stage changes
+            pause
+            exit /b 1
+        )
+        
+        echo Enter commit message (or press Enter for default):
+        set /p COMMIT_MSG="Commit message: "
+        if "!COMMIT_MSG!"=="" (
+            set "COMMIT_MSG=Update wiki content - %DATE% %TIME%"
+        )
+        
+        git commit -m "!COMMIT_MSG!"
+        if %ERRORLEVEL% NEQ 0 (
+            echo ERROR: Failed to commit changes
+            pause
+            exit /b 1
+        )
+        goto :changes_committed
+    )
+)
+
+echo No uncommitted changes found.
+:changes_committed
+
+echo.
+echo [3/4] Building and deploying with Docusaurus...
 
 :: Use docusaurus deploy which handles GitHub Pages deployment
 "%NPM_CMD%" run deploy

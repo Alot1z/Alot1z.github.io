@@ -1,118 +1,168 @@
 ---
 slug: /
-title: Welcome to Alot1z's Repository Wiki
+title: Alot1z's Repository Wiki
 ---
 
-# Welcome to Alot1z's GitHub Repository Wiki
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
-This is a comprehensive documentation system for **98 starred GitHub repositories** organized by categories and automatically updated.
+<HomepageFeatures />
+
+# 🌟 My GitHub Repository Wiki
+
+**Live Demo:** [https://Alot1z.github.io](https://Alot1z.github.io)
+
+<div className="hero">
+  <div className="container">
+    <div className="hero__title">
+      <h1>Explore My Curated Collection</h1>
+    </div>
+    <p className="hero__subtitle">
+      **98 repositories** organized with smart categorization, quality scoring, and powerful search
+    </p>
+    <div className="hero__buttons">
+      <Link className="button button--primary button--lg" to="/repositories">
+        📚 Browse All Repositories
+      </Link>
+      <Link className="button button--secondary button--lg" to="/categories">
+        🏷️ View Categories
+      </Link>
+    </div>
+  </div>
+</div>
 
 ## 📊 Repository Statistics
 
-- **Total Repositories**: 98
-- **Last Updated**: Automatic
-- **Categories**: 7 main categories
-- **Languages**: JavaScript, Python, TypeScript, Go, Rust, and more
+### 📈 Collection Overview
 
-## 🗂️ Repository Categories
+| **Metric** | **Count** | **Percentage** |
+|------------|-----------|----------------|
+| **Total Repositories** | 98 | 100% |
+| **Original Projects** | 39 | 40% |
+| **Forked Projects** | 59 | 60% |
+| **Main Categories** | 6 | - |
+| **Programming Languages** | 12+ | - |
+| **Last Updated** | Nov 1, 2025 | - |
 
-### 1. MCP (Model Context Protocol) Servers
-Model Context Protocol servers for AI integration and tool connectivity.
+### 💻 Technology Distribution
 
-- [Unity MCP](./mcp-servers/unity-mcp) - Unity engine integration
-- [Windows MCP](./mcp-servers/windows-mcp) - Windows system integration
-- [MCP Selenium](./mcp-servers/mcp-selenium) - Web automation
-- [Ghidra MCP](./mcp-servers/ghidra-mcp) - Reverse engineering
-- [Git MCP](./mcp-servers/git-mcp) - Git operations
+| **Language** | **Repositories** | **Percentage** | **Primary Use Cases** |
+|--------------|------------------|----------------|---------------------|
+| **Python** | 34 | 35% | AI/ML, automation, data tools |
+| **JavaScript/TypeScript** | 24 | 25% | Web development, frameworks |
+| **C#** | 10 | 10% | Enterprise tools, utilities |
+| **Go** | 8 | 8% | System tools, networking |
+| **Other** | 22 | 22% | Rust, Java, Shell, etc. |
 
-### 2. AI & Machine Learning Tools
-Artificial intelligence and machine learning libraries and frameworks.
+### ⭐ Quality Scoring
 
-- [DeepSeek OCR](./ai-tools/deepseek-ocr) - Optical character recognition
-- [Lootbox](./ai-tools/lootbox) - AI tool management
-- [Anything LLM](./ai-tools/anything-llm) - LLM management platform
-- [Claude Task Master](./ai-tools/claude-task-master) - Task automation
-- [MindsDB](./ai-tools/mindsdb) - Machine learning databases
-- [Opik](./ai-tools/opik) - AI evaluation platform
+Based on repository popularity, maintenance, and documentation quality:
 
-### 3. Web Scraping & Automation
-Tools for web data extraction and automation workflows.
+| **Quality Level** | **Score Range** | **Repository Count** | **Percentage** |
+|-------------------|-----------------|---------------------|----------------|
+| **Premium** | 8-10 | 15 | 15% |
+| **High Quality** | 6-7 | 35 | 36% |
+| **Good** | 4-5 | 30 | 31% |
+| **Basic** | 1-3 | 18 | 18% |
 
-- [Crawl4AI](./web-scraping/crawl4ai) - AI-powered web crawling
-- [Firecrawl](./web-scraping/firecrawl) - Fire-resistant crawling
-- [GoClone](./web-scraping/goclone) - Website cloning
+### 🎯 Complexity Distribution
 
-### 4. Development Utilities
-Development tools and utilities for enhanced productivity.
+| **Difficulty** | **Repository Count** | **Percentage** | **Typical Use Cases** |
+|----------------|---------------------|----------------|---------------------|
+| **Beginner Friendly** | 39 | 40% | Learning, simple tools, documentation |
+| **Intermediate** | 44 | 45% | Production tools, moderate complexity |
+| **Advanced** | 15 | 15% | Enterprise systems, specialized tools |
 
-- [Docusaurus](./dev-utils/docusaurus) - Documentation platform
-- [Semgrep](./dev-utils/semgrep) - Static analysis
-- [FastAPI](./dev-utils/fastapi) - Python web framework
-- [UV](./dev-utils/uv) - Python package manager
-- [Ruff](./dev-utils/ruff) - Python linter
+## 🚀 Quick Navigation
 
-### 5. Security & Reverse Engineering
-Security analysis tools and reverse engineering utilities.
+<div className="row">
+  <div className="col col--6">
+    <div className="card">
+      <div className="card__header">
+        <h3>📚 All Repositories</h3>
+      </div>
+      <div className="card__body">
+        <p>Browse the complete collection with advanced search and filtering capabilities</p>
+      </div>
+      <div className="card__footer">
+        <Link className="button button--primary" to="/repositories">Explore All →</Link>
+      </div>
+    </div>
+  </div>
+  
+  <div className="col col--6">
+    <div className="card">
+      <div className="card__header">
+        <h3>🏷️ Categories</h3>
+      </div>
+      <div className="card__body">
+        <p>Explore repositories organized by functional categories and use cases</p>
+      </div>
+      <div className="card__footer">
+        <Link className="button button--primary" to="/categories">View Categories →</Link>
+      </div>
+    </div>
+  </div>
+</div>
 
-- [Proximity](./security/proximity) - Security analysis
-- [Ghidra MCP](./security/ghidra-mcp) - Reverse engineering
-- [IDA MCP Server](./security/ida-mcp-server) - IDA integration
-- [Detect It Easy](./security/detect-it-easy) - File analysis
+<div className="row" style={{ marginTop: '1rem' }}>
+  <div className="col col--6">
+    <div className="card">
+      <div className="card__header">
+        <h3>🔍 Advanced Search</h3>
+      </div>
+      <div className="card__body">
+        <p>Find specific repositories using powerful search and filtering tools</p>
+      </div>
+      <div className="card__footer">
+        <Link className="button button--secondary" to="/search">Search Now →</Link>
+      </div>
+    </div>
+  </div>
+  
+  <div className="col col--6">
+    <div className="card">
+      <div className="card__header">
+        <h3>🔗 GitHub Profile</h3>
+      </div>
+      <div className="card__body">
+        <p>Visit my GitHub profile for more projects and contributions</p>
+      </div>
+      <div className="card__footer">
+        <a className="button button--secondary" href="https://github.com/Alot1z" target="_blank" rel="noopener noreferrer">View Profile →</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-### 6. Mobile Development
-Mobile application development tools and frameworks.
+## 🎯 Key Features
 
-- [iOS Shortcuts](./mobile/ios-shortcuts) - iOS automation
-- [Troll Shell](./mobile/troll-shell) - iOS development
-- [WebContainer iOS](./mobile/webcointainer-ios) - iOS web containers
+### 🔍 Advanced Search
+Find repositories by name, description, language, or tags with powerful search capabilities.
 
-### 7. System Utilities
-System-level utilities and management tools.
+### 📊 Quality Scoring
+Each repository is scored 1-10 based on popularity, maintenance, and community engagement.
 
-- [Directory Monitor](./system/directory-monitor) - File system monitoring
-- [CopyParty](./system/copyparty) - File sharing
-- [Make Windows Pretty](./system/make-windows-pretty) - Windows customization
+### 🔄 Auto Updates
+Repository data is automatically updated when new repos are starred or existing ones change.
 
-## 🚀 Features
+### 📱 Responsive Design
+Works perfectly on all devices - desktop, tablet, and mobile.
 
-- **Automatic Updates**: Repository data is automatically updated
-- **Search Functionality**: Find repositories by name, description, or tags
-- **Quality Scoring**: Each repository is scored 1-10 for quality assessment
-- **Tagging System**: Repositories are tagged with relevant keywords
-- **GitHub Pages**: Deployed automatically to GitHub Pages
-- **Mobile Responsive**: Works perfectly on all devices
-
-## 🔍 How to Use
-
-1. **Browse Categories**: Navigate through the sidebar categories
-2. **Search Repositories**: Use the search functionality to find specific repositories
-3. **View Details**: Click on any repository to view detailed information
-4. **Quality Assessment**: Check quality scores to find the best repositories
-5. **Direct Links**: Direct links to GitHub repositories for quick access
-
-## 📈 Quality Scoring
-
-Each repository is scored on a scale of 1-10 based on:
-
-- **Language Popularity**: Based on GitHub language statistics
-- **License Quality**: Open source licenses get higher scores
-- **Update Frequency**: Recently updated repositories score higher
-- **Community Engagement**: Stars, forks, and contributors matter
-- **Documentation Quality**: Well-documented repositories score higher
-
-## 🔄 Automatic Updates
-
-This wiki is automatically updated when:
-- New repositories are starred
-- Existing repositories are updated
-- Repository descriptions or metadata change
-
-The update system runs automatically and ensures the information is always current.
-
-## 📞 Contact
-
-For questions or suggestions about this repository wiki, please visit the [GitHub repository](https://github.com/Alot1z/Alot1z.github.io).
+### ⚡ Fast Performance
+Built with Docusaurus for lightning-fast loading and smooth navigation.
 
 ---
 
-*This repository wiki was automatically generated using the GitHub Repository Wiki System.*
+<div className="text--center margin-top--xl">
+  <p>
+    <strong>Total Repositories:</strong> 98 • 
+    <strong>Last Updated:</strong> November 1, 2025 • 
+    <strong>Categories:</strong> 6
+  </p>
+  <p>
+    Built with ❤️ using <Link to="https://docusaurus.io">Docusaurus</Link>
+  </p>
+</div>

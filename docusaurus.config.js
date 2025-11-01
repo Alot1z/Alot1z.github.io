@@ -50,11 +50,31 @@ const config = {
           type: 'doc',
           docId: 'intro',
           position: 'left',
-          label: 'Documentation',
+          label: 'Home',
+        },
+        {
+          to: '/repositories',
+          label: 'Repositories',
+          position: 'left',
+        },
+        {
+          to: '/categories',
+          label: 'Categories',
+          position: 'left',
+        },
+        {
+          to: '/search',
+          label: 'Search',
+          position: 'left',
         },
         {
           href: 'https://github.com/Alot1z',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          to: '/about',
+          label: 'About',
           position: 'right',
         },
       ],
@@ -63,46 +83,41 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: 'Repository',
+          title: 'Navigation',
           items: [
             {
-              label: 'GitHub',
+              label: 'All Repositories',
+              to: '/repositories',
+            },
+            {
+              label: 'Categories',
+              to: '/categories',
+            },
+            {
+              label: 'Search',
+              to: '/search',
+            },
+            {
+              label: 'About',
+              to: '/about',
+            },
+          ],
+        },
+        {
+          title: 'External Links',
+          items: [
+            {
+              label: 'GitHub Profile',
               href: 'https://github.com/Alot1z',
             },
             {
-              label: 'Starred Repos',
-              href: 'https://github.com/Alot1z?tab=repositories&type=star',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/users/Alot1z',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/Alot1z',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/Alot1z/Alot1z.github.io',
+              label: 'Live Site',
+              href: 'https://Alot1z.github.io',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Alot1z Repository Wiki.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Alot1z Repository Wiki. Built with ❤️ using Docusaurus.`,
     },
     prism: {
       theme: lightCodeTheme,

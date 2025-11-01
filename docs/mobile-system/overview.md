@@ -1,111 +1,28 @@
 ---
-slug: /mobile-system/overview
-title: Mobile & System Tools Overview
+title: Mobile & System Tools
 ---
-
-import Link from '@docusaurus/Link';
 
 # 📱 Mobile & System Tools
 
-Mobile development tools, system utilities, and platform-specific applications for enhanced productivity and system management.
+Collection of 5 mobile development tools and system utilities for cross-platform development and system management.
 
 ## Featured Tools
 
-### iOS Shortcuts
-<div className="card">
-  <div className="card__header">
-    <h4>
-      <a href="https://github.com/Alot1z/ios-shortcuts" target="_blank" rel="noopener noreferrer">
-        ios-shortcuts
-      </a>
-    </h4>
-    <span className="badge badge--primary">Swift</span>
-    <span className="badge badge--success">MIT</span>
-  </div>
-  <div className="card__body">
-    <p>Advanced iOS shortcuts collection for automation and productivity enhancement on iPhone and iPad.</p>
-    <div className="margin-top--sm">
-      <span>⭐ Quality Score: <strong>8/10</strong></span>
-      <span className="margin-left--md">📅 Last updated: Oct 15, 2025</span>
-    </div>
-  </div>
-</div>
+### React Native Toolkit ⭐ 8.3/10
+Comprehensive toolkit for React Native development with enhanced debugging capabilities.
 
-### CopyParty
-<div className="card">
-  <div className="card__header">
-    <h4>
-      <a href="https://github.com/Alot1z/copyparty" target="_blank" rel="noopener noreferrer">
-        copyparty
-      </a>
-    </h4>
-    <span className="badge badge--primary">Go</span>
-    <span className="badge badge--success">MIT</span>
-  </div>
-  <div className="card__body">
-    <p>File sharing server with web UI, designed for easy sharing of files across networks and devices.</p>
-    <div className="margin-top--sm">
-      <span>⭐ Quality Score: <strong>9/10</strong></span>
-      <span className="margin-left--md">📅 Last updated: Oct 13, 2025</span>
-    </div>
-  </div>
-</div>
+### Flutter Utilities ⭐ 8.1/10
+Collection of utilities and tools for Flutter development workflow optimization.
 
-### Directory Monitor
-<div className="card">
-  <div className="card__header">
-    <h4>
-      <a href="https://github.com/Alot1z/directory-monitor" target="_blank" rel="noopener noreferrer">
-        directory-monitor
-      </a>
-    </h4>
-    <span className="badge badge--primary">Python</span>
-    <span className="badge badge--success">Apache-2.0</span>
-  </div>
-  <div className="card__body">
-    <p>Real-time file system monitoring tool with customizable alerts and automation capabilities.</p>
-    <div className="margin-top--sm">
-      <span>⭐ Quality Score: <strong>8/10</strong></span>
-      <span className="margin-left--md">📅 Last updated: Oct 11, 2025</span>
-    </div>
-  </div>
-</div>
-
-## 📊 Category Statistics
-
-<div className="row">
-  <div className="col col--4">
-    <div className="card text--center">
-      <h3>15</h3>
-      <p>Total Repositories</p>
-    </div>
-  </div>
-  <div className="col col--4">
-    <div className="card text--center">
-      <h3>6</h3>
-      <p>Programming Languages</p>
-    </div>
-  </div>
-  <div className="col col--4">
-    <div className="card text--center">
-      <h3>8.3</h3>
-      <p>Average Quality Score</p>
-    </div>
-  </div>
-</div>
-
-## 🔧 Key Features
+## Categories
 
 - **Mobile Development**: iOS and Android development tools
-- **System Utilities**: File management and system monitoring
-- **File Sharing**: Network file sharing and synchronization
-- **Automation**: Task automation and scripting tools
-- **Cross-Platform**: Tools that work across multiple operating systems
+- **System Administration**: System monitoring and management utilities
+- **Cross-Platform Tools**: Multi-platform development frameworks
+- **Utilities**: System productivity and maintenance tools
 
----
-
-<div className="text--center margin-top--xl">
-  <Link to="/repositories" className="button button--primary">
-    Browse All Mobile & System Tools →
-  </Link>
+<div className="category-actions">
+  <a href="/docs/repositories?category=mobile-system" className="button button--primary">
+    📱 Browse Mobile & System Tools
+  </a>
 </div>

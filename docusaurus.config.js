@@ -53,19 +53,28 @@ const config = {
           label: 'Home',
         },
         {
-          to: '/repositories',
+          type: 'doc',
+          docId: 'repositories',
+          position: 'left',
           label: 'Repositories',
-          position: 'left',
         },
         {
-          to: '/categories',
+          type: 'doc',
+          docId: 'categories',
+          position: 'left',
           label: 'Categories',
-          position: 'left',
         },
         {
-          to: '/search',
-          label: 'Search',
+          type: 'doc',
+          docId: 'search',
           position: 'left',
+          label: 'Search',
+        },
+        {
+          type: 'doc',
+          docId: 'recommendations',
+          position: 'left',
+          label: 'Recommendations',
         },
         {
           href: 'https://github.com/Alot1z',
@@ -73,9 +82,10 @@ const config = {
           position: 'right',
         },
         {
-          to: '/about',
-          label: 'About',
+          type: 'doc',
+          docId: 'about',
           position: 'right',
+          label: 'About',
         },
       ],
     },
@@ -87,19 +97,23 @@ const config = {
           items: [
             {
               label: 'All Repositories',
-              to: '/repositories',
+              to: '/docs/repositories',
             },
             {
               label: 'Categories',
-              to: '/categories',
+              to: '/docs/categories',
             },
             {
               label: 'Search',
-              to: '/search',
+              to: '/docs/search',
+            },
+            {
+              label: 'Recommendations',
+              to: '/docs/recommendations',
             },
             {
               label: 'About',
-              to: '/about',
+              to: '/docs/about',
             },
           ],
         },

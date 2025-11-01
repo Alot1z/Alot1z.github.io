@@ -3,58 +3,52 @@ slug: /
 title: Alot1z's Repository Wiki
 ---
 
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
-<HomepageFeatures />
 
 # 🌟 My GitHub Repository Wiki
 
-**Live Demo:** [https://Alot1z.github.io](https://Alot1z.github.io)
+**Live Demo:** https://Alot1z.github.io
 
 <div className="hero-search">
   <div className="hero-search__container">
     <h2>🔍 Search Repositories</h2>
     <p>Find repositories by name, description, tags, or language</p>
     <div className="hero-search__actions">
-      <Link className="button button--primary button--lg" to="/search">
+      <a className="button button--primary button--lg" href="/docs/search">
         🔍 Advanced Search
-      </Link>
-      <Link className="button button--secondary button--lg" to="/repositories">
+      </a>
+      <a className="button button--secondary button--lg" href="/docs/repositories">
         📚 Browse All Repositories
-      </Link>
+      </a>
     </div>
   </div>
 </div>
 
+<HomepageFeatures />
+
 ## 🔥 Quick Actions
 
 <div className="action-grid">
-  <Link to="/repositories" className="action-card">
+  <a href="/docs/repositories" className="action-card">
     <div className="action-icon">📚</div>
     <div className="action-title">All Repositories</div>
     <div className="action-desc">Browse complete collection with filters</div>
-  </Link>
-  
-  <Link to="/categories" className="action-card">
+  </a>
+  <a href="/docs/categories" className="action-card">
     <div className="action-icon">🏷️</div>
     <div className="action-title">Categories</div>
     <div className="action-desc">Explore by functional categories</div>
-  </Link>
-  
-  <Link to="/search" className="action-card">
+  </a>
+  <a href="/docs/search" className="action-card">
     <div className="action-icon">🔍</div>
     <div className="action-title">Search</div>
     <div className="action-desc">Find specific repositories</div>
-  </Link>
-  
-  <Link to="/recommendations" className="action-card">
+  </a>
+  <a href="/docs/recommendations" className="action-card">
     <div className="action-icon">⭐</div>
     <div className="action-title">Recommendations</div>
     <div className="action-desc">Curated picks and trending</div>
-  </Link>
+  </a>
 </div>
 
 ## 📊 Repository Overview
@@ -62,7 +56,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 Explore **98 repositories** across **6 major categories**
 
 <div className="category-grid">
-  <Link to="/categories/mcp-servers" className="category-card">
+  <a href="/docs/mcp-servers/overview" className="category-card">
     <div className="category-icon">🤖</div>
     <div className="category-info">
       <div className="category-name">MCP Servers</div>
@@ -72,9 +66,8 @@ Explore **98 repositories** across **6 major categories**
         <span className="stat">4 languages</span>
       </div>
     </div>
-  </Link>
-  
-  <Link to="/categories/ai-tools" className="category-card">
+  </a>
+  <a href="/docs/ai-tools/overview" className="category-card">
     <div className="category-icon">🧠</div>
     <div className="category-info">
       <div className="category-name">AI & Machine Learning</div>
@@ -84,9 +77,8 @@ Explore **98 repositories** across **6 major categories**
         <span className="stat">2 languages</span>
       </div>
     </div>
-  </Link>
-  
-  <Link to="/categories/web-scraping" className="category-card">
+  </a>
+  <a href="/docs/web-scraping/overview" className="category-card">
     <div className="category-icon">🕷️</div>
     <div className="category-info">
       <div className="category-name">Web Scraping & Automation</div>
@@ -96,9 +88,8 @@ Explore **98 repositories** across **6 major categories**
         <span className="stat">2 languages</span>
       </div>
     </div>
-  </Link>
-  
-  <Link to="/categories/dev-tools" className="category-card">
+  </a>
+  <a href="/docs/dev-tools/overview" className="category-card">
     <div className="category-icon">🛠️</div>
     <div className="category-info">
       <div className="category-name">Development Tools</div>
@@ -108,9 +99,8 @@ Explore **98 repositories** across **6 major categories**
         <span className="stat">4 languages</span>
       </div>
     </div>
-  </Link>
-  
-  <Link to="/categories/security" className="category-card">
+  </a>
+  <a href="/docs/security/overview" className="category-card">
     <div className="category-icon">🔒</div>
     <div className="category-info">
       <div className="category-name">Security & Analysis</div>
@@ -120,9 +110,8 @@ Explore **98 repositories** across **6 major categories**
         <span className="stat">3 languages</span>
       </div>
     </div>
-  </Link>
-  
-  <Link to="/categories/mobile-system" className="category-card">
+  </a>
+  <a href="/docs/mobile-system/overview" className="category-card">
     <div className="category-icon">📱</div>
     <div className="category-info">
       <div className="category-name">Mobile & System</div>
@@ -132,7 +121,7 @@ Explore **98 repositories** across **6 major categories**
         <span className="stat">1 language</span>
       </div>
     </div>
-  </Link>
+  </a>
 </div>
 
 ## 📈 Enhanced Analytics
@@ -143,19 +132,16 @@ Explore **98 repositories** across **6 major categories**
     <div className="analytics-label">Total Repositories</div>
     <div className="analytics-detail">+2 new this month</div>
   </div>
-  
   <div className="analytics-card">
     <div className="analytics-number">6</div>
     <div className="analytics-label">Main Categories</div>
     <div className="analytics-detail">Comprehensive coverage</div>
   </div>
-  
   <div className="analytics-card">
     <div className="analytics-number">12+</div>
     <div className="analytics-label">Technologies</div>
     <div className="analytics-detail">Diverse ecosystem</div>
   </div>
-  
   <div className="analytics-card">
     <div className="analytics-number">7.2</div>
     <div className="analytics-label">Avg Quality Score</div>
@@ -163,10 +149,10 @@ Explore **98 repositories** across **6 major categories**
   </div>
 </div>
 
-### 💻 Technology Distribution
+### 🧠 Technology Distribution
 
-| **Language** | **Repositories** | **Percentage** | **Primary Use Cases** |
-|--------------|------------------|----------------|---------------------|
+| Language | Repositories | Percentage | Primary Use Cases |
+|----------|--------------|------------|------------------|
 | **Python** | 34 | 35% | AI/ML, automation, data tools |
 | **JavaScript/TypeScript** | 24 | 25% | Web development, frameworks |
 | **C#** | 10 | 10% | Enterprise tools, utilities |
@@ -175,8 +161,8 @@ Explore **98 repositories** across **6 major categories**
 
 ### ⭐ Repository Quality Breakdown
 
-| **Quality Tier** | **Score Range** | **Count** | **Percentage** | **Characteristics** |
-|------------------|-----------------|-----------|----------------|-------------------|
+| Quality Tier | Score Range | Count | Percentage | Characteristics |
+|--------------|-------------|-------|------------|----------------|
 | **Premium** | 8-10 | 15 | 15% | High stars, active development |
 | **High Quality** | 6-7 | 35 | 36% | Good maintenance, decent popularity |
 | **Good** | 4-5 | 30 | 31% | Functional, moderate usage |
@@ -184,7 +170,7 @@ Explore **98 repositories** across **6 major categories**
 
 ## 🔥 Trending & Recommendations
 
-### 🆕 Recently Updated
+### 🕹️ Recently Updated
 
 <div className="trending-grid">
   <div className="trending-card">
@@ -199,7 +185,6 @@ Explore **98 repositories** across **6 major categories**
       <span>🔄 Active development</span>
     </div>
   </div>
-  
   <div className="trending-card">
     <div className="trending-header">
       <span className="trending-language">Rust</span>
@@ -212,7 +197,6 @@ Explore **98 repositories** across **6 major categories**
       <span>🚀 Rising fast</span>
     </div>
   </div>
-  
   <div className="trending-card">
     <div className="trending-header">
       <span className="trending-language">TypeScript</span>
@@ -227,10 +211,10 @@ Explore **98 repositories** across **6 major categories**
   </div>
 </div>
 
-### 🌟 Top Rated This Week
+### 🏆 Top Rated This Week
 
 <div className="recommendations-grid">
-  <Link to="/repository/unity-mcp" className="recommendation-card">
+  <div className="recommendation-card">
     <div className="rec-category">🤖 MCP Servers</div>
     <div className="rec-title">Unity MCP Server</div>
     <div className="rec-desc">Seamless Unity engine integration with Model Context Protocol</div>
@@ -238,9 +222,8 @@ Explore **98 repositories** across **6 major categories**
       <span className="rec-score">⭐ 9.2/10</span>
       <span className="rec-trend">📈 +15% this week</span>
     </div>
-  </Link>
-  
-  <Link to="/repository/anything-llm" className="recommendation-card">
+  </div>
+  <div className="recommendation-card">
     <div className="rec-category">🧠 AI Tools</div>
     <div className="rec-title">AnythingLLM</div>
     <div className="rec-desc">Full-stack application for building custom LLM solutions</div>
@@ -248,9 +231,8 @@ Explore **98 repositories** across **6 major categories**
       <span className="rec-score">⭐ 8.8/10</span>
       <span className="rec-trend">📈 +22% this week</span>
     </div>
-  </Link>
-  
-  <Link to="/repository/crawl4ai" className="recommendation-card">
+  </div>
+  <div className="recommendation-card">
     <div className="rec-category">🕷️ Web Scraping</div>
     <div className="rec-title">Crawl4AI</div>
     <div className="rec-desc">Advanced web crawling and data extraction for AI applications</div>
@@ -258,42 +240,37 @@ Explore **98 repositories** across **6 major categories**
       <span className="rec-score">⭐ 8.5/10</span>
       <span className="rec-trend">📈 +18% this week</span>
     </div>
-  </Link>
+  </div>
 </div>
 
 ## 🎯 Quick Navigation
 
 <div className="nav-grid">
-  <Link to="/categories" className="nav-card">
+  <a href="/docs/categories" className="nav-card">
     <div className="nav-title">📂 Browse Categories</div>
     <div className="nav-desc">Explore repositories by functional areas</div>
-  </Link>
-  
-  <Link to="/search" className="nav-card">
+  </a>
+  <a href="/docs/search" className="nav-card">
     <div className="nav-title">🔍 Advanced Search</div>
     <div className="nav-desc">Filter by language, stars, updates, and more</div>
-  </Link>
-  
-  <Link to="/recommendations" className="nav-card">
+  </a>
+  <a href="/docs/recommendations" className="nav-card">
     <div className="nav-title">⭐ Recommendations</div>
     <div className="nav-desc">Curated picks and trending repositories</div>
-  </Link>
-  
-  <Link to="/about" className="nav-card">
+  </a>
+  <a href="/docs/about" className="nav-card">
     <div className="nav-title">👤 About This Project</div>
     <div className="nav-desc">The story behind this repository wiki</div>
-  </Link>
+  </a>
 </div>
 
 ---
 
 <div className="footer-info">
   <div className="footer-stats">
-    <strong>Total Repositories:</strong> 98 • 
-    <strong>Last Updated:</strong> <LiveTimer /> • 
-    <strong>Categories:</strong> 6
+    <p><strong>Total Repositories:</strong> 98 • 
+    <strong>Last Updated:</strong> Today • 
+    <strong>Categories:</strong> 6</p>
   </div>
-  <p>
-    Built with ❤️ for personal knowledge management
-  </p>
+  <p>Built with ❤️ for personal knowledge management</p>
 </div>

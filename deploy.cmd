@@ -7,41 +7,43 @@ echo Alot1z GitHub Repository Wiki - Deploy Script
 echo ========================================
 echo.
 
-:: Check if Node.js is installed
-node --version >nul 2>&1
-if errorlevel 1 (
-    echo ERROR: Node.js is not installed or not in PATH
-    echo Please install Node.js from https://nodejs.org/
-    echo.
+:: Use full paths to avoid PATH issues
+set "NODE_EXE=C:\Program Files\nodejs\node.exe"
+set "NPM_CMD=C:\Program Files\nodejs\npm.cmd"
+
+:: Verify tools exist
+if not exist "%NODE_EXE%" (
+    echo ERROR: Node.js not found at %NODE_EXE%
     pause
     exit /b 1
 )
 
-:: Check if npm is available
-npm --version >nul 2>&1
-if errorlevel 1 (
-    echo ERROR: npm is not available
+if not exist "%NPM_CMD%" (
+    echo ERROR: npm not found at %NPM_CMD%
     pause
     exit /b 1
 )
 
-:: Check if git is available
+echo Using Node.js: %NODE_EXE%
+echo Using npm: %NPM_CMD%
+echo.
+
+:: Check git (git should be in PATH)
 git --version >nul 2>&1
 if errorlevel 1 (
     echo ERROR: Git is not installed or not in PATH
     echo Please install Git from https://git-scm.com/
-    echo.
     pause
     exit /b 1
 )
 
-echo All dependencies found
+echo All dependencies found!
 echo.
 
 :: Install dependencies if needed
 if not exist node_modules (
-    echo [1/6] Installing Node.js dependencies...
-    npm install
+    echo [1/4] Installing Node.js dependencies...
+    "%NPM_CMD%" install
     if errorlevel 1 (
         echo ERROR: Failed to install dependencies
         pause
@@ -49,58 +51,16 @@ if not exist node_modules (
     )
     echo Dependencies installed successfully!
 ) else (
-    echo [1/6] Dependencies already installed
+    echo [1/4] Dependencies already installed
 )
 
 echo.
-echo [2/6] Building the website...
-echo.
+echo [2/4] Building and deploying with Docusaurus...
 
-:: Build the Docusaurus site
-npm run build
+:: Use docusaurus deploy which handles GitHub Pages deployment
+"%NPM_CMD%" run deploy
 if errorlevel 1 (
-    echo ERROR: Failed to build the website
-    echo Please check the error messages above and fix any issues
-    pause
-    exit /b 1
-)
-
-echo Website built successfully!
-
-echo.
-echo [3/6] Checking git status...
-
-:: Check if we're in a git repository
-if not exist .git (
-    echo ERROR: Not a git repository
-    echo Please run this script from the root of the Alot1z.github.io repository
-    pause
-    exit /b 1
-)
-
-:: Check if there are changes to commit
-git status --porcelain >nul 2>&1
-if errorlevel 1 (
-    echo No changes to commit
-) else (
-    echo Found uncommitted changes. Committing them...
-    git add .
-    git commit -m "Update repository wiki - %date% %time%"
-    if errorlevel 1 (
-        echo ERROR: Failed to commit changes
-        pause
-        exit /b 1
-    )
-    echo Changes committed successfully!
-)
-
-echo.
-echo [4/6] Deploying to GitHub Pages...
-
-:: Push to GitHub (this will trigger GitHub Pages deployment)
-git push origin main
-if errorlevel 1 (
-    echo ERROR: Failed to push to GitHub
+    echo ERROR: Docusaurus deploy failed
     echo.
     echo This might be due to:
     echo 1. No internet connection
@@ -108,14 +68,13 @@ if errorlevel 1 (
     echo 3. No push permissions to the repository
     echo.
     echo Please check your Git configuration and try again.
+    echo Kør setup-git.cmd for at verificere din forbindelse.
     pause
     exit /b 1
 )
 
-echo Successfully pushed to GitHub!
-
 echo.
-echo [5/6] Updating deployment timestamp...
+echo [3/4] Updating deployment timestamp...
 
 :: Update config.ini with new deployment time
 for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
@@ -129,10 +88,34 @@ set "timestamp=%YYYY%-%MM%-%DD%T%HH%:%Min%:%Sec%Z"
 
 echo Timestamp updated to: %timestamp%
 
+:: Update config.ini with repository path configuration
+echo Updating config.ini...
+(
+echo [wiki_config]
+echo total_repositories=98
+echo last_deploy_date=%timestamp%
+echo version=2.0
+echo auto_update_enabled=false
+echo crawler_version=crawlee-python
 echo.
-echo [6/6] Verifying deployment...
+echo [repositories]
+echo main_repository_path=https://github.com/Alot1z?tab=stars
+echo backup_repository_path=https://github.com/Alot1z?tab=repositories
+echo starred_repositories_path=https://github.com/Alot1z?tab=stars
+) > config.ini
+
+:: Add and commit config update to main branch
+git add config.ini
+git commit -m "Update deployment timestamp - %date% %time%" >nul 2>&1
+git push https://github.com/Alot1z/Alot1z.github.io.git main >nul 2>&1
+
+echo Configuration updated successfully!
+
+echo.
+echo [4/4] Verifying deployment...
 
 :: Wait a moment for GitHub to process (Windows compatible)
+echo Waiting for GitHub to process...
 ping -n 4 127.0.0.1 >nul
 
 echo ========================================
@@ -146,7 +129,7 @@ echo It may take 1-2 minutes for GitHub Pages to update.
 echo.
 echo Deployment Summary:
 echo    Repository: Alot1z/Alot1z.github.io
-echo    Branch: main
+echo    Branch: gh-pages (deployed from main)
 echo    Build: Docusaurus static site
 echo    Hosting: GitHub Pages
 echo    Deploy Time: %timestamp%
@@ -165,7 +148,7 @@ if /i "%open_site%"=="y" (
 echo.
 echo Quick commands for next time:
 echo    Update content: Double-click this file
-    echo    View live site: https://Alot1z.github.io
+echo    View live site: https://Alot1z.github.io
 echo    View GitHub: https://github.com/Alot1z/Alot1z.github.io
 echo.
 echo Press any key to exit...

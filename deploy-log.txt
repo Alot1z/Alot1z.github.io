@@ -1,0 +1,113 @@
+DEPLOY LOG - 01/11/2025 23.24.34,46 
+Current directory: G:\GITHUB-REPOs\Alot1z.github.io 
+ 
+Using Node.js: C:\Program Files\nodejs\node.exe 
+Using npm: C:\Program Files\nodejs\npm.cmd 
+ 
+STEP 1: Checking tools... 
+Tools verified 
+Git verified 
+ 
+package.json found 
+STEP 2: Installing dependencies... 
+Dependencies already exist 
+STEP 3: Building website... 
+Running npm run build... 
+npm warn Unknown env config "tmp". This will stop working in the next major version of npm.
+
+> alot1z.github.io@0.0.0 build
+> docusaurus build
+
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
+[INFO] [en] Creating an optimized production build...
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
+[90m[[90mwebpackbar[90m][39m [36mi[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [36mi[39m Compiling Server
+[90m[[90mwebpackbar[90m][39m [32m√[39m Server: Compiled successfully in 979.23ms
+[90m[[90mwebpackbar[90m][39m [32m√[39m Client: Compiled successfully in 1.27s
+
+[ERROR] Error: Unable to build website for locale en.
+    at tryToBuildLocale (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\build.js:83:15)
+    at async G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\build.js:35:9
+    at async mapAsyncSequential (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\utils\lib\jsUtils.js:21:24)
+    at async Command.build (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\build.js:34:5)
+    at async Promise.all (index 0)
+    at async runCLI (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\cli.js:56:5)
+    at async file:///G:/GITHUB-REPOs/Alot1z.github.io/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3 {
+  [cause]: Error: Docusaurus found broken links!
+  
+  Please check the pages of your site in the list below, and make sure you don't reference any path that does not exist.
+  Note: it's possible to ignore broken links with the 'onBrokenLinks' Docusaurus configuration, and let the build pass.
+  
+  Exhaustive list of all broken links found:
+  - Broken link on source page path = /docs/mcp-servers/overview:
+     -> linking to /docs/mcp-servers
+     -> linking to /docs/mcp-setup
+     -> linking to /docs/mcp-api
+     -> linking to /docs/mcp-community
+     -> linking to /repository/unity-mcp
+     -> linking to /repository/windows-mcp
+     -> linking to /repository/mcp-selenium
+     -> linking to /repository/ghidra-mcp
+  - Broken link on source page path = /docs/recommendations:
+     -> linking to /repository/uv
+     -> linking to /repository/anything-llm
+     -> linking to /repository/deepseek-ocr
+     -> linking to /categories
+  - Broken link on source page path = /docs/repositories:
+     -> linking to /repository/unity-mcp
+     -> linking to /repository/windows-mcp
+     -> linking to /repository/mcp-selenium
+     -> linking to /repository/ghidra-mcp
+     -> linking to /repository/deepseek-ocr
+     -> linking to /repository/anything-llm
+     -> linking to /repository/mindsdb
+     -> linking to /repository/claude-task-master
+     -> linking to /repository/crawl4ai
+     -> linking to /repository/beautifulsoup-enhanced
+     -> linking to /repository/requests-pro
+     -> linking to /repository/scrapy-plus
+     -> linking to /repository/uv
+     -> linking to /repository/ruff
+     -> linking to /repository/vscode-mcp
+     -> linking to /repository/git-tools-pro
+     -> linking to /repository/metasploit-enhanced
+     -> linking to /repository/burp-extensions
+     -> linking to /repository/nmap-scripts
+     -> linking to /repository/wireshark-plugins
+     -> linking to /repository/react-native-toolkit
+     -> linking to /repository/flutter-utilities
+     -> linking to /repository/system-monitor-pro
+     -> linking to /repository/openai-wrapper
+     -> linking to /repository/docker-tools
+     -> linking to /repository/react-components
+     -> linking to /repository/python-ds
+     -> linking to /repository/security-scanner
+     -> linking to /docs/recent
+     -> linking to /docs/analytics
+  - Broken link on source page path = /docs/search:
+     -> linking to /docs/categories/mcp-servers
+     -> linking to /docs/categories/ai-tools
+     -> linking to /docs/categories/web-scraping
+     -> linking to /docs/categories/dev-tools
+     -> linking to /docs/categories/security
+     -> linking to /docs/categories/mobile-system
+  - Broken link on source page path = /:
+     -> linking to /docs/dev-utils/overview
+     -> linking to /docs/mobile/overview
+  
+      at throwError (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\logger\lib\logger.js:80:11)
+      at reportBrokenLinks (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\server\brokenLinks.js:250:47)
+      at handleBrokenLinks (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\server\brokenLinks.js:282:5)
+      at executeBrokenLinksCheck (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\buildLocale.js:119:47)
+      at G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\buildLocale.js:94:67
+      at Object.async (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\logger\lib\perfLogger.js:42:47)
+      at buildLocale (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\buildLocale.js:94:31)
+      at async runBuildLocaleTask (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\build.js:98:5)
+      at async G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\build.js:79:13
+      at async tryToBuildLocale (G:\GITHUB-REPOs\Alot1z.github.io\node_modules\@docusaurus\core\lib\commands\build\build.js:75:9)
+}
+[INFO] Docusaurus version: 3.9.2
+Node version: v24.8.0

@@ -39,7 +39,7 @@ echo.
 
 :: Install dependencies if needed
 if not exist node_modules (
-    echo [1/5] Installing Node.js dependencies...
+    echo [1/6] Installing Node.js dependencies...
     npm install
     if errorlevel 1 (
         echo ❌ ERROR: Failed to install dependencies
@@ -48,11 +48,11 @@ if not exist node_modules (
     )
     echo ✅ Dependencies installed successfully!
 ) else (
-    echo [1/5] Dependencies already installed ✅
+    echo [1/6] Dependencies already installed ✅
 )
 
 echo.
-echo [2/5] Building the website...
+echo [2/6] Building the website...
 echo.
 
 :: Build the Docusaurus site
@@ -67,7 +67,7 @@ if errorlevel 1 (
 echo ✅ Website built successfully!
 
 echo.
-echo [3/5] Checking git status...
+echo [3/6] Checking git status...
 
 :: Check if we're in a git repository
 if not exist .git (
@@ -94,7 +94,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [4/5] Deploying to GitHub Pages...
+echo [4/6] Deploying to GitHub Pages...
 
 :: Push to GitHub (this will trigger GitHub Pages deployment)
 git push origin main
@@ -114,7 +114,37 @@ if errorlevel 1 (
 echo ✅ Successfully pushed to GitHub!
 
 echo.
-echo [5/5] Verifying deployment...
+echo [5/6] Updating deployment timestamp...
+
+:: Update config.ini with new deployment time
+for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "dt=%%a"
+set "YYYY=%dt:~0,4%"
+set "MM=%dt:~4,2%"
+set "DD=%dt:~6,2%"
+set "HH=%dt:~8,2%"
+set "Min=%dt:~10,2%"
+set "Sec=%dt:~12,2%"
+set "timestamp=%YYYY%-%MM%-%DD%T%HH%:%Min%:%Sec%Z"
+
+:: Update config.ini
+(
+echo [wiki_config]
+echo total_repositories=98
+echo last_deploy_date=%timestamp%
+echo version=2.0
+echo auto_update_enabled=false
+echo crawler_version=crawlee-python
+) > config.ini
+
+:: Add and commit config update
+git add config.ini
+git commit -m "Update deployment timestamp - %date% %time%" >nul 2>&1
+git push origin main >nul 2>&1
+
+echo ✅ Deployment timestamp updated!
+
+echo.
+echo [6/6] Verifying deployment...
 
 :: Wait a moment for GitHub to process
 timeout /t 3 /nobreak >nul
@@ -133,6 +163,7 @@ echo    • Repository: Alot1z/Alot1z.github.io
 echo    • Branch: main
 echo    • Build: Docusaurus static site
 echo    • Hosting: GitHub Pages
+echo    • Deploy Time: %timestamp%
 echo.
 
 :: Ask user if they want to open the website

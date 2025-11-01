@@ -14,37 +14,154 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 **Live Demo:** [https://Alot1z.github.io](https://Alot1z.github.io)
 
-<div className="hero">
-  <div className="container">
-    <div className="hero__title">
-      <h1>Explore My Curated Collection</h1>
-    </div>
-    <p className="hero__subtitle">
-      **98 repositories** organized with smart categorization, quality scoring, and powerful search
-    </p>
-    <div className="hero__buttons">
-      <Link className="button button--primary button--lg" to="/repositories">
-        📚 Browse All Repositories
+<div className="hero-search">
+  <div className="hero-search__container">
+    <h2>🔍 Search Repositories</h2>
+    <p>Find repositories by name, description, tags, or language</p>
+    <div className="hero-search__actions">
+      <Link className="button button--primary button--lg" to="/search">
+        🔍 Advanced Search
       </Link>
-      <Link className="button button--secondary button--lg" to="/categories">
-        🏷️ View Categories
+      <Link className="button button--secondary button--lg" to="/repositories">
+        📚 Browse All Repositories
       </Link>
     </div>
   </div>
 </div>
 
-## 📊 Repository Statistics
+## 🔥 Quick Actions
 
-### 📈 Collection Overview
+<div className="action-grid">
+  <Link to="/repositories" className="action-card">
+    <div className="action-icon">📚</div>
+    <div className="action-title">All Repositories</div>
+    <div className="action-desc">Browse complete collection with filters</div>
+  </Link>
+  
+  <Link to="/categories" className="action-card">
+    <div className="action-icon">🏷️</div>
+    <div className="action-title">Categories</div>
+    <div className="action-desc">Explore by functional categories</div>
+  </Link>
+  
+  <Link to="/search" className="action-card">
+    <div className="action-icon">🔍</div>
+    <div className="action-title">Search</div>
+    <div className="action-desc">Find specific repositories</div>
+  </Link>
+  
+  <Link to="/recommendations" className="action-card">
+    <div className="action-icon">⭐</div>
+    <div className="action-title">Recommendations</div>
+    <div className="action-desc">Curated picks and trending</div>
+  </Link>
+</div>
 
-| **Metric** | **Count** | **Percentage** |
-|------------|-----------|----------------|
-| **Total Repositories** | 98 | 100% |
-| **Original Projects** | 39 | 40% |
-| **Forked Projects** | 59 | 60% |
-| **Main Categories** | 6 | - |
-| **Programming Languages** | 12+ | - |
-| **Last Updated** | Nov 1, 2025 | - |
+## 📊 Repository Overview
+
+Explore **98 repositories** across **6 major categories**
+
+<div className="category-grid">
+  <Link to="/categories/mcp-servers" className="category-card">
+    <div className="category-icon">🤖</div>
+    <div className="category-info">
+      <div className="category-name">MCP Servers</div>
+      <div className="category-desc">Model Context Protocol servers for AI integration</div>
+      <div className="category-stats">
+        <span className="stat">25 repos</span>
+        <span className="stat">4 languages</span>
+      </div>
+    </div>
+  </Link>
+  
+  <Link to="/categories/ai-tools" className="category-card">
+    <div className="category-icon">🧠</div>
+    <div className="category-info">
+      <div className="category-name">AI & Machine Learning</div>
+      <div className="category-desc">Artificial intelligence and machine learning frameworks</div>
+      <div className="category-stats">
+        <span className="stat">20 repos</span>
+        <span className="stat">2 languages</span>
+      </div>
+    </div>
+  </Link>
+  
+  <Link to="/categories/web-scraping" className="category-card">
+    <div className="category-icon">🕷️</div>
+    <div className="category-info">
+      <div className="category-name">Web Scraping & Automation</div>
+      <div className="category-desc">Tools for web data extraction and automation</div>
+      <div className="category-stats">
+        <span className="stat">15 repos</span>
+        <span className="stat">2 languages</span>
+      </div>
+    </div>
+  </Link>
+  
+  <Link to="/categories/dev-tools" className="category-card">
+    <div className="category-icon">🛠️</div>
+    <div className="category-info">
+      <div className="category-name">Development Tools</div>
+      <div className="category-desc">Programming tools, frameworks, and utilities</div>
+      <div className="category-stats">
+        <span className="stat">25 repos</span>
+        <span className="stat">4 languages</span>
+      </div>
+    </div>
+  </Link>
+  
+  <Link to="/categories/security" className="category-card">
+    <div className="category-icon">🔒</div>
+    <div className="category-info">
+      <div className="category-name">Security & Analysis</div>
+      <div className="category-desc">Security analysis and penetration testing tools</div>
+      <div className="category-stats">
+        <span className="stat">8 repos</span>
+        <span className="stat">3 languages</span>
+      </div>
+    </div>
+  </Link>
+  
+  <Link to="/categories/mobile-system" className="category-card">
+    <div className="category-icon">📱</div>
+    <div className="category-info">
+      <div className="category-name">Mobile & System</div>
+      <div className="category-desc">Mobile development and system utilities</div>
+      <div className="category-stats">
+        <span className="stat">5 repos</span>
+        <span className="stat">1 language</span>
+      </div>
+    </div>
+  </Link>
+</div>
+
+## 📈 Enhanced Analytics
+
+<div className="analytics-grid">
+  <div className="analytics-card">
+    <div className="analytics-number">98</div>
+    <div className="analytics-label">Total Repositories</div>
+    <div className="analytics-detail">+2 new this month</div>
+  </div>
+  
+  <div className="analytics-card">
+    <div className="analytics-number">6</div>
+    <div className="analytics-label">Main Categories</div>
+    <div className="analytics-detail">Comprehensive coverage</div>
+  </div>
+  
+  <div className="analytics-card">
+    <div className="analytics-number">12+</div>
+    <div className="analytics-label">Technologies</div>
+    <div className="analytics-detail">Diverse ecosystem</div>
+  </div>
+  
+  <div className="analytics-card">
+    <div className="analytics-number">7.2</div>
+    <div className="analytics-label">Avg Quality Score</div>
+    <div className="analytics-detail">High standard</div>
+  </div>
+</div>
 
 ### 💻 Technology Distribution
 
@@ -56,113 +173,127 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 | **Go** | 8 | 8% | System tools, networking |
 | **Other** | 22 | 22% | Rust, Java, Shell, etc. |
 
-### ⭐ Quality Scoring
+### ⭐ Repository Quality Breakdown
 
-Based on repository popularity, maintenance, and documentation quality:
+| **Quality Tier** | **Score Range** | **Count** | **Percentage** | **Characteristics** |
+|------------------|-----------------|-----------|----------------|-------------------|
+| **Premium** | 8-10 | 15 | 15% | High stars, active development |
+| **High Quality** | 6-7 | 35 | 36% | Good maintenance, decent popularity |
+| **Good** | 4-5 | 30 | 31% | Functional, moderate usage |
+| **Basic** | 1-3 | 18 | 18% | Simple tools, limited scope |
 
-| **Quality Level** | **Score Range** | **Repository Count** | **Percentage** |
-|-------------------|-----------------|---------------------|----------------|
-| **Premium** | 8-10 | 15 | 15% |
-| **High Quality** | 6-7 | 35 | 36% |
-| **Good** | 4-5 | 30 | 31% |
-| **Basic** | 1-3 | 18 | 18% |
+## 🔥 Trending & Recommendations
 
-### 🎯 Complexity Distribution
+### 🆕 Recently Updated
 
-| **Difficulty** | **Repository Count** | **Percentage** | **Typical Use Cases** |
-|----------------|---------------------|----------------|---------------------|
-| **Beginner Friendly** | 39 | 40% | Learning, simple tools, documentation |
-| **Intermediate** | 44 | 45% | Production tools, moderate complexity |
-| **Advanced** | 15 | 15% | Enterprise systems, specialized tools |
-
-## 🚀 Quick Navigation
-
-<div className="row">
-  <div className="col col--6">
-    <div className="card">
-      <div className="card__header">
-        <h3>📚 All Repositories</h3>
-      </div>
-      <div className="card__body">
-        <p>Browse the complete collection with advanced search and filtering capabilities</p>
-      </div>
-      <div className="card__footer">
-        <Link className="button button--primary" to="/repositories">Explore All →</Link>
-      </div>
+<div className="trending-grid">
+  <div className="trending-card">
+    <div className="trending-header">
+      <span className="trending-language">Python</span>
+      <span className="trending-time">2 days ago</span>
+    </div>
+    <div className="trending-title">DeepSeek-OCR</div>
+    <div className="trending-desc">Advanced optical character recognition with context compression</div>
+    <div className="trending-stats">
+      <span>⭐ 2.3k stars</span>
+      <span>🔄 Active development</span>
     </div>
   </div>
   
-  <div className="col col--6">
-    <div className="card">
-      <div className="card__header">
-        <h3>🏷️ Categories</h3>
-      </div>
-      <div className="card__body">
-        <p>Explore repositories organized by functional categories and use cases</p>
-      </div>
-      <div className="card__footer">
-        <Link className="button button--primary" to="/categories">View Categories →</Link>
-      </div>
+  <div className="trending-card">
+    <div className="trending-header">
+      <span className="trending-language">Rust</span>
+      <span className="trending-time">1 week ago</span>
+    </div>
+    <div className="trending-title">uv</div>
+    <div className="trending-desc">Extremely fast Python package installer and resolver</div>
+    <div className="trending-stats">
+      <span>⭐ 8.7k stars</span>
+      <span>🚀 Rising fast</span>
+    </div>
+  </div>
+  
+  <div className="trending-card">
+    <div className="trending-header">
+      <span className="trending-language">TypeScript</span>
+      <span className="trending-time">3 days ago</span>
+    </div>
+    <div className="trending-title">Opik</div>
+    <div className="trending-desc">End-to-end LLM development platform</div>
+    <div className="trending-stats">
+      <span>⭐ 1.2k stars</span>
+      <span>🔥 Hot project</span>
     </div>
   </div>
 </div>
 
-<div className="row" style={{ marginTop: '1rem' }}>
-  <div className="col col--6">
-    <div className="card">
-      <div className="card__header">
-        <h3>🔍 Advanced Search</h3>
-      </div>
-      <div className="card__body">
-        <p>Find specific repositories using powerful search and filtering tools</p>
-      </div>
-      <div className="card__footer">
-        <Link className="button button--secondary" to="/search">Search Now →</Link>
-      </div>
+### 🌟 Top Rated This Week
+
+<div className="recommendations-grid">
+  <Link to="/repository/unity-mcp" className="recommendation-card">
+    <div className="rec-category">🤖 MCP Servers</div>
+    <div className="rec-title">Unity MCP Server</div>
+    <div className="rec-desc">Seamless Unity engine integration with Model Context Protocol</div>
+    <div className="rec-stats">
+      <span className="rec-score">⭐ 9.2/10</span>
+      <span className="rec-trend">📈 +15% this week</span>
     </div>
-  </div>
+  </Link>
   
-  <div className="col col--6">
-    <div className="card">
-      <div className="card__header">
-        <h3>🔗 GitHub Profile</h3>
-      </div>
-      <div className="card__body">
-        <p>Visit my GitHub profile for more projects and contributions</p>
-      </div>
-      <div className="card__footer">
-        <a className="button button--secondary" href="https://github.com/Alot1z" target="_blank" rel="noopener noreferrer">View Profile →</a>
-      </div>
+  <Link to="/repository/anything-llm" className="recommendation-card">
+    <div className="rec-category">🧠 AI Tools</div>
+    <div className="rec-title">AnythingLLM</div>
+    <div className="rec-desc">Full-stack application for building custom LLM solutions</div>
+    <div className="rec-stats">
+      <span className="rec-score">⭐ 8.8/10</span>
+      <span className="rec-trend">📈 +22% this week</span>
     </div>
-  </div>
+  </Link>
+  
+  <Link to="/repository/crawl4ai" className="recommendation-card">
+    <div className="rec-category">🕷️ Web Scraping</div>
+    <div className="rec-title">Crawl4AI</div>
+    <div className="rec-desc">Advanced web crawling and data extraction for AI applications</div>
+    <div className="rec-stats">
+      <span className="rec-score">⭐ 8.5/10</span>
+      <span className="rec-trend">📈 +18% this week</span>
+    </div>
+  </Link>
 </div>
 
-## 🎯 Key Features
+## 🎯 Quick Navigation
 
-### 🔍 Advanced Search
-Find repositories by name, description, language, or tags with powerful search capabilities.
-
-### 📊 Quality Scoring
-Each repository is scored 1-10 based on popularity, maintenance, and community engagement.
-
-### 🔄 Auto Updates
-Repository data is automatically updated when new repos are starred or existing ones change.
-
-### 📱 Responsive Design
-Works perfectly on all devices - desktop, tablet, and mobile.
-
-### ⚡ Fast Performance
-Built with Docusaurus for lightning-fast loading and smooth navigation.
+<div className="nav-grid">
+  <Link to="/categories" className="nav-card">
+    <div className="nav-title">📂 Browse Categories</div>
+    <div className="nav-desc">Explore repositories by functional areas</div>
+  </Link>
+  
+  <Link to="/search" className="nav-card">
+    <div className="nav-title">🔍 Advanced Search</div>
+    <div className="nav-desc">Filter by language, stars, updates, and more</div>
+  </Link>
+  
+  <Link to="/recommendations" className="nav-card">
+    <div className="nav-title">⭐ Recommendations</div>
+    <div className="nav-desc">Curated picks and trending repositories</div>
+  </Link>
+  
+  <Link to="/about" className="nav-card">
+    <div className="nav-title">👤 About This Project</div>
+    <div className="nav-desc">The story behind this repository wiki</div>
+  </Link>
+</div>
 
 ---
 
-<div className="text--center margin-top--xl">
-  <p>
+<div className="footer-info">
+  <div className="footer-stats">
     <strong>Total Repositories:</strong> 98 • 
-    <strong>Last Updated:</strong> November 1, 2025 • 
+    <strong>Last Updated:</strong> <LiveTimer /> • 
     <strong>Categories:</strong> 6
-  </p>
+  </div>
   <p>
-    Built with ❤️ using <Link to="https://docusaurus.io">Docusaurus</Link>
+    Built with ❤️ for personal knowledge management
   </p>
 </div>

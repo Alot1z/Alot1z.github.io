@@ -1,5 +1,8 @@
 /* Custom CSS for Alot1z Repository Wiki */
 
+/* Import enhanced components */
+@import './enhanced-components.css';
+
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

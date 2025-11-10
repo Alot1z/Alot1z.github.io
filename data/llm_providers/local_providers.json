@@ -1,0 +1,1291 @@
+{
+  "report_metadata": {
+    "title": "Local LLM Systems Analysis",
+    "description": "Comprehensive analysis of local LLM systems with API endpoints, model support, and configuration methods",
+    "created_date": "2025-11-11",
+    "systems_covered": 8,
+    "data_sources": "Official documentation and GitHub repositories"
+  },
+  "llm_providers": {
+    "ollama": {
+      "name": "Ollama",
+      "description": "Easy-to-use platform for running and managing local LLMs with a simple API",
+      "version": "Latest",
+      "api_endpoints": {
+        "base_url": {
+          "local": "http://localhost:11434/api",
+          "cloud": "https://ollama.com/api"
+        },
+        "openai_compatibility_base": "http://localhost:11434/v1/",
+        "core_endpoints": [
+          {
+            "method": "POST",
+            "path": "/api/generate",
+            "description": "Generate a response for given prompt",
+            "parameters": ["model", "prompt", "context", "stream", "format", "options"]
+          },
+          {
+            "method": "POST",
+            "path": "/api/chat",
+            "description": "Generate a chat message with conversation context",
+            "parameters": ["model", "messages", "stream", "format", "options"]
+          },
+          {
+            "method": "POST",
+            "path": "/api/embed",
+            "description": "Generate embeddings for text input",
+            "parameters": ["model", "input", "options"]
+          },
+          {
+            "method": "GET",
+            "path": "/api/tags",
+            "description": "List all available models"
+          },
+          {
+            "method": "GET",
+            "path": "/api/ps",
+            "description": "List currently running models"
+          },
+          {
+            "method": "POST",
+            "path": "/api/create",
+            "description": "Create a new model from a Modelfile"
+          },
+          {
+            "method": "POST",
+            "path": "/api/pull",
+            "description": "Download a model from a registry"
+          },
+          {
+            "method": "POST",
+            "path": "/api/push",
+            "description": "Upload a model to a registry"
+          }
+        ],
+        "openai_compatible_endpoints": [
+          {
+            "method": "POST",
+            "path": "/v1/chat/completions",
+            "features": ["chat", "streaming", "JSON mode", "vision", "tools", "logprobs"],
+            "supported_fields": ["model", "messages", "temperature", "max_tokens", "stream", "tools", "response_format"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/completions",
+            "features": ["completions", "streaming", "JSON mode", "logprobs"],
+            "supported_fields": ["model", "prompt", "temperature", "max_tokens", "stream", "best_of"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/embeddings",
+            "features": ["embeddings"],
+            "supported_fields": ["model", "input", "dimensions", "encoding_format"]
+          }
+        ]
+      },
+      "model_support": {
+        "supported_formats": ["GGUF", "GGML"],
+        "model_types": [
+          "LLama", "LLama 2", "LLama 3", "Mistral", "Mixtral", "Phi", "CodeLlama", 
+          "Gemma", "Qwen", "DeepSeek", "WizardCoder", "Orca", "Vicuna", "Alpaca",
+          "Wizard", "Mistral", "Llama Guard", "CodeT5", "CodeT5+", "StarCoder",
+          "Gpt2", "Phi3", "Phi3.5", "DeepSeek Coder", "Qwen Coder", "Granite",
+          "Command-R", "Mistral Nemo", "Phi4", "Qwen2", "Qwen2.5", "DeepSeek V2"
+        ],
+        "quantization_levels": ["2-bit", "3-bit", "4-bit", "5-bit", "8-bit"],
+        "max_model_size": "Variable based on hardware",
+        "special_features": ["Vision models", "Function calling", "JSON mode", "Streaming", "Grammar constraint"]
+      },
+      "configuration_methods": {
+        "installation": {
+          "macos": "brew install ollama",
+          "linux": "curl -fsSL https://ollama.ai/install.sh | sh",
+          "windows": "Download from ollama.ai"
+        },
+        "model_management": {
+          "pull_model": "ollama pull <model_name>",
+          "list_models": "ollama list",
+          "remove_model": "ollama rm <model_name>",
+          "show_model_info": "ollama show <model_name>",
+          "create_custom": "ollama create <name> -f Modelfile"
+        },
+        "modelfile_configuration": {
+          "FROM": "Base model path or repository",
+          "PARAMETER": "Custom parameters (temperature, top_k, num_ctx, etc.)",
+          "TEMPLATE": "Custom prompt template",
+          "SYSTEM": "System message for the model",
+          "LICENSE": "Model license",
+          "ADAPTER": "LoRA adapter paths",
+          "FILE": "System prompt files"
+        },
+        "runtime_options": {
+          "keep_alive": "Time to keep model loaded in memory",
+          "num_ctx": "Context window size",
+          "num_predict": "Max tokens to generate",
+          "temperature": "Sampling temperature",
+          "top_k": "Top-k sampling",
+          "top_p": "Top-p sampling",
+          "seed": "Random seed for reproducibility"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "4GB RAM",
+        "recommended": "8GB+ RAM for 7B models",
+        "gpu_support": {
+          "nvidia_cuda": "Full support with GPU acceleration",
+          "amd_rocm": "Supported through ROCm",
+          "apple_silicon": "Native support with Metal",
+          "cpu_only": "Supported but slower"
+        },
+        "vram_recommendations": {
+          "3b_model": "8GB VRAM",
+          "7b_model": "16GB VRAM",
+          "13b_model": "24GB VRAM",
+          "30b_model": "48GB VRAM",
+          "70b_model": "80GB+ VRAM"
+        }
+      },
+      "key_features": [
+        "Simple model management with registry",
+        "OpenAI API compatibility layer",
+        "Local model hosting",
+        "Streaming responses",
+        "Vision model support",
+        "Function calling and tools",
+        "JSON mode for structured output",
+        "Grammar constraints",
+        "Multi-platform support",
+        "Container deployment support"
+      ],
+      "integration_examples": {
+        "curl_basic": "curl http://localhost:11434/api/generate -d '{\"model\": \"llama3.1\", \"prompt\": \"Hello, how are you?\"}'",
+        "python_client": "from ollama import chat\nresponse = chat('llama3.1', messages=[{'role': 'user', 'content': 'Hello!'}])\nprint(response['message']['content'])",
+        "javascript_client": "import Ollama from 'ollama'\nconst response = await Ollama.chat({ model: 'llama3.1', messages: [{ role: 'user', content: 'Hello!' }] })\nconsole.log(response.message.content)"
+      },
+      "limitations": [
+        "Limited to GGUF format models",
+        "No multi-user support by default",
+        "No built-in user authentication",
+        "Single model instance per server"
+      ],
+      "github_repo": "https://github.com/ollama/ollama",
+      "documentation": "https://docs.ollama.com/",
+      "community": ["Official Discord", "GitHub Issues", "Community discussions"]
+    },
+
+    "lm_studio": {
+      "name": "LM Studio",
+      "description": "Comprehensive local LLM platform with GUI and API server for development and deployment",
+      "version": "Latest",
+      "api_endpoints": {
+        "base_url": "http://localhost:1234 (default)",
+        "core_endpoints": [
+          {
+            "method": "GET",
+            "path": "/v0/models",
+            "description": "List available models"
+          },
+          {
+            "method": "POST",
+            "path": "/v0/chat/completions",
+            "description": "Generate chat completions",
+            "parameters": ["model", "messages", "temperature", "max_tokens", "stream"]
+          },
+          {
+            "method": "POST",
+            "path": "/v0/embeddings",
+            "description": "Generate embeddings",
+            "parameters": ["model", "input", "dimensions"]
+          },
+          {
+            "method": "POST",
+            "path": "/v0/responses",
+            "description": "Generate responses using new API format",
+            "parameters": ["model", "input", "max_output_tokens", "temperature", "stream"]
+          }
+        ],
+        "openai_compatible_endpoints": [
+          {
+            "method": "GET",
+            "path": "/v1/models",
+            "description": "OpenAI-compatible models list"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/chat/completions",
+            "description": "OpenAI-compatible chat completions",
+            "features": ["chat", "streaming", "JSON schema", "function calling", "tools"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/embeddings",
+            "description": "OpenAI-compatible embeddings"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/completions",
+            "description": "OpenAI-compatible text completions (legacy)"
+          }
+        ]
+      },
+      "model_support": {
+        "supported_formats": ["GGUF", "GGML", "Safetensors"],
+        "model_types": [
+          "LLaMA", "LLaMA 2", "LLaMA 3", "Gemma", "Qwen", "Phi", "Mistral",
+          "DeepSeek", "Qwen Coder", "DeepSeek Coder", "Code Llama", "StarCoder",
+          "WizardCoder", "Mixtral", "Gemma 2", "Qwen2", "Qwen2.5", "Phi3", "Phi3.5",
+          "Phi4", "Granite", "Command-R", "Command-R+", "Jamba", "MiniCPM", "Qwen2.5VL"
+        ],
+        "quantization_levels": ["2-bit", "3-bit", "4-bit", "5-bit", "6-bit", "8-bit"],
+        "max_context_length": "Up to 128K tokens (model dependent)",
+        "special_features": [
+          "Vision models with image understanding",
+          "Code models for programming",
+          "Function calling and tools",
+          "JSON schema output",
+          "Streaming responses",
+          "Multi-modal capabilities",
+          "Long context support"
+        ]
+      },
+      "configuration_methods": {
+        "installation": {
+          "download": "Direct download from lmstudio.ai",
+          "supported_platforms": ["Windows", "macOS", "Linux"],
+          "web_interface": "Built-in GUI on port 1234"
+        },
+        "server_configuration": {
+          "start_server": "lms server start --port 1234",
+          "headless_mode": "Run without GUI",
+          "model_loading": "Automatic model discovery from local folders",
+          "idle_ttl": "Configurable idle timeout for models",
+          "auto_evict": "Automatic eviction of unused models"
+        },
+        "model_management": {
+          "model_paths": "~/LM Studio/models/",
+          "auto_download": "Automatic model downloads from Hugging Face",
+          "model_switching": "Runtime model switching",
+          "batch_processing": "Process multiple models simultaneously"
+        },
+        "cli_commands": {
+          "lms_models": "List installed models",
+          "lms_server_start": "Start API server",
+          "lms_server_status": "Check server status",
+          "lms_health": "Health check endpoint"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "8GB RAM",
+        "recommended": "16GB+ RAM for optimal performance",
+        "gpu_support": {
+          "nvidia_cuda": "Full CUDA acceleration",
+          "amd_rocm": "ROCm support",
+          "apple_silicon": "Native Metal support",
+          "intel_arc": "Intel Arc GPU support",
+          "cpu_only": "Supported but limited performance"
+        },
+        "vram_recommendations": {
+          "3b_model": "6GB VRAM",
+          "7b_model": "12GB VRAM",
+          "13b_model": "20GB VRAM",
+          "30b_model": "40GB VRAM"
+        },
+        "storage": "Model storage: 20-100GB per model"
+      },
+      "key_features": [
+        "Intuitive GUI for model management",
+        "Built-in API server for development",
+        "OpenAI API compatibility",
+        "JSON schema structured output",
+        "Function calling and tools",
+        "Vision model support",
+        "Streaming responses",
+        "Model auto-download from Hugging Face",
+        "Batch processing capabilities",
+        "Health monitoring endpoints",
+        "Multi-user support",
+        "Local agent framework"
+      ],
+      "integration_examples": {
+        "curl_basic": "curl http://localhost:1234/v0/chat/completions -H \"Content-Type: application/json\" -d '{\"model\": \"lmstudio-community/Llama-3.2-1B-Instruct-GGUF\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]}'",
+        "python_sdk": "import lmstudio as lms\nwith lms.Client() as client:\n    model = client.llm.model(\"lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF\")\n    result = model.respond(\"Hello, how can you help me?\")\n    print(result)",
+        "javascript_sdk": "import { LMStudioClient } from \"@lmstudio/sdk\"\nconst client = new LMStudioClient()\nconst model = await client.llm.model(\"lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF\")\nconst result = await model.respond(\"What can you do?\")\nconsole.log(result.content)"
+      },
+      "limitations": [
+        "GUI-focused interface may be complex for server-only deployments",
+        "Resource intensive for multiple model management",
+        "Limited to models in supported formats"
+      ],
+      "github_repo": "https://github.com/lmstudio-ai",
+      "documentation": "https://lmstudio.ai/docs/",
+      "community": ["Discord community", "GitHub discussions", "Documentation forum"]
+    },
+
+    "localai": {
+      "name": "LocalAI",
+      "description": "Open-source alternative to OpenAI API with comprehensive local LLM and multi-modal support",
+      "version": "4.x+",
+      "api_endpoints": {
+        "base_url": "http://localhost:8080",
+        "core_endpoints": [
+          {
+            "method": "GET",
+            "path": "/models",
+            "description": "List available models"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/chat/completions",
+            "description": "Generate chat completions (OpenAI compatible)",
+            "parameters": ["model", "messages", "max_tokens", "temperature", "stream"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/completions",
+            "description": "Generate text completions (OpenAI compatible)",
+            "parameters": ["model", "prompt", "max_tokens", "temperature", "stream"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/embeddings",
+            "description": "Generate embeddings (OpenAI compatible)",
+            "parameters": ["model", "input", "dimensions"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/images/generations",
+            "description": "Generate images using Stable Diffusion"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/audio/speech",
+            "description": "Text-to-speech conversion"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/audio/transcriptions",
+            "description": "Speech-to-text transcription"
+          }
+        ],
+        "openai_compatible_endpoints": [
+          {
+            "method": "GET",
+            "path": "/v1/models",
+            "description": "OpenAI-compatible models listing"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/chat/completions",
+            "description": "OpenAI Chat Completions API",
+            "features": ["chat", "streaming", "functions", "tools"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/embeddings",
+            "description": "OpenAI Embeddings API"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/images/generations",
+            "description": "OpenAI Images API (DALL-E compatible)"
+          }
+        ]
+      },
+      "model_support": {
+        "supported_formats": ["GGUF", "GGML", "Safetensors", "ONNX"],
+        "backends": {
+          "text_generation": [
+            "llama.cpp", "vLLM", "transformers", "exllama2", "MLX", "MLX-VLM"
+          ],
+          "audio": [
+            "whisper.cpp", "faster-whisper", "piper", "bark", "coqui", "kokoro"
+          ],
+          "image_generation": [
+            "stablediffusion.cpp", "diffusers", "stable-diffusion-webui"
+          ],
+          "specialized": [
+            "rfdetr", "rerankers", "local-store", "huggingface"
+          ]
+        },
+        "model_types": [
+          "LLaMA", "Mistral", "Qwen", "Phi", "Gemma", "DeepSeek", "CodeLlama",
+          "StarCoder", "Grok", "Mixtral", "Jamba", "WizardCoder", "ChatGLM",
+          "Baichuan", "InternLM", "Qwen-VL", "LLaVA", "Whisper", "Stable Diffusion",
+          "Bark", "MusicGen", "BGE", "NV-EmbedQA"
+        ],
+        "quantization": ["4-bit", "5-bit", "8-bit", "GPTQ", "AWQ", "INT4", "INT8"],
+        "special_features": [
+          "Multi-modal support (text, image, audio)",
+          "Function calling and tools",
+          "RAG (Retrieval Augmented Generation)",
+          "Vector database support",
+          "Audio-to-text and text-to-speech",
+          "Image generation and editing",
+          "Grammar constraints",
+          "Speculative decoding",
+          "Multi-LoRA support"
+        ]
+      },
+      "configuration_methods": {
+        "installation": {
+          "bash_installer": "curl -sSL https://localai.io/install.sh | sh",
+          "docker": "docker run -ti -p8080:8080 localai/localai:latest",
+          "homebrew": "brew install localai",
+          "kubernetes": "Available on Docker Hub and Quay.io"
+        },
+        "model_management": {
+          "localai_run": "local-ai run <model_name>",
+          "from_huggingface": "local-ai run huggingface://user/model",
+          "from_ollama": "local-ai run ollama://model:version",
+          "from_yaml": "local-ai run https://example.com/model.yaml",
+          "gallery_models": "Use LocalAI model gallery"
+        },
+        "yaml_configuration": {
+          "name": "Custom model name",
+          "backend": "llama.cpp, vLLM, transformers, etc.",
+          "parameters": "Model-specific parameters",
+          "gpu_layers": "Number of layers to offload to GPU",
+          "f16": "Use half precision",
+          "mmap": "Memory mapping enabled",
+          "context_size": "Context window size",
+          "threads": "CPU threads to use"
+        },
+        "environment_variables": {
+          "MODEL_NAME": "Primary model to load",
+          "MULTIMODAL_MODEL": "Multi-modal model configuration",
+          "IMAGE_MODEL": "Image generation model",
+          "API_KEY": "Authentication key for API",
+          "REPLICATE": "Enable model replication"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "4GB RAM for basic operation",
+        "recommended": "16GB+ RAM for larger models",
+        "gpu_support": {
+          "nvidia_cuda": "CUDA 11.7, 12.0 support",
+          "amd_rocm": "HIP-based acceleration",
+          "intel_oneapi": "SYCL-based acceleration",
+          "apple_silicon": "Metal framework support",
+          "vulkan": "Cross-platform GPU acceleration",
+          "cpu_only": "Full CPU support with optimizations"
+        },
+        "vram_recommendations": {
+          "3b_model": "6GB VRAM",
+          "7b_model": "12GB VRAM",
+          "13b_model": "20GB VRAM",
+          "30b_model": "48GB VRAM",
+          "70b_model": "80GB+ VRAM"
+        },
+        "specialized_hardware": [
+          "NVIDIA Jetson (L4T) ARM64",
+          "Apple Silicon M1/M2/M3+",
+          "Darwin x86 Intel Mac"
+        ]
+      },
+      "key_features": [
+        "Complete OpenAI API replacement",
+        "Multi-modal AI (text, image, audio)",
+        "Extensive model backend support",
+        "GPU acceleration (NVIDIA, AMD, Intel, Apple)",
+        "Function calling and tools API",
+        "RAG and vector database integration",
+        "Audio processing (STT, TTS)",
+        "Image generation and editing",
+        "LocalAGI agent framework",
+        "Modular architecture with interchangeable backends",
+        "Grammar constraints and structured output",
+        "Distributed inference support",
+        "Model gallery and auto-download"
+      ],
+      "integration_examples": {
+        "curl_basic": "curl http://localhost:8080/v1/chat/completions -H \"Content-Type: application/json\" -d '{\"model\": \"ggml-org/gemma-2-2b-it-GGUF\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]}'",
+        "python_client": "import openai\nclient = openai.OpenAI(base_url=\"http://localhost:8080/v1\", api_key=\"sk-test\")\nresponse = client.chat.completions.create(model=\"ggml-org/gemma-2-2b-it-GGUF\", messages=[{\"role\": \"user\", \"content\": \"Hello!\"}])\nprint(response.choices[0].message.content)",
+        "javascript_client": "import OpenAI from 'openai'\nconst client = new OpenAI({ baseURL: 'http://localhost:8080/v1', apiKey: 'sk-test' })\nconst completion = await client.chat.completions.create({ model: 'ggml-org/gemma-2-2b-it-GGUF', messages: [{ role: 'user', content: 'Hello!' }] })\nconsole.log(completion.choices[0].message.content)"
+      },
+      "limitations": [
+        "Complex configuration for advanced features",
+        "Multiple backends can cause compatibility issues",
+        "Resource intensive for full feature set"
+      ],
+      "github_repo": "https://github.com/mudler/LocalAI",
+      "documentation": "https://localai.io/",
+      "community": ["GitHub Discussions", "Discord", "Documentation forum", "LocalAGI community"]
+    },
+
+    "open_webui": {
+      "name": "Open WebUI",
+      "description": "Self-hosted web interface for LLM experimentation with multi-provider support and RAG capabilities",
+      "version": "Latest",
+      "api_endpoints": {
+        "base_url": "http://localhost:3000",
+        "authentication": {
+          "methods": ["Bearer Token (API key from Settings > Account)", "JWT (JSON Web Token)"]
+        },
+        "core_endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/models",
+            "description": "Retrieve all models created or added via Open WebUI"
+          },
+          {
+            "method": "POST",
+            "path": "/api/chat/completions",
+            "description": "OpenAI-compatible chat completions for local and remote models",
+            "parameters": ["model", "messages", "files", "stream"]
+          },
+          {
+            "method": "POST",
+            "path": "/ollama/api/generate",
+            "description": "Ollama API proxy for raw prompt streaming"
+          },
+          {
+            "method": "GET",
+            "path": "/ollama/api/tags",
+            "description": "List available Ollama models through proxy"
+          },
+          {
+            "method": "POST",
+            "path": "/ollama/api/embed",
+            "description": "Generate embeddings through Ollama proxy"
+          }
+        ],
+        "rag_endpoints": [
+          {
+            "method": "POST",
+            "path": "/api/v1/files/",
+            "description": "Upload files for RAG processing",
+            "parameters": ["file (multipart form data)"]
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/knowledge/{id}/file/add",
+            "description": "Add uploaded file to knowledge collection",
+            "parameters": ["file_id"]
+          }
+        ]
+      },
+      "model_support": {
+        "supported_providers": [
+          "Ollama", "OpenAI", "LocalAI", "Anthropic (future)", "vLLM", "Custom APIs"
+        ],
+        "model_types": [
+          "Text generation models",
+          "Vision-language models",
+          "Code models",
+          "Function-calling models"
+        ],
+        "special_features": [
+          "Multi-provider model switching",
+          "RAG with file uploads",
+          "Knowledge collections",
+          "Workspace memory",
+          "Model fine-tuning support",
+          "Multi-modal chat (text, images)",
+          "Function calling integration"
+        ]
+      },
+      "configuration_methods": {
+        "installation": {
+          "docker": "docker run -d -p 3000:8080 -v open-webui:/app/backend/data --name open-webui --add-host=host.docker.internal:host-gateway ghcr.io/open-webui/open-webui:main",
+          "pip": "pip install open-webui",
+          "docker_compose": "Available in repository",
+          "kubernetes": "Helm charts available"
+        },
+        "model_configuration": {
+          "ollama_models": "Automatically detects Ollama models",
+          "openai_api": "Connect to OpenAI-compatible APIs",
+          "custom_endpoints": "Configure custom model endpoints",
+          "api_keys": "Secure API key management"
+        },
+        "rag_setup": {
+          "file_uploads": "Support for various document formats",
+          "vector_storage": "Automatic vectorization and storage",
+          "knowledge_collections": "Organize files into knowledge bases",
+          "document_processing": "Text extraction and chunking"
+        },
+        "environment_variables": {
+          "WEBUI_SECRET_KEY": "Secret key for JWT generation",
+          "WEBUI_JWT_SECRET_KEY": "JWT secret for authentication",
+          "DATA_DIR": "Data directory for storage",
+          "WEBUI_URL": "Base URL for the application"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "2GB RAM for basic operation",
+        "recommended": "4GB+ RAM for optimal performance",
+        "storage": "Depends on uploaded files for RAG",
+        "gpu_support": "Depends on connected model providers",
+        "network": "Internet access for model downloads and updates"
+      },
+      "key_features": [
+        "Unified web interface for multiple LLM providers",
+        "RAG capabilities with file uploads",
+        "Knowledge collections and workspace memory",
+        "Multi-modal chat support",
+        "Function calling and tools integration",
+        "Model comparison and evaluation",
+        "User authentication and access control",
+        "Workspace and conversation history",
+        "API proxy for Ollama",
+        "Extensible plugin architecture",
+        "Docker and Kubernetes deployment",
+        "Community and custom tool integration"
+      ],
+      "integration_examples": {
+        "curl_basic": "curl -H \"Authorization: Bearer YOUR_API_KEY\" http://localhost:3000/api/models",
+        "chat_completion": "curl -X POST http://localhost:3000/api/chat/completions -H \"Authorization: Bearer YOUR_API_KEY\" -H \"Content-Type: application/json\" -d '{\"model\": \"llama3.1\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]}'",
+        "rag_example": "curl -X POST http://localhost:3000/api/v1/files/ -H \"Authorization: Bearer YOUR_API_KEY\" -F \"file=@document.pdf\""
+      },
+      "limitations": [
+        "Primary focus on web interface rather than API server",
+        "RAG features require additional storage and processing",
+        "Model management depends on connected providers"
+      ],
+      "github_repo": "https://github.com/open-webui/open-webui",
+      "documentation": "https://docs.openwebui.com/",
+      "community": ["Discord", "GitHub Discussions", "Community forum", "Examples and templates"]
+    },
+
+    "text_generation_webui": {
+      "name": "Text Generation WebUI (oobabooga)",
+      "description": "Gradio-based web interface for text generation models with extensive customization and extension capabilities",
+      "version": "Latest",
+      "api_endpoints": {
+        "base_url": "http://localhost:7860 (default)",
+        "core_endpoints": [
+          {
+            "method": "POST",
+            "path": "/run/text-generation",
+            "description": "Text generation endpoint",
+            "parameters": ["input", "history", "params"]
+          },
+          {
+            "method": "GET",
+            "path": "/get-model-names",
+            "description": "List available models"
+          },
+          {
+            "method": "POST",
+            "path": "/model/switch",
+            "description": "Switch active model"
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/completions",
+            "description": "OpenAI-compatible completions API",
+            "parameters": ["model", "prompt", "max_tokens", "temperature", "stream"]
+          }
+        ],
+        "openai_compatible_endpoints": [
+          {
+            "method": "GET",
+            "path": "/api/v1/models",
+            "description": "OpenAI-compatible models list"
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/chat/completions",
+            "description": "OpenAI-compatible chat completions",
+            "features": ["chat", "streaming", "function calling", "tools"]
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/completions",
+            "description": "OpenAI-compatible text completions"
+          }
+        ]
+      },
+      "model_support": {
+        "supported_formats": ["GGUF", "Safetensors", "GGML"],
+        "model_types": [
+          "LLaMA", "LLaMA 2", "LLaMA 3", "Code LLaMA", "Vicuna", "WizardLM", "Alpaca",
+          "Gemma", "Qwen", "Code Qwen", "Mistral", "Mixtral", "Phi", "Phi-2", "Phi-3",
+          "Baichuan", "ChatGLM", "DeepSeek", "DeepSeek Coder", "StarCoder", "Code Llama",
+          "Vicuna", "Koala", "WizardCoder", "ChatGPT", "Gpt4All"
+        ],
+        "special_features": [
+          "LoRA fine-tuning support",
+          "GPTQ and ExLlama optimization",
+          "Grammar and regex constraints",
+          "Dynamic prompt templates",
+          "Multi-character conversations",
+          "Instruction templates",
+          "API server mode",
+          "Streaming responses",
+          "Function calling",
+          "Multimodal support"
+        ]
+      },
+      "configuration_methods": {
+        "installation": {
+          "git_clone": "git clone https://github.com/oobabooga/text-generation-webui.git",
+          "python": "Python 3.10+ required",
+          "requirements": "pip install -r requirements.txt"
+        },
+        "model_management": {
+          "model_path": "text-generation-webui/user_data/models/",
+          "download_script": "python download-model.py user_name/model_name",
+          "supported_sources": ["Hugging Face", "Local files", "URLs"],
+          "model_formats": "GGUF, Safetensors, GPTQ"
+        },
+        "server_configuration": {
+          "start_server": "python server.py",
+          "api_server": "python server.py --api",
+          "port_config": "Configurable port in settings",
+          "ssl_support": "HTTPS configuration available"
+        },
+        "parameters_configuration": {
+          "config_user_yaml": "Global parameter configuration",
+          "instruction_templates": "Custom instruction templates",
+          "chat_generation": "Chat mode specific settings",
+          "presets": "Save and load parameter presets"
+        },
+        "extensions": {
+          "cTransformers": "GPU acceleration (NVIDIA)",
+          "exllama_hf": "ExLlama backend optimization",
+          "llama_cpp_python": "CPU/GPU inference",
+          "OpenAI_API": "Connect external models",
+          "Ctranslate2": "Fast CPU inference",
+          "RAG_Extension": "Retrieval Augmented Generation"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "4GB RAM for basic models",
+        "recommended": "16GB+ RAM for larger models",
+        "gpu_support": {
+          "nvidia_cuda": "Full CUDA acceleration",
+          "amd_rocm": "ROm support via various backends",
+          "apple_silicon": "Metal support through backend",
+          "cpu_only": "Supported with reduced performance"
+        },
+        "vram_recommendations": {
+          "3b_model": "4-6GB VRAM",
+          "7b_model": "8-12GB VRAM",
+          "13b_model": "16-24GB VRAM",
+          "30b_model": "32-48GB VRAM"
+        }
+      },
+      "key_features": [
+        "Gradio-based intuitive web interface",
+        "Extensive model parameter customization",
+        "Multiple inference backends",
+        "LoRA fine-tuning support",
+        "Grammar and regex constraints",
+        "Multi-character conversations",
+        "API server for programmatic access",
+        "Custom instruction templates",
+        "Model comparison and evaluation",
+        "OpenAI-compatible API endpoints",
+        "Extension system for additional features",
+        "RAG integration capabilities",
+        "Streaming responses",
+        "Function calling support"
+      ],
+      "integration_examples": {
+        "curl_basic": "curl http://localhost:7860/api/v1/completions -H \"Content-Type: application/json\" -d '{\"model\": \"TheBloke/Llama-2-7B-Chat-GGML\", \"prompt\": \"Hello, how are you?\", \"max_tokens\": 50}'",
+        "python_client": "import requests\nurl = \"http://localhost:7860/api/v1/chat/completions\"\nheaders = {\"Content-Type\": \"application/json\"}\ndata = {\"model\": \"TheBloke/Llama-2-7B-Chat-GGML\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]}\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())",
+        "openai_compatible": "import openai\nclient = openai.OpenAI(base_url=\"http://localhost:7860/v1\", api_key=\"sk-dummy\")\nresponse = client.chat.completions.create(model=\"TheBloke/Llama-2-7B-Chat-GGML\", messages=[{\"role\": \"user\", \"content\": \"Hello!\"}])\nprint(response.choices[0].message.content)"
+      },
+      "limitations": [
+        "Web interface focused, less suitable for headless deployments",
+        "Complex extension configuration",
+        "No built-in model management",
+        "Resource intensive with many extensions"
+      ],
+      "github_repo": "https://github.com/oobabooga/text-generation-webui",
+      "documentation": "https://github.com/oobabooga/text-generation-webui/wiki",
+      "community": ["GitHub Discussions", "Reddit r/LocalLLaMA", "Discord", "Wiki documentation"]
+    },
+
+    "vllm": {
+      "name": "vLLM",
+      "description": "High-throughput LLM inference engine with continuous batching and OpenAI-compatible API server",
+      "version": "0.11.0+",
+      "api_endpoints": {
+        "base_url": "http://localhost:8000 (default)",
+        "openai_compatible_endpoints": [
+          {
+            "method": "GET",
+            "path": "/v1/models",
+            "description": "List available models"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/chat/completions",
+            "description": "OpenAI-compatible chat completions",
+            "features": ["chat", "streaming", "tools", "function calling", "multimodal", "reasoning"],
+            "supported_parameters": ["model", "messages", "max_tokens", "temperature", "top_p", "stream", "tools", "response_format", "logprobs"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/completions",
+            "description": "OpenAI-compatible text completions",
+            "features": ["completions", "streaming", "multimodal", "reasoning"],
+            "supported_parameters": ["model", "prompt", "max_tokens", "temperature", "top_p", "stream", "logprobs"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/embeddings",
+            "description": "OpenAI-compatible embeddings",
+            "supported_parameters": ["model", "input", "dimensions", "encoding_format"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/responses",
+            "description": "OpenAI Responses API",
+            "features": ["tools", "function calling", "structured output"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/audio/transcriptions",
+            "description": "Speech-to-text transcription"
+          },
+          {
+            "method": "POST",
+            "path": "/v1/audio/translations",
+            "description": "Speech translation"
+          }
+        ],
+        "cli_commands": {
+          "vllm_serve": "Start OpenAI-compatible server",
+          "vllm_chat": "Interactive chat mode",
+          "vllm_complete": "Text completion mode",
+          "vllm_run_batch": "Batch processing",
+          "vllm_bench": "Performance benchmarking"
+        }
+      },
+      "model_support": {
+        "supported_architectures": [
+          "Apertus", "Aquila", "Arcee", "Arctic", "Baichuan", "BLOOM", "ChatGLM", "Cohere", "DBRX", 
+          "DeepSeek", "EXAONE", "Falcon", "Gemma", "GLM", "GPT-2", "GPT-J", "GPT-NeoX", "Granite",
+          "InternLM", "Jamba", "LLaMA", "Mamba", "MiniCPM", "Mistral", "MPT", "Nemotron", "OLMo",
+          "OPT", "Phi", "Qwen", "Solar", "TeleChat2", "Xverse", "Many more"
+        ],
+        "pooling_models": [
+          "BERT-based embeddings", "Gemma-based embeddings", "Qwen2-based embeddings", "ModernBERT",
+          "GritLM", "Nomic BERT", "RoBERTa-based"
+        ],
+        "quantization_support": [
+          "AutoAWQ", "AutoRound", "BitsAndBytes", "FP8 W8A8", "GGUF", "GPTQModel", "INT4 W4A16",
+          "INT8 W8A8", "Quantized KV Cache"
+        ],
+        "special_features": [
+          "PagedAttention for efficient memory management",
+          "Continuous batching for high throughput",
+          "Speculative decoding",
+          "Multi-LoRA support",
+          "Prefix caching",
+          "Tensor and pipeline parallelism",
+          "Tool calling and function calling",
+          "Multimodal support (vision, audio)",
+          "Structured outputs with JSON schema",
+          "FlashAttention integration"
+        ]
+      },
+      "configuration_methods": {
+        "installation": {
+          "pip": "pip install vllm",
+          "docker": "docker pull vllm/vllm-openai:latest",
+          "source": "git clone https://github.com/vllm-project/vllm.git"
+        },
+        "server_startup": {
+          "basic_serve": "vllm serve meta-llama/Meta-Llama-3-8B-Instruct",
+          "with_tensor_parallel": "vllm serve meta-llama/Meta-Llama-3-70B-Instruct --tensor-parallel-size 8",
+          "with_pipeline_parallel": "vllm serve meta-llama/Meta-Llama-3-70B-Instruct --pipeline-parallel-size 4",
+          "custom_port": "vllm serve model --port 8080",
+          "with_quantization": "vllm serve model --quantization awq"
+        },
+        "engine_arguments": {
+          "max_model_len": "Maximum context length",
+          "tensor_parallel_size": "Number of GPUs for tensor parallelism",
+          "pipeline_parallel_size": "Number of pipeline stages",
+          "gpu_memory_utilization": "GPU memory usage target",
+          "enable_auto_tool_choice": "Automatic tool selection",
+          "limit_mm_per_prompt": "Multimodal content limits"
+        },
+        "environment_variables": {
+          "VLLM_USE_MODELSCOPE": "Use ModelScope instead of Hugging Face",
+          "CUDA_VISIBLE_DEVICES": "GPU selection",
+          "RAY_DEDUP_LOGS": "Ray log deduplication"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "32GB system RAM for basic models",
+        "recommended": "64GB+ RAM for larger models",
+        "gpu_support": {
+          "nvidia_cuda": "Primary target with full optimization",
+          "amd_rocm": "HIP-based acceleration",
+          "intel_gpus": "SYCL support",
+          "tpu": "Limited TPU support",
+          "arm": "ARM CPU support"
+        },
+        "vram_recommendations": {
+          "3b_model": "16GB VRAM for optimal performance",
+          "7b_model": "24-32GB VRAM",
+          "13b_model": "40-80GB VRAM",
+          "30b_model": "80-160GB VRAM",
+          "70b_model": "200-400GB VRAM (multi-GPU required)"
+        },
+        "storage": "High-speed storage recommended for model loading"
+      },
+      "key_features": [
+        "State-of-the-art serving throughput",
+        "Continuous batching for efficient resource usage",
+        "PagedAttention for memory efficiency",
+        "OpenAI-compatible API server",
+        "Speculative decoding for faster inference",
+        "Multi-LoRA support for fine-tuned variants",
+        "Tensor and pipeline parallelism",
+        "FlashAttention and optimized CUDA kernels",
+        "Quantization support (GPTQ, AWQ, FP8, INT4/8)",
+        "Multimodal model support",
+        "Tool calling and function calling",
+        "Structured outputs with JSON schema",
+        "Continuous learning from production workloads"
+      ],
+      "performance_highlights": {
+        "throughput_improvement": "23x throughput improvement with continuous batching",
+        "pagedattention": "Efficient memory management for large context windows",
+        "continuous_batching": "Batches requests dynamically as they arrive"
+      },
+      "integration_examples": {
+        "openai_client": "import openai\nclient = openai.OpenAI(base_url=\"http://localhost:8000/v1\", api_key=\"sk-12345\")\nresponse = client.chat.completions.create(model=\"meta-llama/Meta-Llama-3-8B-Instruct\", messages=[{\"role\": \"user\", \"content\": \"Hello!\"}])\nprint(response.choices[0].message.content)",
+        "curl_basic": "curl http://localhost:8000/v1/chat/completions -H \"Content-Type: application/json\" -H \"Authorization: Bearer sk-12345\" -d '{\"model\": \"meta-llama/Meta-Llama-3-8B-Instruct\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]}'",
+        "python_sdk": "from vllm import LLM\nllm = LLM(model=\"meta-llama/Meta-Llama-3-8B-Instruct\")\noutputs = llm.generate([\"Hello, how are you?\", \"What's the weather like?\"])\nfor output in outputs:\n    print(output.outputs[0].text)"
+      },
+      "limitations": [
+        "Requires high-end hardware for larger models",
+        "Complex multi-GPU configuration",
+        "Python dependency for direct usage",
+        "Resource intensive for production deployment"
+      ],
+      "github_repo": "https://github.com/vllm-project/vllm",
+      "documentation": "https://docs.vllm.ai/",
+      "academic_paper": "https://arxiv.org/abs/2309.06180",
+      "community": ["GitHub Discussions", "Discord", "Academic papers", "Performance benchmarks"]
+    },
+
+    "fastertransformer": {
+      "name": "FasterTransformer",
+      "description": "NVIDIA-optimized transformer library for high-performance LLM inference and training",
+      "version": "Latest",
+      "api_endpoints": {
+        "base_url": "N/A - Library-based",
+        "note": "FasterTransformer is primarily a C++ library for integration into custom applications rather than a standalone server"
+      },
+      "model_support": {
+        "supported_architectures": [
+          "BERT", "GPT-2", "GPT-3", "T5", "ViT", "GPT-J", "GPT-NeoX", "BLOOM", "PaLM",
+          "LLaMA", "LLaMA 2", "Code Llama", "Galactica", "StarCoder", "mT5", "UL2",
+          "Mistral", "Mixtral", "Qwen", "ChatGLM", "Baichuan", "InternLM"
+        ],
+        "optimization_features": [
+          "Layer fusion and kernel optimization",
+          "FP16/BF16 mixed precision",
+          "Tensor parallelism",
+          "Pipeline parallelism",
+          "Multi-head attention optimization",
+          "Feed-forward network optimization",
+          "Layer normalization optimization"
+        ],
+        "quantization_support": [
+          "FP16", "BF16", "INT8", "INT4"
+        ]
+      },
+      "configuration_methods": {
+        "installation": {
+          "git_clone": "git clone https://github.com/NVIDIA/FasterTransformer.git",
+          "cmake_build": "Standard CMake build process with CUDA support",
+          "tensorrt_integration": "Can be integrated with TensorRT for additional optimization"
+        },
+        "build_configuration": {
+          "cuda_version": "CUDA 11.0+ recommended",
+          "tensorrt_version": "TensorRT 8.0+ for additional optimization",
+          "enable_tensorrt": "Enable TensorRT integration during build",
+          "build_type": "Release build for production use"
+        },
+        "runtime_configuration": {
+          "tensor_parallel_size": "Number of GPUs for tensor parallelism",
+          "pipeline_parallel_size": "Number of pipeline stages",
+          "max_seq_len": "Maximum sequence length",
+          "batch_size": "Batch size configuration",
+          "precision_mode": "FP16, BF16, INT8, or INT4"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "NVIDIA GPU with compute capability 7.0+",
+        "recommended": "A100, H100, or latest NVIDIA GPUs",
+        "gpu_support": {
+          "nvidia_turing": "Partial support (RTX 20 series)",
+          "nvidia_ampere": "Full support (RTX 30 series, A100)",
+          "nvidia_hopper": "Full support (H100)",
+          "nvidia_ada": "Full support (RTX 40 series)"
+        },
+        "vram_recommendations": {
+          "small_models_3b": "8GB VRAM minimum",
+          "medium_models_7b": "16GB VRAM minimum", 
+          "large_models_30b": "48GB VRAM minimum",
+          "very_large_models_70b": "80GB VRAM minimum"
+        }
+      },
+      "key_features": [
+        "NVIDIA GPU-specific optimizations",
+        "Low-level C++ API for maximum performance",
+        "Tensor and pipeline parallelism support",
+        "Mixed precision training and inference",
+        "Integration with TensorRT for additional optimization",
+        "Supports major transformer architectures",
+        "Memory-efficient attention mechanisms",
+        "Optimized CUDA kernels",
+        "Production-ready performance",
+        "Used in NVIDIA Triton Inference Server"
+      ],
+      "use_cases": [
+        "High-performance LLM serving",
+        "Research and development",
+        "Production inference systems",
+        "Training acceleration",
+        "Edge deployment on NVIDIA hardware"
+      ],
+      "limitations": [
+        "NVIDIA GPU exclusive",
+        "Requires significant GPU memory",
+        "Complex integration for custom applications",
+        "Limited to supported transformer architectures",
+        "No standalone API server"
+      ],
+      "github_repo": "https://github.com/NVIDIA/FasterTransformer",
+      "documentation": "https://github.com/NVIDIA/FasterTransformer/blob/main/README.md",
+      "integration_examples": {
+        "cpp_integration": "#include \"fastertransformer/bert_encoder_decoder.h\"\n// Custom C++ integration required",
+        "triton_deployment": "Deploy via NVIDIA Triton Inference Server with FasterTransformer backend"
+      },
+      "community": ["NVIDIA Developer Forums", "GitHub Issues", "Academic collaborations"]
+    },
+
+    "llama_cpp": {
+      "name": "llama.cpp",
+      "description": "Lightweight C++ inference engine for GGUF models with minimal dependencies and broad hardware support",
+      "version": "Latest",
+      "api_endpoints": {
+        "base_url": "http://localhost:8080 (llama-server)",
+        "llama_server_endpoints": [
+          {
+            "method": "POST",
+            "path": "/v1/chat/completions",
+            "description": "OpenAI-compatible chat completions",
+            "features": ["chat", "streaming", "multimodal", "grammar_constraints"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/completions",
+            "description": "OpenAI-compatible text completions",
+            "features": ["completions", "streaming", "grammar_constraints"]
+          },
+          {
+            "method": "POST",
+            "path": "/v1/embeddings",
+            "description": "OpenAI-compatible embeddings",
+            "features": ["embeddings", "reranking"]
+          }
+        ],
+        "native_endpoints": [
+          {
+            "method": "POST",
+            "path": "/completion",
+            "description": "Native completion endpoint"
+          },
+          {
+            "method": "POST",
+            "path": "/embedding",
+            "description": "Native embedding endpoint"
+          }
+        ]
+      },
+      "model_support": {
+        "model_format": "GGUF only (built on ggml library)",
+        "base_models": [
+          "LLaMA", "LLaMA 2", "LLaMA 3", "LLaMA 4", "Mistral", "Mixtral", "DBRX", "Jamba",
+          "Falcon", "ChatGLM3", "ChatGLM4", "Baichuan", "Aquila", "Starcoder", "MPT", "Bloom",
+          "Yi", "StableLM", "Deepseek", "Qwen", "Phi", "GPT-2", "Orion", "InternLM2",
+          "CodeShell", "Gemma", "Mamba", "Grok-1", "Xverse", "Command-R", "GritLM",
+          "OLMo", "OLMo 2", "OLMoE", "Granite", "GPT-NeoX", "Pythia", "Snowflake-Arctic",
+          "Smaug", "Open Elm", "EXAONE-3.0", "FalconMamba", "Jais", "Bielik", "RWKV-6",
+          "GigaChat-20B", "Trillion-7B", "Ling", "LFM2", "Hunyuan", "BailingMoeV2"
+        ],
+        "multimodal_models": [
+          "LLaVA 1.5", "LLaVA 1.6", "BakLLaVA", "Obsidian", "ShareGPT4V", "MobileVLM",
+          "Yi-VL", "Mini CPM", "Moondream", "Bunny", "GLM-EDGE", "Qwen2-VL", "LFM2-VL"
+        ],
+        "quantization_levels": [
+          "1.5-bit", "2-bit", "3-bit", "4-bit", "5-bit", "6-bit", "8-bit"
+        ],
+        "special_features": [
+          "Grammar constraints (GBNF format)",
+          "Speculative decoding",
+          "Reranking capabilities",
+          "CPU+GPU hybrid inference",
+          "Batch processing",
+          "Multimodal support"
+        ]
+      },
+      "configuration_methods": {
+        "installation": {
+          "git_clone": "git clone https://github.com/ggml-org/llama.cpp.git",
+          "build": "Standard C++ compilation with CMake",
+          "package_managers": "Available in some package managers",
+          "prebuilt": "Precompiled binaries available"
+        },
+        "llama_server_configuration": {
+          "start_server": "./llama-server -m model.gguf -p 8080",
+          "enable_multimodal": "./llama-server -m model.gguf --mmproj model.mmproj",
+          "enable_grammar": "./llama-server -m model.gguf --grammar-file grammar.gbnf",
+          "enable_speculative": "./llama-server -m model.gguf --md draft_model.gguf",
+          "configure_context": "./llama-server -m model.gguf -c 4096 -np 4"
+        },
+        "llama_cli_modes": {
+          "conversation_mode": "./llama-cli -m model.gguf -cnv",
+          "text_completion": "./llama-cli -m model.gguf -p \"Your prompt here\"",
+          "grammar_constraint": "./llama-cli -m model.gguf --grammar-file json.gbnf",
+          "huggingface_model": "./llama-cli -hf ggml-org/gemma-3-1b-it-GGUF"
+        },
+        "build_configuration": {
+          "apple_silicon": "ARM NEON, Accelerate, Metal",
+          "x86_64": "AVX, AVX2, AVX512, AMX",
+          "nvidia_cuda": "Custom CUDA kernels",
+          "amd_rocm": "HIP support",
+          "intel_gpu": "SYCL support",
+          "vulkan": "Cross-platform GPU support",
+          "cpu_only": "Pure CPU inference"
+        }
+      },
+      "hardware_requirements": {
+        "minimum": "2GB RAM for smallest models",
+        "recommended": "8GB+ RAM for 7B models",
+        "gpu_support": {
+          "nvidia_cuda": "Full CUDA acceleration",
+          "amd_rocm": "HIP-based acceleration",
+          "apple_silicon": "Native Metal acceleration",
+          "intel_arc": "SYCL support",
+          "vulkan": "Cross-platform GPU",
+          "cpu_only": "Complete CPU support"
+        },
+        "vram_recommendations": {
+          "1-3b_models": "4-8GB VRAM",
+          "7b_models": "8-16GB VRAM",
+          "13b_models": "16-24GB VRAM",
+          "30b_models": "24-48GB VRAM"
+        },
+        "specialized_platforms": [
+          "Android (snapdragon hexagon)",
+          "iOS/macOS (xcframework)",
+          "Raspberry Pi (ARM)",
+          "WebGPU (experimental)"
+        ]
+      },
+      "key_features": [
+        "Minimal dependencies (pure C/C++)",
+        "Broad hardware support including mobile",
+        "GGUF model format optimization",
+        "Grammar constraints with GBNF",
+        "Speculative decoding support",
+        "Reranking capabilities",
+        "Multimodal model support",
+        "CPU+GPU hybrid inference",
+        "OpenAI-compatible server mode",
+        "Extensive quantization support",
+        "Cross-platform compilation",
+        "Used as foundation for many other projects"
+      ],
+      "tools_and_examples": {
+        "llama_perplexity": "Measure model perplexity and quality metrics",
+        "llama_bench": "Benchmark inference performance",
+        "llama_run": "Simple inference runner",
+        "llama_simple": "Minimal integration example",
+        "swift_xcframework": "iOS/macOS integration library"
+      },
+      "integration_examples": {
+        "server_mode": "curl http://localhost:8080/v1/chat/completions -H \"Content-Type: application/json\" -d '{\"model\": \"model.gguf\", \"messages\": [{\"role\": \"user\", \"content\": \"Hello!\"}]}'",
+        "python_binding": "from llama_cpp import Llama\nllm = Llama(model_path=\"model.gguf\")\noutput = llm(\"Hello, how are you?\", max_tokens=50, echo=True)\nprint(output['choices'][0]['text'])",
+        "huggingface_direct": "./llama-cli -hf microsoft/DialoGPT-medium-GGUF"
+      },
+      "limitations": [
+        "GGUF format only",
+        "Limited to models with GGUF conversion available",
+        "Basic text-focused functionality",
+        "No built-in fine-tuning capabilities"
+      ],
+      "github_repo": "https://github.com/ggml-org/llama.cpp",
+      "documentation": "https://github.com/ggml-org/llama.cpp/blob/master/README.md",
+      "model_conversion": "GGUF conversion tools available in repository",
+      "community": ["GitHub Discussions", "Reddit r/LocalLLaMA", "Discord", "Extensive community forks and derivatives"]
+    }
+  },
+
+  "summary_statistics": {
+    "total_systems": 8,
+    "api_compatible_systems": 7,
+    "openai_compatible_systems": 7,
+    "gpu_acceleration_support": 8,
+    "multi_modal_support": 6,
+    "vision_model_support": 5,
+    "function_calling_support": 6,
+    "streaming_support": 7,
+    "quantization_support": 8,
+    "enterprise_ready_systems": 3,
+    "developer_focused_systems": 5
+  },
+
+  "comparison_matrix": {
+    "api_compatibility": {
+      "ollama": "Full OpenAI compatibility + native API",
+      "lm_studio": "Full OpenAI compatibility + native API",
+      "localai": "Full OpenAI compatibility",
+      "open_webui": "OpenAI compatibility + proxy",
+      "text_generation_webui": "OpenAI compatibility + extensions",
+      "vllm": "Full OpenAI compatibility",
+      "fastertransformer": "Library-based (no API server)",
+      "llama_cpp": "OpenAI-compatible server mode"
+    },
+    "ease_of_use": {
+      "ollama": "Very Easy",
+      "lm_studio": "Very Easy",
+      "localai": "Moderate",
+      "open_webui": "Easy",
+      "text_generation_webui": "Moderate",
+      "vllm": "Advanced",
+      "fastertransformer": "Expert",
+      "llama_cpp": "Moderate"
+    },
+    "performance": {
+      "ollama": "Good",
+      "lm_studio": "Good",
+      "localai": "Good (backend dependent)",
+      "open_webui": "N/A (proxy)",
+      "text_generation_webui": "Good (backend dependent)",
+      "vllm": "Excellent",
+      "fastertransformer": "Excellent",
+      "llama_cpp": "Good"
+    },
+    "model_format_support": {
+      "ollama": "GGUF, GGML",
+      "lm_studio": "GGUF, GGML, Safetensors",
+      "localai": "Multiple (GGUF, GGML, Safetensors, ONNX)",
+      "open_webui": "Depends on connected providers",
+      "text_generation_webui": "GGUF, Safetensors, GGML",
+      "vllm": "PyTorch, Safetensors, various",
+      "fastertransformer": "Model-specific formats",
+      "llama_cpp": "GGUF only"
+    }
+  },
+
+  "recommendations": {
+    "beginners": ["ollama", "lm_studio"],
+    "experienced_users": ["vllm", "localai"],
+    "research_and_development": ["fastertransformer", "llama_cpp"],
+    "production_deployment": ["vllm", "ollama", "localai"],
+    "multimodal_applications": ["localai", "llama.cpp", "vllm"],
+    "resource_constrained": ["llama.cpp", "ollama"],
+    "high_performance": ["vllm", "fastertransformer"]
+  }
+}

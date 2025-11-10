@@ -1,0 +1,1317 @@
+{
+  "metadata": {
+    "report_name": "Enterprise and Regional LLM Providers 2025",
+    "generated_date": "2025-11-11",
+    "data_collection_period": "2025",
+    "total_providers": 12,
+    "regions_covered": ["Global", "Europe", "Asia-Pacific", "China"],
+    "data_completeness": "Comprehensive"
+  },
+  "providers": {
+    "cohere": {
+      "provider_name": "Cohere",
+      "headquarters": "San Francisco, USA",
+      "founded": 2019,
+      "region": "Global",
+      "api_details": {
+        "base_url": "https://api.cohere.ai",
+        "documentation": "https://docs.cohere.com/docs/models",
+        "authentication": "API Key",
+        "api_versions": ["v1", "v2"],
+        "endpoints": [
+          {
+            "name": "chat",
+            "url": "https://api.cohere.ai/v1/chat",
+            "description": "Chat completion endpoint"
+          },
+          {
+            "name": "embed",
+            "url": "https://api.cohere.ai/v1/embed",
+            "description": "Text and image embeddings"
+          },
+          {
+            "name": "rerank",
+            "url": "https://api.cohere.ai/v1/rerank",
+            "description": "Document reranking"
+          }
+        ]
+      },
+      "models": [
+        {
+          "model_id": "command-a-03-2025",
+          "name": "Command A",
+          "status": "Live",
+          "modality": "text",
+          "context_length": 256000,
+          "max_output_tokens": 8000,
+          "description": "Most performant model for tool use, RAG, agents, multilingual",
+          "pricing": {
+            "unit": "tokens",
+            "input_cost_per_1m": 1.0,
+            "output_cost_per_1m": 2.0,
+            "currency": "USD"
+          }
+        },
+        {
+          "model_id": "command-r-08-2024",
+          "name": "Command R",
+          "status": "Live",
+          "modality": "text",
+          "context_length": 128000,
+          "max_output_tokens": 4000,
+          "description": "Enhanced RAG and tool use capabilities",
+          "pricing": {
+            "unit": "tokens",
+            "input_cost_per_1m": 0.5,
+            "output_cost_per_1m": 1.5,
+            "currency": "USD"
+          }
+        },
+        {
+          "model_id": "command-r-plus-08-2024",
+          "name": "Command R+",
+          "status": "Live",
+          "modality": "text",
+          "context_length": 128000,
+          "max_output_tokens": 4000,
+          "description": "Advanced reasoning and complex workflows",
+          "pricing": {
+            "unit": "tokens",
+            "input_cost_per_1m": 2.5,
+            "output_cost_per_1m": 10.0,
+            "currency": "USD"
+          }
+        },
+        {
+          "model_id": "c4ai-aya-expanse-8b",
+          "name": "Aya Expanse 8B",
+          "status": "Live",
+          "modality": "text",
+          "context_length": 8000,
+          "max_output_tokens": 4000,
+          "description": "Multilingual model optimized for 23 languages",
+          "supported_languages": ["Arabic", "Chinese", "Czech", "Dutch", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Indonesian", "Italian", "Japanese", "Korean", "Persian", "Polish", "Portuguese", "Romanian", "Russian", "Spanish", "Turkish", "Ukrainian", "Vietnamese"],
+          "pricing": {
+            "unit": "tokens",
+            "input_cost_per_1m": 0.5,
+            "output_cost_per_1m": 1.5,
+            "currency": "USD"
+          }
+        },
+        {
+          "model_id": "command-a-vision-07-2025",
+          "name": "Command A Vision",
+          "status": "Live",
+          "modality": "text, images",
+          "context_length": 128000,
+          "max_output_tokens": 8000,
+          "description": "First model capable of processing images for document analysis",
+          "supported_languages": ["English", "Portuguese", "Italian", "French", "German", "Spanish"]
+        }
+      ],
+      "api_tiers": [
+        {
+          "tier": "Trial",
+          "cost": "Free",
+          "usage_restrictions": "Rate-limited, non-commercial use only",
+          "billing": "Not available for production"
+        },
+        {
+          "tier": "Production",
+          "cost": "Pay-as-you-go",
+          "billing": "Monthly or when $250 balance reached"
+        }
+      ],
+      "enterprise_features": {
+        "north_workplace_system": {
+          "available": true,
+          "pricing": "Custom (contact sales)",
+          "description": "All-in-one AI platform for enterprise"
+        },
+        "compass_search": {
+          "available": true,
+          "pricing": "Custom (contact sales)",
+          "description": "Intelligent search and discovery system"
+        },
+        "customization": {
+          "available": true,
+          "pricing": "Custom (contact sales)",
+          "description": "Bespoke model customization"
+        },
+        "private_deployments": {
+          "available": true,
+          "pricing": "Custom (contact sales)",
+          "description": "On-premise and private cloud deployment options"
+        }
+      },
+      "platform_availability": [
+        "First-party API",
+        "Amazon SageMaker",
+        "Amazon Bedrock",
+        "Microsoft Azure AI Foundry",
+        "Oracle GenAI Service"
+      ],
+      "notes": "Strong focus on enterprise use cases, multilingual support, and RAG applications",
+      "source_url": "https://cohere.com/pricing"
+    },
+    "ai21_labs": {
+      "provider_name": "AI21 Labs",
+      "headquarters": "Tel Aviv, Israel",
+      "founded": 2017,
+      "region": "Global",
+      "api_details": {
+        "base_url": "https://api.ai21.com",
+        "documentation": "https://docs.ai21.com/",
+        "authentication": "API Key",
+        "api_versions": ["v1"]
+      },
+      "models": [
+        {
+          "model_id": "j2-ultra",
+          "name": "Jurassic-2 Ultra",
+          "status": "Live",
+          "modality": "text",
+          "description": "Highest quality text generation model"
+        },
+        {
+          "model_id": "j2-mid",
+          "name": "Jurassic-2 Mid",
+          "status": "Live",
+          "modality": "text",
+          "description": "Balanced quality and speed for most applications"
+        },
+        {
+          "model_id": "j1-grande",
+          "name": "J1 Grande",
+          "status": "Live",
+          "modality": "text",
+          "description": "Mid-size model with supreme quality at affordable rate"
+        }
+      ],
+      "pricing": {
+        "framework": "Token-based",
+        "input_output_differentiation": true,
+        "free_trial": {
+          "amount": 10,
+          "currency": "USD",
+          "duration": "3 months",
+          "scope": "All API, SDK, and playground usage"
+        },
+        "billing": "Monthly from account creation date",
+        "enterprise_plans": {
+          "available": true,
+          "description": "Customized plans for large usage expectations",
+          "requirements": "Direct signup for customized plan"
+        },
+        "cloud_hosting_note": "When hosted on AWS (Bedrock/SageMaker), pricing set by AWS, not AI21"
+      },
+      "platform_availability": [
+        "First-party API",
+        "AWS SageMaker",
+        "AWS Bedrock"
+      ],
+      "notes": "Pioneer in text generation with strong focus on high-quality output",
+      "source_url": "https://docs.ai21.com/docs/usage-cost",
+      "data_gaps": "Specific model pricing requires contact with sales; public pricing page blocked during collection"
+    },
+    "stability_ai": {
+      "provider_name": "Stability AI",
+      "headquarters": "London, UK",
+      "founded": 2020,
+      "region": "Global",
+      "api_details": {
+        "base_url": "https://api.stability.ai",
+        "documentation": "https://platform.stability.ai/docs/api-reference",
+        "authentication": "API Key",
+        "api_versions": ["v1", "v2beta"]
+      },
+      "models": [
+        {
+          "model_id": "stable-diffusion-3-5-large",
+          "name": "Stable Diffusion 3.5 Large",
+          "status": "Live",
+          "modality": "image",
+          "parameters": "8B",
+          "description": "Most powerful base model with superior quality and prompt adherence",
+          "pricing": {
+            "unit": "credits",
+            "credits_per_call": 6.5,
+            "dollar_equivalent": 0.065
+          }
+        },
+        {
+          "model_id": "stable-image-ultra",
+          "name": "Stable Image Ultra",
+          "status": "Live",
+          "modality": "image",
+          "description": "Flagship image service based on SD3.5 Large, highest quality",
+          "pricing": {
+            "unit": "credits",
+            "credits_per_call": 8.0,
+            "dollar_equivalent": 0.08
+          }
+        },
+        {
+          "model_id": "stable-audio-2",
+          "name": "Stable Audio 2",
+          "status": "Live",
+          "modality": "audio",
+          "description": "Generate up to 3 minutes of high-quality audio from text or audio samples",
+          "pricing": {
+            "unit": "credits",
+            "credits_per_call": 20,
+            "dollar_equivalent": 0.20
+          }
+        },
+        {
+          "model_id": "stable-fast-3d",
+          "name": "Stable Fast 3D",
+          "status": "Live",
+          "modality": "3D",
+          "description": "Generate high-quality 3D assets from single 2D input image",
+          "pricing": {
+            "unit": "credits",
+            "credits_per_call": 10,
+            "dollar_equivalent": 0.10
+          }
+        }
+      ],
+      "pricing": {
+        "credit_system": {
+          "1_credit_equals": 0.01,
+          "currency": "USD",
+          "free_signup_credits": 25
+        },
+        "service_categories": {
+          "image_generation": {
+            "Stable Image Ultra": 8.0,
+            "SD 3.5 Large": 6.5,
+            "SD 3.5 Large Turbo": 4.0,
+            "SD 3.5 Medium": 3.5,
+            "SD 3.5 Flash": 2.5,
+            "Stable Image Core": 3.0,
+            "SDXL 1.0": "From 0.9"
+          },
+          "upscale": {
+            "Creative Upscaler (4K)": 60,
+            "Conservative Upscaler": 40,
+            "Fast Upscaler": 2
+          },
+          "editing": {
+            "Erase Object": 5,
+            "Inpaint": 5,
+            "Outpaint": 4,
+            "Remove Background": 5,
+            "Search and Recolor": 5,
+            "Search and Replace": 5,
+            "Replace Background & Relight": 8
+          },
+          "control": {
+            "Structure": 5,
+            "Sketch": 5,
+            "Style Guide": 5,
+            "Style Transfer": 8
+          },
+          "3d": {
+            "Stable Fast 3D": 10,
+            "Stable Point Aware 3D (SPAR3D)": 4
+          },
+          "audio": {
+            "Stable Audio 2": "From 20"
+          }
+        },
+        "pricing_change_notice": "Pricing subject to change as models and infrastructure improve"
+      },
+      "enterprise_features": {
+        "private_deployment": {
+          "available": true,
+          "pricing": "Contact sales",
+          "description": "Custom enterprise deployment solutions"
+        }
+      },
+      "deprecations": {
+        "stable_video_api": "Discontinued July 24, 2025",
+        "stable_diffusion_1_6_api": "Discontinued July 24, 2025"
+      },
+      "notes": "Specializes in image, audio, and 3D generation with credit-based pricing system",
+      "source_url": "https://platform.stability.ai/pricing"
+    },
+    "mistral_ai": {
+      "provider_name": "Mistral AI",
+      "headquarters": "Paris, France",
+      "founded": 2023,
+      "region": "Europe",
+      "api_details": {
+        "base_url": "https://api.mistral.ai",
+        "documentation": "https://docs.mistral.ai/",
+        "authentication": "API Key",
+        "api_versions": ["v1"]
+      },
+      "models": [
+        {
+          "model_id": "codestral-v25-08",
+          "name": "Codestral",
+          "status": "Live",
+          "modality": "text",
+          "description": "Cutting-edge language model for coding",
+          "release_date": "July 2025"
+        },
+        {
+          "model_id": "mistral-medium-3-1",
+          "name": "Mistral Medium 3.1",
+          "status": "Live",
+          "modality": "text, multimodal",
+          "description": "Frontier-class multimodal model",
+          "release_date": "August 2025"
+        },
+        {
+          "model_id": "mistral-small-3-2",
+          "name": "Mistral Small 3.2",
+          "status": "Live",
+          "modality": "text",
+          "description": "Update to previous small model",
+          "release_date": "June 2025"
+        },
+        {
+          "model_id": "magistral-medium-1-2",
+          "name": "Magistral Medium 1.2",
+          "status": "Live",
+          "modality": "text, multimodal",
+          "description": "Frontier-class multimodal reasoning model",
+          "release_date": "September 2025"
+        },
+        {
+          "model_id": "voxtral-small-v25-07",
+          "name": "Voxtral Small",
+          "status": "Live",
+          "modality": "audio",
+          "description": "First model with audio input capabilities",
+          "release_date": "July 2025"
+        }
+      ],
+      "capabilities": [
+        "Text and Chat Completions",
+        "Vision (visual and textual intelligence)",
+        "Audio & Transcription",
+        "Reasoning (step-by-step thinking)",
+        "Document AI (automation)",
+        "Coding (Code Generation)",
+        "Embeddings",
+        "Function calling",
+        "Citations & References",
+        "Structured Outputs",
+        "Moderation & Guardrailing",
+        "Fine-Tuning",
+        "Batch Inference",
+        "Predicted outputs"
+      ],
+      "consumer_plans": {
+        "le_chat": {
+          "free": {
+            "cost": 0,
+            "currency": "USD",
+            "features": [
+              "Personal AI assistant",
+              "Access to all models",
+              "500 saved memories",
+              "Group chats into projects",
+              "Up to 6x free messages",
+              "150 flash answers/day",
+              "5x free web searches",
+              "30x free think mode",
+              "5x free deep research",
+              "500 memories (beta)",
+              "40x free image generation",
+              "5x free code interpreter"
+            ]
+          },
+          "pro": {
+            "cost": 14.99,
+            "currency": "USD",
+            "billing": "Monthly",
+            "features": [
+              "Enhanced capabilities",
+              "30x more extended thinking",
+              "5x more deep research reports",
+              "15GB document storage",
+              "Unlimited projects",
+              "1,000 memories",
+              "15GB libraries",
+              "Enhanced message limits"
+            ]
+          },
+          "team": {
+            "cost": 24.99,
+            "currency": "USD",
+            "billing": "Per user/monthly",
+            "features": [
+              "Secure, collaborative workspace",
+              "200 flash answers/user/day",
+              "30GB storage/user",
+              "Domain name verification",
+              "SCIM provisioning",
+              "Data export",
+              "Team enterprise features"
+            ]
+          },
+          "enterprise": {
+            "cost": "Custom",
+            "currency": "USD",
+            "features": [
+              "Private deployments",
+              "Custom models, UI, tools",
+              "Verified news",
+              "Custom MCP connectors",
+              "Canvas mode",
+              "Audit logs",
+              "SAML SSO",
+              "White label options"
+            ]
+          }
+        }
+      },
+      "api_pricing": {
+        "status": "Not detailed in collected sources",
+        "note": "Consumer plan details (Le Chat) are not equivalent to API pricing",
+        "enterprise_api": "Contact sales for API pricing"
+      },
+      "deployment_options": [
+        "AI Studio",
+        "Cloud",
+        "Self-deployment"
+      ],
+      "platform_availability": [
+        "First-party API",
+        "Google Vertex AI (partner models)"
+      ],
+      "notes": "European-based with strong focus on multilingual and multimodal capabilities",
+      "source_url": "https://mistral.ai/pricing"
+    },
+    "aleph_alpha": {
+      "provider_name": "Aleph Alpha",
+      "headquarters": "Heidelberg, Germany",
+      "founded": 2019,
+      "region": "Europe",
+      "api_details": {
+        "base_url": "https://api.aleph-alpha.com",
+        "documentation": "https://docs.aleph-alpha.com/products/apis/overview/",
+        "authentication": "API Key"
+      },
+      "api_suite": {
+        "pharia_data": {
+          "description": "Data management and processing"
+        },
+        "pharia_finetuning": {
+          "description": "Model fine-tuning services"
+        },
+        "pharia_inference": {
+          "description": "Model inference and generation"
+        },
+        "pharia_kernel": {
+          "description": "Core AI processing engine"
+        },
+        "pharia_os": {
+          "description": "Operating system for AI applications"
+        },
+        "pharia_search": {
+          "description": "Intelligent search and discovery"
+        },
+        "pharia_studio": {
+          "description": "Development and management studio"
+        }
+      },
+      "models": {
+        "status": "Not specified in collected sources",
+        "note": "Sovereign EU models focused on enterprise and government use"
+      },
+      "pricing": {
+        "status": "Not publicly available",
+        "model": "Enterprise-centric",
+        "note": "No consumer-style pricing or free tier for general use"
+      },
+      "enterprise_features": {
+        "sovereign_ai": {
+          "available": true,
+          "description": "Built for European sovereignty and compliance",
+          "focus_areas": ["Enterprise", "Government"]
+        },
+        "data_privacy": {
+          "available": true,
+          "description": "Strong focus on data privacy and protection"
+        },
+        "transparency": {
+          "available": true,
+          "description": "Emphasis on explainability and AI transparency"
+        }
+      },
+      "regional_advantages": [
+        "GDPR compliance",
+        "EU data residency",
+        "European legal framework adherence",
+        "Sovereign AI capabilities"
+      ],
+      "notes": "European sovereign AI provider focused on compliance and transparency",
+      "source_url": "https://docs.aleph-alpha.com/products/apis/overview/"
+    },
+    "hugging_face": {
+      "provider_name": "Hugging Face",
+      "headquarters": "New York, USA / Paris, France",
+      "founded": 2016,
+      "region": "Global",
+      "api_details": {
+        "base_url": "https://api-inference.huggingface.co",
+        "documentation": "https://huggingface.co/docs",
+        "authentication": "API Key",
+        "api_versions": ["v1"]
+      },
+      "hub_plans": {
+        "free": {
+          "cost": 0,
+          "currency": "USD",
+          "features": [
+            "Open collaboration platform",
+            "Model evaluation tools",
+            "Dataset viewer",
+            "Git-based collaboration",
+            "ML portfolio building"
+          ]
+        },
+        "pro": {
+          "cost": 9,
+          "currency": "USD",
+          "billing": "Monthly",
+          "features": [
+            "10x private storage capacity",
+            "20x included inference credits",
+            "8x ZeroGPU quota",
+            "Highest queue priority",
+            "Spaces Dev Mode",
+            "ZeroGPU Spaces hosting",
+            "Blog articles on profile",
+            "Dataset Viewer for private datasets",
+            "Pro badge",
+            "Early access to features"
+          ]
+        },
+        "team": {
+          "cost": 20,
+          "currency": "USD",
+          "billing": "Per user/monthly",
+          "features": [
+            "SSO and SAML support",
+            "Choose data location with Storage Regions",
+            "Detailed action reviews with Audit Logs",
+            "Granular access control via Resource Groups",
+            "Repository usage Analytics",
+            "Auth policies and default visibility",
+            "Centralized token control",
+            "Advanced compute options for Spaces",
+            "All org members get PRO benefits"
+          ]
+        },
+        "enterprise": {
+          "cost": "Starting at 50",
+          "currency": "USD",
+          "billing": "Per user/monthly",
+          "features": [
+            "All Team benefits",
+            "Highest storage, bandwidth, API rate limits",
+            "Managed billing with annual commitments",
+            "Legal and Compliance processes",
+            "Personalized support",
+            "Custom onboarding"
+          ]
+        }
+      },
+      "spaces_hardware": [
+        {
+          "name": "CPU Basic",
+          "cpu": "2 vCPU",
+          "memory": "16 GB",
+          "accelerator": "None",
+          "vram": "None",
+          "hourly_price": 0
+        },
+        {
+          "name": "CPU Upgrade",
+          "cpu": "8 vCPU",
+          "memory": "32 GB",
+          "accelerator": "None",
+          "vram": "None",
+          "hourly_price": 0.03
+        },
+        {
+          "name": "Nvidia T4 - small",
+          "cpu": "4 vCPU",
+          "memory": "15 GB",
+          "accelerator": "Nvidia T4",
+          "vram": "16 GB",
+          "hourly_price": 0.40
+        },
+        {
+          "name": "Nvidia L4 - 1x",
+          "cpu": "8 vCPU",
+          "memory": "30 GB",
+          "accelerator": "Nvidia L4",
+          "vram": "24 GB",
+          "hourly_price": 0.80
+        },
+        {
+          "name": "Nvidia A100 - 80GB",
+          "cpu": "12 vCPU",
+          "memory": "142 GB",
+          "accelerator": "Nvidia A100",
+          "vram": "80 GB",
+          "hourly_price": 2.50
+        },
+        {
+          "name": "Nvidia H100",
+          "cpu": "23 vCPU",
+          "memory": "240 GB",
+          "accelerator": "Nvidia H100",
+          "vram": "80 GB",
+          "hourly_price": 4.50
+        },
+        {
+          "name": "ZeroGPU",
+          "cpu": "Dynamic",
+          "memory": "Dynamic",
+          "accelerator": "Nvidia H200",
+          "vram": "70 GB",
+          "hourly_price": 0
+        }
+      ],
+      "inference_providers": {
+        "description": "Access 200+ models from leading AI inference providers",
+        "pricing": "Centralized, transparent, pay-as-you-go",
+        "features": [
+          "No infrastructure management required",
+          "200+ model access",
+          "Centralized billing",
+          "Pay-as-you-go pricing"
+        ]
+      },
+      "inference_endpoints": {
+        "description": "Dedicated production solution for any ML model",
+        "pricing": "Starting at $0.033/hour",
+        "features": [
+          "Secure production deployment",
+          "Dedicated infrastructure",
+          "Autoscaling",
+          "Custom models support"
+        ]
+      },
+      "notes": "Open-source AI community platform with comprehensive infrastructure services",
+      "source_url": "https://huggingface.co/pricing"
+    },
+    "together_ai": {
+      "provider_name": "Together AI",
+      "headquarters": "Palo Alto, USA",
+      "founded": 2022,
+      "region": "Global",
+      "api_details": {
+        "base_url": "https://api.together.xyz",
+        "documentation": "https://docs.together.ai/",
+        "authentication": "API Key"
+      },
+      "model_inference": {
+        "text_and_vision_models": [
+          {
+            "model": "Llama 4 Maverick",
+            "input_per_1m": 0.27,
+            "output_per_1m": 0.85
+          },
+          {
+            "model": "DeepSeek-R1",
+            "input_per_1m": 3.00,
+            "output_per_1m": 7.00
+          },
+          {
+            "model": "DeepSeek-V3.1",
+            "input_per_1m": 0.60,
+            "output_per_1m": 1.70
+          },
+          {
+            "model": "Qwen3 235B A22B Instruct",
+            "input_per_1m": 0.20,
+            "output_per_1m": 0.60
+          },
+          {
+            "model": "Qwen3 235B A22B Thinking",
+            "input_per_1m": 0.65,
+            "output_per_1m": 3.00
+          }
+        ],
+        "image_models": [
+          {
+            "model": "FLUX.1 [pro]",
+            "price_per_mp": 0.05,
+            "default_steps": 28
+          },
+          {
+            "model": "Google Imagen 4.0 Fast",
+            "price_per_mp": 0.02
+          },
+          {
+            "model": "Google Imagen 4.0 Ultra",
+            "price_per_mp": 0.06
+          }
+        ],
+        "audio_models": [
+          {
+            "model": "Cartesia Sonic-2",
+            "price_per_1m_chars": 65.00
+          }
+        ],
+        "video_models": [
+          {
+            "model": "MiniMax 01 Director (720p/5s)",
+            "price_per_video": 0.28
+          },
+          {
+            "model": "Google Veo 2.0 (720p/5s)",
+            "price_per_video": 2.50
+          }
+        ]
+      },
+      "dedicated_endpoints": {
+        "hardware_pricing_per_hour": [
+          {
+            "hardware": "1x H200 141GB",
+            "price": 4.99
+          },
+          {
+            "hardware": "1x H100 80GB",
+            "price": 3.36
+          },
+          {
+            "hardware": "1x A100 80GB",
+            "price": 2.56
+          },
+          {
+            "hardware": "1x L40S 48GB",
+            "price": 2.10
+          }
+        ],
+        "features": [
+          "Guaranteed performance (no sharing)",
+          "Support for custom models",
+          "Autoscaling & traffic spike handling"
+        ]
+      },
+      "fine_tuning": {
+        "standard_pricing": {
+          "up_to_16b": {
+            "lora_sft": 0.48,
+            "lora_dpo": 1.20,
+            "full_sft": 0.54,
+            "full_dpo": 1.35
+          },
+          "17b_69b": {
+            "lora_sft": 1.50,
+            "lora_dpo": 3.75,
+            "full_sft": 1.65,
+            "full_dpo": 4.12
+          },
+          "70b_100b": {
+            "lora_sft": 2.90,
+            "lora_dpo": 7.25,
+            "full_sft": 3.20,
+            "full_dpo": 8.00
+          }
+        }
+      },
+      "gpu_clusters": {
+        "instant_clusters_per_hour_per_gpu": [
+          {
+            "gpu_type": "NVIDIA HGX H100 SXM",
+            "1_week_3_months": 2.20,
+            "1_6_days": 2.50,
+            "hourly": 2.99
+          },
+          {
+            "gpu_type": "NVIDIA HGX H200",
+            "1_week_3_months": 3.15,
+            "1_6_days": 3.45,
+            "hourly": 3.79
+          }
+        ],
+        "reserved_clusters": [
+          {
+            "gpu_type": "NVIDIA H200 141GB HBM3E",
+            "starting_price": 2.09
+          },
+          {
+            "gpu_type": "NVIDIA H100 80GB HBM2E",
+            "starting_price": 1.75
+          },
+          {
+            "gpu_type": "NVIDIA A100 80GB HBM2E",
+            "starting_price": 1.30
+          }
+        ]
+      },
+      "code_execution": {
+        "code_sandbox_per_hour": {
+          "per_vcpu": 0.0446,
+          "per_gib_ram": 0.0149
+        },
+        "code_interpreter_per_session": {
+          "60_minutes": 0.03
+        }
+      },
+      "model_catalog": {
+        "total_models": "200+",
+        "types": ["open-source", "specialized", "chat", "images", "code", "audio"],
+        "features": [
+          "Opt-out privacy controls",
+          "Serverless pay-per-token pricing",
+          "Model variety and flexibility"
+        ]
+      },
+      "notes": "Comprehensive inference cloud with 200+ open-source models and training infrastructure",
+      "source_url": "https://www.together.ai/pricing"
+    },
+    "replicate": {
+      "provider_name": "Replicate",
+      "headquarters": "San Francisco, USA",
+      "founded": 2019,
+      "region": "Global",
+      "api_details": {
+        "base_url": "https://api.replicate.com",
+        "documentation": "https://replicate.com/docs",
+        "authentication": "API Token"
+      },
+      "billing_methods": [
+        {
+          "type": "Hardware and time",
+          "description": "Billed by the time hardware is running"
+        },
+        {
+          "type": "Input and output",
+          "description": "Billed by the amount of data processed"
+        }
+      ],
+      "public_models_examples": [
+        {
+          "model": "anthropic/claude-3.7-sonnet",
+          "cost": {
+            "input_tokens": "3.00 per million",
+            "output_tokens": "0.015 per thousand"
+          }
+        },
+        {
+          "model": "black-forest-labs/flux-1.1-pro",
+          "cost": {
+            "output_image": "0.04 per image"
+          }
+        },
+        {
+          "model": "deepseek-ai/deepseek-r1",
+          "cost": {
+            "input_tokens": "3.75 per million",
+            "output_tokens": "0.01 per thousand"
+          }
+        }
+      ],
+      "private_models": {
+        "billing": "Billed for all time instances are online (setup, idle, active) on dedicated hardware",
+        "exception": "Fast booting fine-tunes are billed only for active processing time"
+      },
+      "hardware_pricing": [
+        {
+          "hardware": "CPU (Small)",
+          "id": "cpu-small",
+          "price_per_second": 0.000025,
+          "price_per_hour": 0.09,
+          "cpu_cores": "1x",
+          "ram": "2GB"
+        },
+        {
+          "hardware": "Nvidia A100 (80GB) GPU",
+          "id": "gpu-a100-large",
+          "price_per_second": 0.001400,
+          "price_per_hour": 5.04,
+          "cpu_cores": "10x",
+          "gpu_ram": "80GB",
+          "ram": "144GB"
+        },
+        {
+          "hardware": "Nvidia H100 GPU",
+          "id": "gpu-h100",
+          "price_per_second": 0.001525,
+          "price_per_hour": 5.49,
+          "cpu_cores": "13x",
+          "gpu_ram": "80GB",
+          "ram": "72GB"
+        }
+      ],
+      "official_models_program": {
+        "description": "Maintained models with predictable pricing",
+        "features": [
+          "Always on",
+          "Predictable pricing",
+          "Stable API",
+          "Maintained in collaboration with authors"
+        ],
+        "count": "100+"
+      },
+      "enterprise_features": [
+        "Dedicated account manager",
+        "Priority support",
+        "Higher GPU limits",
+        "Performance SLAs",
+        "Help with onboarding, custom models, and optimizations"
+      ],
+      "notes": "Easy-to-use platform for running machine learning models with both public and private deployment options",
+      "source_url": "https://replicate.com/pricing"
+    },
+    "preferred_networks": {
+      "provider_name": "Preferred Networks (PLaMo)",
+      "headquarters": "Tokyo, Japan",
+      "founded": 2014,
+      "region": "Asia-Pacific",
+      "api_details": {
+        "base_url": "https://plamo-api.preferredai.jp",
+        "documentation": "https://plamo.preferredai.jp/",
+        "authentication": "API Key",
+        "interface": "OpenAI API compatible"
+      },
+      "models": [
+        {
+          "model_id": "plamo-prime",
+          "name": "PLaMo Prime",
+          "status": "Live",
+          "modality": "text",
+          "description": "Flagship Japan-made large language model",
+          "focus": "World-class Japanese-language performance",
+          "features": [
+            "Compact model size",
+            "High-quality Japanese datasets",
+            "Financial benchmarks performance",
+            "National medical examination performance"
+          ]
+        },
+        {
+          "model_id": "plamo-lite",
+          "name": "PLaMo Lite",
+          "status": "Live",
+          "modality": "text",
+          "description": "Small language model for edge devices",
+          "use_cases": ["Vehicles", "Production facilities"]
+        }
+      ],
+      "capabilities": [
+        "Text generation",
+        "Summarization",
+        "Translation",
+        "Text analysis",
+        "Q&A",
+        "Creative writing",
+        "Programming support"
+      ],
+      "api_pricing": {
+        "input_tokens": {
+          "price": 300,
+          "currency": "JPY",
+          "per": "1M tokens"
+        },
+        "output_tokens": {
+          "price": 1000,
+          "currency": "JPY",
+          "per": "1M tokens"
+        },
+        "launch_promotion": {
+          "credits": 1000,
+          "currency": "JPY",
+          "description": "Given to new users during launch campaign"
+        }
+      },
+      "chat_service": {
+        "plamo_chat": {
+          "status": "Free during initial trial period",
+          "description": "AI assistant for general audience",
+          "features": [
+            "Q&A",
+            "Creative writing",
+            "Programming support"
+          ]
+        }
+      },
+      "integration": {
+        "openai_compatible": true,
+        "supported_libraries": [
+          "openai-python",
+          "LangChain"
+        ],
+        "benefit": "Easy integration with existing code and frameworks"
+      },
+      "regional_advantages": [
+        "Japan-first training data",
+        "Local language optimization",
+        "JPY pricing",
+        "Cultural context understanding"
+      ],
+      "notes": "Japanese AI company with focus on local language performance and cultural understanding",
+      "source_url": "https://www.preferred.jp/en/news/459"
+    },
+    "naver": {
+      "provider_name": "Naver (CLOVA / HyperCLOVA X)",
+      "headquarters": "Seongnam, South Korea",
+      "founded": 1999,
+      "region": "Asia-Pacific",
+      "api_details": {
+        "base_url": "https://api.ncloud.com",
+        "documentation": "https://api.ncloud-docs.com/docs/en/ai-naver-clovastudio-summary",
+        "authentication": "API Key"
+      },
+      "models": [
+        {
+          "model_id": "hyperclova-x",
+          "name": "HyperCLOVA X",
+          "status": "Live",
+          "modality": "text",
+          "description": "Successor to HyperClova, Korea's first major LLM",
+          "specialization": "Korean language and culture"
+        }
+      ],
+      "pricing_plans": {
+        "basic": {
+          "provision_type": "Cloud",
+          "data_management": "NAVER Cloud",
+          "tuning_methods": ["PEFT"],
+          "performance_guarantee": false,
+          "infrastructure": "Public",
+          "pricing_model": "Pay-as-you-go",
+          "basis": "Based on engine, use-case capabilities, and tokens used"
+        },
+        "exclusive": {
+          "provision_type": "Cloud",
+          "data_management": "NAVER Cloud",
+          "tuning_methods": ["PEFT", "SFT", "RLHF"],
+          "performance_guarantee": true,
+          "infrastructure": "Dedicated",
+          "pricing_model": "Subscription",
+          "basis": "Based on TPM (tokens per minute) usage",
+          "contact_sales": true
+        },
+        "neurocloud": {
+          "provision_type": "Hybrid cloud",
+          "data_management": "Business customer",
+          "tuning_methods": ["PEFT", "SFT", "RLHF"],
+          "performance_guarantee": true,
+          "infrastructure": "Dedicated/on-premises",
+          "pricing_model": "Custom quote",
+          "contact_sales": true
+        }
+      },
+      "enterprise_features": {
+        "advanced_tuning": {
+          "available": true,
+          "methods": ["Supervised Fine-Tuning (SFT)", "Further Pretraining (FP)", "Reinforcement Learning from Human Feedback (RLHF)"]
+        },
+        "dedicated_infrastructure": {
+          "available": true,
+          "description": "Own HyperCLOVA X model with TPM guarantees"
+        },
+        "hybrid_deployment": {
+          "available": true,
+          "description": "Hardware and software run at customer data center"
+        },
+        "customization": {
+          "available": true,
+          "description": "Train on business data to build fully customized models"
+        }
+      },
+      "regional_advantages": [
+        "Korean language specialization",
+        "Local cultural understanding",
+        "Enterprise-focused solutions",
+        "Government and enterprise adoption"
+      ],
+      "notes": "Korea's leading AI platform with strong focus on Korean language and enterprise solutions",
+      "source_url": "https://clova.ai/en/clova-studio"
+    },
+    "baidu": {
+      "provider_name": "Baidu (ERNIE)",
+      "headquarters": "Beijing, China",
+      "founded": 2000,
+      "region": "Asia-Pacific",
+      "api_details": {
+        "base_url": "https://aip.baidubce.com",
+        "documentation": "https://cloud.baidu.com/product/wenxinworkshop",
+        "authentication": "API Key"
+      },
+      "models": [
+        {
+          "model_id": "ernie-4-5",
+          "name": "ERNIE 4.5",
+          "status": "Live",
+          "modality": "text, multimodal",
+          "description": "Multimodal AI model competing with GPT-4 level performance",
+          "pricing": {
+            "input_per_1m": 0.55,
+            "output_per_1m": 2.20,
+            "currency": "USD"
+          }
+        },
+        {
+          "model_id": "ernie-x1",
+          "name": "ERNIE X1",
+          "status": "Announced",
+          "modality": "text, reasoning",
+          "description": "Deep-thinking reasoning model",
+          "availability": "Coming soon on Qianfan platform"
+        }
+      ],
+      "enterprise_platform": {
+        "qianfan": {
+          "description": "Baidu AI Cloud's large model development and application platform",
+          "features": [
+            "Model development",
+            "Training",
+            "Deployment",
+            "Application development"
+          ]
+        }
+      },
+      "market_positioning": {
+        "cost_competitive": true,
+        "description": "Positioned at approximately 1% of GPT-4.5's price according to reports",
+        "free_bot": "ERNIE Bot made free starting April 1, 2025"
+      },
+      "regional_advantages": [
+        "Chinese language optimization",
+        "Local market knowledge",
+        "Competitive pricing",
+        "Government partnerships"
+      ],
+      "notes": "Leading Chinese AI company with strong focus on cost-effective large language models",
+      "source_url": "https://venturebeat.com/ai/baidu-delivers-new-llms-ernie-4-5-and-ernie-x1-undercutting-deepseek-openai-on-cost-but-theyre-not-open-source-yet"
+    },
+    "alibaba": {
+      "provider_name": "Alibaba Cloud (Qwen)",
+      "headquarters": "Hangzhou, China",
+      "founded": 1999,
+      "region": "Asia-Pacific",
+      "api_details": {
+        "base_url": "https://dashscope.aliyuncs.com/compatibleMode/v1",
+        "documentation": "https://www.alibabacloud.com/help/en/model-studio/qwen-api-reference",
+        "authentication": "API Key"
+      },
+      "models": [
+        {
+          "model_id": "qwen-turbo",
+          "name": "Qwen Turbo",
+          "status": "Live",
+          "modality": "text",
+          "description": "Fast and efficient model for general tasks"
+        },
+        {
+          "model_id": "qwen-plus",
+          "name": "Qwen Plus",
+          "status": "Live",
+          "modality": "text",
+          "description": "Balanced model for most applications"
+        },
+        {
+          "model_id": "qwen-max",
+          "name": "Qwen Max",
+          "status": "Live",
+          "modality": "text",
+          "description": "Most capable model for complex reasoning"
+        },
+        {
+          "model_id": "qwen-vl-plus",
+          "name": "Qwen-VL Plus",
+          "status": "Live",
+          "modality": "text, vision",
+          "description": "Multimodal model with vision capabilities"
+        }
+      ],
+      "api_compatibility": {
+        "openai_api": true,
+        "description": "Qwen API is compatible with OpenAI API format"
+      },
+      "pricing": {
+        "status": "Not captured in collected sources",
+        "note": "Official API reference available, but specific pricing requires verification with Alibaba Cloud"
+      },
+      "enterprise_platform": {
+        "model_studio": {
+          "description": "Comprehensive platform for model development and deployment",
+          "features": [
+            "Model training",
+            "Fine-tuning",
+            "Deployment",
+            "Application development"
+          ]
+        }
+      },
+      "regional_advantages": [
+        "Chinese language expertise",
+        "Multimodal capabilities",
+        "OpenAI compatibility",
+        "Enterprise cloud integration"
+      ],
+      "notes": "Major Chinese cloud provider with comprehensive LLM offerings and multimodal capabilities",
+      "source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen-api-reference"
+    }
+  },
+  "summary_statistics": {
+    "total_providers": 12,
+    "global_providers": 5,
+    "regional_providers": 7,
+    "pricing_models": {
+      "token_based": 8,
+      "credit_based": 1,
+      "hardware_time_based": 1,
+      "tiered_subscription": 2
+    },
+    "regional_coverage": {
+      "north_america": 3,
+      "europe": 2,
+      "asia_pacific": 7
+    },
+    "model_types": {
+      "text_only": 6,
+      "multimodal": 4,
+      "image_generation": 1,
+      "audio_video": 1
+    },
+    "enterprise_features": {
+      "private_deployment": 8,
+      "custom_models": 6,
+      "on_premise": 4,
+      "hybrid_cloud": 3
+    }
+  },
+  "data_completeness_notes": {
+    "complete_information": ["Cohere", "Stability AI", "Hugging Face", "Together AI", "Replicate", "Preferred Networks", "Naver", "Baidu"],
+    "partial_information": ["AI21 Labs", "Mistral AI", "Aleph Alpha", "Alibaba"],
+    "verification_needed": [
+      "AI21 Labs: Specific model pricing requires sales contact",
+      "Mistral AI: API model pricing not captured in collected sources", 
+      "Aleph Alpha: No per-model prices in collected materials",
+      "Alibaba: Per-tier token prices not captured",
+      "Baidu ERNIE: Pricing reported by media, requires official verification"
+    ]
+  },
+  "last_updated": "2025-11-11",
+  "data_sources": [
+    "https://cohere.com/pricing",
+    "https://docs.cohere.com/docs/models", 
+    "https://docs.ai21.com/docs/usage-cost",
+    "https://platform.stability.ai/pricing",
+    "https://docs.mistral.ai/",
+    "https://mistral.ai/pricing",
+    "https://docs.aleph-alpha.com/products/apis/overview/",
+    "https://huggingface.co/pricing",
+    "https://www.together.ai/pricing",
+    "https://replicate.com/pricing",
+    "https://www.preferred.jp/en/news/459",
+    "https://clova.ai/en/clova-studio",
+    "https://venturebeat.com/ai/baidu-delivers-new-llms-ernie-4-5-and-ernie-x1-undercutting-deepseek-openai-on-cost-but-theyre-not-open-source-yet",
+    "https://www.alibabacloud.com/help/en/model-studio/qwen-api-reference"
+  ]
+}

@@ -1,0 +1,928 @@
+{
+  "last_updated": "2025-11-11",
+  "providers": {
+    "openai": {
+      "api_endpoints": {
+        "responses_api": {
+          "operations": [
+            "create",
+            "get", 
+            "delete",
+            "cancel",
+            "list",
+            "input_token_estimation"
+          ],
+          "description": "Primary API for text, vision, and tool-augmented interactions"
+        },
+        "audio_api": {
+          "operations": [
+            "create_speech",
+            "create_transcription", 
+            "create_translation"
+          ],
+          "description": "Speech-to-text, translation, and text-to-speech"
+        },
+        "images_api": {
+          "operations": [
+            "create_image",
+            "create_image_edit",
+            "create_image_variation"
+          ],
+          "description": "Image generation, editing, and variations"
+        },
+        "video_api": {
+          "operations": [
+            "create",
+            "remix",
+            "list",
+            "retrieve",
+            "delete",
+            "retrieve_content"
+          ],
+          "description": "Video creation, editing, and retrieval"
+        }
+      },
+      "authentication": {
+        "type": "API key",
+        "method": "HTTP Bearer",
+        "optional_headers": [
+          "OpenAI-Organization",
+          "OpenAI-Project"
+        ],
+        "admin_keys": "Admin API keys available for organization owners",
+        "scope": "Organization and project level"
+      },
+      "models": [
+        {
+          "name": "GPT-5",
+          "capabilities": "Language modeling",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "input_per_1m_tokens": 1.25,
+            "cached_input_per_1m_tokens": 0.125,
+            "output_per_1m_tokens": 10.00
+          }
+        },
+        {
+          "name": "GPT-4.1",
+          "capabilities": "Language modeling",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "input_per_1m_tokens": 3.00,
+            "cached_input_per_1m_tokens": 0.75,
+            "output_per_1m_tokens": 12.00,
+            "training_per_1m_tokens": 25.00
+          }
+        },
+        {
+          "name": "o4-mini",
+          "capabilities": "Lightweight language modeling",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "input_per_1m_tokens": 0.80,
+            "cached_input_per_1m_tokens": 0.20,
+            "output_per_1m_tokens": 3.20,
+            "training_per_1m_tokens": 5.00
+          }
+        },
+        {
+          "name": "gpt-realtime",
+          "capabilities": "Real-time multimodal (text, audio, image)",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "text_input_per_1m_tokens": 4.00,
+            "text_cached_input_per_1m_tokens": 0.40,
+            "text_output_per_1m_tokens": 16.00,
+            "audio_input_per_1m_tokens": 32.00,
+            "audio_cached_input_per_1m_tokens": 0.40,
+            "audio_output_per_1m_tokens": 64.00,
+            "image_input_per_1m_tokens": 5.00,
+            "image_cached_input_per_1m_tokens": 0.50
+          }
+        },
+        {
+          "name": "gpt-realtime-mini",
+          "capabilities": "Lightweight real-time multimodal",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "text_input_per_1m_tokens": 0.60,
+            "text_cached_input_per_1m_tokens": 0.06,
+            "text_output_per_1m_tokens": 2.40,
+            "audio_input_per_1m_tokens": 10.00,
+            "audio_cached_input_per_1m_tokens": 0.30,
+            "audio_output_per_1m_tokens": 20.00,
+            "image_input_per_1m_tokens": 0.80,
+            "image_cached_input_per_1m_tokens": 0.08
+          }
+        },
+        {
+          "name": "GPT-image-1",
+          "capabilities": "Image generation",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "input_text_per_1m_tokens": 5.00,
+            "input_image_per_1m_tokens": 10.00,
+            "output_image_per_1m_tokens": 40.00
+          }
+        },
+        {
+          "name": "Sora-2",
+          "capabilities": "Video generation",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "per_second_standard": 0.10,
+            "per_second_pro": "0.30-0.50",
+            "description": "Standard tier 720x1280 or 1280x720, pro tiers at higher resolutions"
+          }
+        }
+      ],
+      "pricing": {
+        "cost_reducers": [
+          {
+            "name": "Batch API",
+            "discount": "50%",
+            "description": "Available for asynchronous workloads with 24-hour processing window"
+          }
+        ],
+        "built_in_tools": {
+          "code_interpreter": "0.03",
+          "file_search_storage": "0.10",
+          "file_search_storage_first_gb": "free",
+          "file_search_tool_call": "2.50",
+          "web_search_tool_call": "10.00"
+        }
+      },
+      "rate_limits": {
+        "units": [
+          "RPM (Requests Per Minute)",
+          "RPD (Requests Per Day)",
+          "TPM (Tokens Per Minute)",
+          "TPD (Tokens Per Day)",
+          "IPM (Images Per Minute)"
+        ],
+        "scope": "Organization and project level",
+        "usage_tiers": [
+          {
+            "tier": "Free",
+            "monthly_cap": "Not specified"
+          },
+          {
+            "tier": "Tier 1",
+            "monthly_cap": "$100"
+          },
+          {
+            "tier": "Tier 2", 
+            "monthly_cap": "$500"
+          },
+          {
+            "tier": "Tier 3",
+            "monthly_cap": "$1,000"
+          },
+          {
+            "tier": "Tier 4",
+            "monthly_cap": "$5,000"
+          },
+          {
+            "tier": "Tier 5",
+            "monthly_cap": "$200,000"
+          }
+        ],
+        "note": "Exact per-model limits vary by account and tier, visible in account portal"
+      }
+    },
+    "anthropic": {
+      "api_endpoints": {
+        "messages_api": {
+          "operations": [
+            "text_prompts",
+            "multimodal_prompts"
+          ],
+          "description": "Primary API for text and multimodal interactions"
+        },
+        "message_batches_api": {
+          "operations": [
+            "async_processing"
+          ],
+          "description": "Asynchronous processing for batch workloads",
+          "limits": "50 RPM, up to 100,000 batch requests in queue, 100,000 requests per batch"
+        }
+      },
+      "authentication": {
+        "type": "API key",
+        "scope": "Organization level with workspace overrides",
+        "description": "Workspaces can define protective limits, default workspace inherits org limits"
+      },
+      "models": [
+        {
+          "name": "Claude Opus 4/4.1",
+          "capabilities": "Highest capability, reasoning and analysis",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "input_per_1m_tokens": 15.00,
+            "output_per_1m_tokens": 75.00
+          }
+        },
+        {
+          "name": "Claude Sonnet 4",
+          "capabilities": "Balanced workhorse for most tasks",
+          "context_window": "Not specified in report", 
+          "pricing": {
+            "input_per_1m_tokens": 3.00,
+            "output_per_1m_tokens": 15.00
+          }
+        },
+        {
+          "name": "Claude Haiku 3.5",
+          "capabilities": "High-volume workload optimization",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "input_per_1m_tokens": 0.80,
+            "output_per_1m_tokens": 4.00
+          }
+        }
+      ],
+      "pricing": {
+        "note": "All pricing from third-party guide, must be verified with Anthropic",
+        "cost_reducers": [
+          {
+            "name": "Batch processing",
+            "discount": "50%",
+            "description": "Halves token rates"
+          },
+          {
+            "name": "Prompt caching",
+            "description": "Reduces repeated context costs by up to 90%",
+            "pricing": {
+              "cache_write": "18.75 per 1M tokens (Opus), 3.75 (Sonnet), 1.00 (Haiku)",
+              "cache_read": "1.50 per 1M tokens (Opus), 0.30 (Sonnet), 0.08 (Haiku)"
+            }
+          }
+        ]
+      },
+      "rate_limits": {
+        "algorithm": "Token bucket with continuous replenishment",
+        "components": [
+          "Spend limits (monthly caps)",
+          "Rate limits (per-minute request and token throughput)"
+        ],
+        "per_model": {
+          "sonnet_4x": {
+            "rpm": 50,
+            "itpm": 30000,
+            "otpm": 8000,
+            "note": "Traffic combined across Sonnet 4 and Sonnet 4.5"
+          },
+          "haiku_4_5": {
+            "rpm": 50,
+            "itpm": 50000,
+            "otpm": 10000
+          },
+          "haiku_3_5": {
+            "rpm": 50,
+            "itpm": 50000,
+            "otpm": 10000,
+            "note": "Cache-aware: cache_read excluded from ITPM"
+          },
+          "opus_4x": {
+            "rpm": 50,
+            "itpm": 30000,
+            "otpm": 8000,
+            "note": "Traffic combined across Opus 4 and 4.1"
+          }
+        },
+        "long_context": {
+          "models": "Sonnet 4/4.5 with 1M-token window (beta for Tier 4/custom)",
+          "itpm": 1000000,
+          "otpm": 200000,
+          "note": "For requests >200K tokens"
+        }
+      }
+    },
+    "google": {
+      "api_endpoints": {
+        "standard_api": {
+          "description": "Standard text and multimodal API"
+        },
+        "live_api": {
+          "description": "Real-time audio/video streaming",
+          "modes": "Native Audio preview"
+        },
+        "batch_api": {
+          "description": "Batch processing for asynchronous workloads",
+          "limits": "≤100 concurrent batch requests, ≤2GB input file, ≤20GB storage"
+        },
+        "context_caching": {
+          "description": "Context caching for repeated prompts"
+        }
+      },
+      "authentication": {
+        "type": "API key",
+        "scope": "Per project with project-level rate limits",
+        "description": "Free tier uses data to improve products, paid tier does not"
+      },
+      "models": [
+        {
+          "name": "Gemini 2.5 Pro",
+          "capabilities": "High-capability model",
+          "context_window": "Up to 200K+ tokens",
+          "pricing": {
+            "input_200k_or_less": 1.25,
+            "input_over_200k": 2.50,
+            "output_200k_or_less": 10.00,
+            "output_over_200k": 15.00
+          }
+        },
+        {
+          "name": "Gemini 2.5 Flash", 
+          "capabilities": "Fast, efficient model",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "text_image_video_input": 0.30,
+            "audio_input": 1.00,
+            "output": 2.50
+          }
+        },
+        {
+          "name": "Gemini 2.5 Flash-Lite",
+          "capabilities": "Ultra-efficient model",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "text_image_video_input": 0.10,
+            "audio_input": 0.30,
+            "output": 0.40
+          }
+        },
+        {
+          "name": "Gemini 2.0 Flash",
+          "capabilities": "Image generation included",
+          "context_window": "Not specified in report",
+          "pricing": {
+            "text_image_video_input": 0.10,
+            "audio_input": 0.70,
+            "output": 0.40,
+            "image_generation": 0.039
+          }
+        }
+      ],
+      "pricing": {
+        "tiers": [
+          {
+            "name": "Free",
+            "description": "Usage contributes to product improvement"
+          },
+          {
+            "name": "Paid",
+            "description": "Higher limits, access to caching and batch, content not used to improve products"
+          },
+          {
+            "name": "Enterprise (via Vertex AI)",
+            "description": "Security, support, provisioned throughput, volume discounts"
+          }
+        ],
+        "cost_reducers": [
+          {
+            "name": "Batch API",
+            "discount": "50%",
+            "description": "Halves input and output rates"
+          },
+          {
+            "name": "Context Caching",
+            "description": "Separate pricing for cache storage and usage",
+            "pricing_examples": {
+              "pro_200k": "0.125/1M tokens (≤200k) or 0.25/1M (>200k)",
+              "flash_text_image_video": "0.03/1M tokens",
+              "flash_audio": "0.10/1M tokens",
+              "storage": "4.50/1M tokens/hour (Pro), 1.00/1M tokens/hour (Flash)"
+            }
+          }
+        ],
+        "grounding": {
+          "google_search": {
+            "free_rpd": 1500,
+            "additional_cost": "35/1,000 prompts"
+          },
+          "google_maps": {
+            "free_rpd": 10000,
+            "additional_cost": "25/1,000 prompts"
+          }
+        }
+      },
+      "rate_limits": {
+        "tier_1": {
+          "model": "2.5 Pro",
+          "rpm": 150,
+          "tpm": 2000000,
+          "rpd": 10000
+        },
+        "tier_2": {
+          "model": "2.5 Pro", 
+          "rpm": 1000,
+          "tpm": 5000000,
+          "rpd": 50000
+        },
+        "tier_3": {
+          "model": "2.5 Pro",
+          "rpm": 2000,
+          "tpm": 8000000
+        },
+        "free_tier": {
+          "2.5_pro": {
+            "rpm": 2,
+            "tpm": 125000,
+            "rpd": 50
+          },
+          "2.5_flash": {
+            "rpm": 10,
+            "tpm": 250000,
+            "rpd": 250
+          },
+          "2.5_flash_lite": {
+            "rpm": 15,
+            "tpm": 250000,
+            "rpd": 1000
+          }
+        }
+      }
+    },
+    "microsoft": {
+      "api_endpoints": {
+        "control_plane": {
+          "description": "Resource management and deployment configuration"
+        },
+        "data_plane": {
+          "description": "Model inference APIs",
+          "models": ["GPT-5", "GPT-4.1", "o3", "o4-mini", "GPT-4o", "GPT-4o-mini"]
+        }
+      },
+      "authentication": {
+        "type": "Azure RBAC (Role-Based Access Control)",
+        "scope": "Subscription and region level",
+        "governance": "Regional quota pools, per-deployment TPM/RPM limits"
+      },
+      "models": [
+        {
+          "name": "GPT-5 2025-08-07",
+          "deployment_types": ["Global", "Data Zone", "Regional"],
+          "pricing": {
+            "global_input": 1.25,
+            "global_cached_input": 0.13,
+            "global_output": 10.00,
+            "data_zone_input": 1.38,
+            "data_zone_output": 11.00
+          }
+        },
+        {
+          "name": "o3 2025-04-16",
+          "pricing": {
+            "input": 2.00,
+            "cached_input": 0.50,
+            "output": 8.00
+          }
+        },
+        {
+          "name": "o4-mini 2025-04-16",
+          "pricing": {
+            "input": 1.10,
+            "cached_input": 0.28,
+            "output": 4.40
+          }
+        },
+        {
+          "name": "GPT-4.1 2025-04-14",
+          "pricing": {
+            "input": 2.00,
+            "cached_input": 0.50,
+            "output": 8.00
+          }
+        },
+        {
+          "name": "GPT-4o 2024-08-06",
+          "pricing": {
+            "input": 2.50,
+            "cached_input": 1.25,
+            "output": 10.00,
+            "data_zone_input": 2.75
+          }
+        }
+      ],
+      "pricing": {
+        "cost_reducers": [
+          {
+            "name": "Batch API",
+            "discount": "50%",
+            "description": "Available within 24 hours for same model and deployment type"
+          },
+          {
+            "name": "Provisioned Throughput Units (PTUs)",
+            "description": "Guaranteed throughput for steady, high-volume workloads"
+          }
+        ],
+        "modality_pricing": {
+          "sora_2": {
+            "standard": "0.10/second",
+            "pro": "0.30-0.50/second"
+          },
+          "gpt_image_1": {
+            "input_text": "5.00/1M tokens",
+            "input_image": "10.00/1M tokens", 
+            "output_image": "40.00/1M tokens"
+          },
+          "built_in_tools": {
+            "code_interpreter": "0.033/session",
+            "file_search_storage": "0.11/GB-day (1GB free)",
+            "file_search_tool_call": "2.50/1K",
+            "computer_use": "3.00/1M input, 12.00/1M output"
+          }
+        }
+      },
+      "rate_limits": {
+        "model_defaults": {
+          "gpt_5_global": {
+            "tpm": 1000000,
+            "rpm": 10000,
+            "enterprise_mca_e": {
+              "tpm": 10000000,
+              "rpm": 100000
+            }
+          },
+          "gpt_4_1_global": {
+            "tpm": 1000000,
+            "rpm": 1000,
+            "enterprise_mca_e": {
+              "tpm": 5000000,
+              "rpm": 5000
+            }
+          },
+          "o4_mini": {
+            "tpm": 1000000,
+            "rpm": 1000,
+            "enterprise_mca_e": {
+              "tpm": 10000000,
+              "rpm": 10000
+            }
+          }
+        },
+        "deployment_variations": {
+          "data_zone_defaults": {
+            "gpt_5": {
+              "tpm": 300000,
+              "rpm": 3000
+            },
+            "gpt_4_1": {
+              "tpm": 300000,
+              "rpm": 300
+            }
+          }
+        },
+        "batch_quotas": {
+          "global_default": "200M tokens/month",
+          "global_enterprise_mca_e": "5B tokens/month",
+          "data_zone_default": "30M tokens/month",
+          "data_zone_enterprise_mca_e": "500M tokens/month"
+        },
+        "offer_exceptions": {
+          "description": "Some offer types (Azure for Students, trials) have 0 TPM for certain families"
+        }
+      }
+    },
+    "meta": {
+      "api_endpoints": {
+        "chat_completions": {
+          "description": "Primary API for conversational interactions"
+        }
+      },
+      "authentication": {
+        "type": "API keys",
+        "scope": "Team-level aggregation across all API keys",
+        "note": "All keys in a team share the same rate limits"
+      },
+      "models": [
+        {
+          "name": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+          "status": "Preview",
+          "capabilities": "Instruction following"
+        },
+        {
+          "name": "Llama-4-Scout-17B-16E-Instruct-FP8", 
+          "status": "Preview",
+          "capabilities": "Instruction following"
+        },
+        {
+          "name": "Llama-3.3-70B-Instruct",
+          "status": "Preview",
+          "capabilities": "Large-scale instruction following"
+        },
+        {
+          "name": "Llama-3.3-8B-Instruct",
+          "status": "Preview", 
+          "capabilities": "Efficient instruction following"
+        }
+      ],
+      "pricing": {
+        "status": "Not publicly documented in Meta Llama API developer pages",
+        "note": "Commercial deployment pricing available via partner platforms (e.g., AWS Bedrock)"
+      },
+      "rate_limits": {
+        "scope": "Team-level aggregation across all API keys",
+        "response_headers": [
+          "x-ratelimit-limit-requests",
+          "x-ratelimit-remaining-requests", 
+          "x-ratelimit-limit-tokens",
+          "x-ratelimit-remaining-tokens"
+        ],
+        "per_model": {
+          "llama_4_maverick": {
+            "rpm": 3000,
+            "tpm": 1000000
+          },
+          "llama_4_scout": {
+            "rpm": 3000,
+            "tpm": 1000000
+          },
+          "llama_3_3_70b": {
+            "rpm": 3000,
+            "tpm": 1000000
+          },
+          "llama_3_3_8b": {
+            "rpm": 3000,
+            "tpm": 1000000
+          }
+        },
+        "hosted_preview_variants": {
+          "cerebras_llama_4_maverick": {
+            "rpm": 900,
+            "tpm": 300000
+          },
+          "groq_llama_4_maverick": {
+            "rpm": 1000,
+            "tpm": 600000
+          }
+        }
+      }
+    },
+    "aws": {
+      "api_endpoints": {
+        "bedrock_control": {
+          "description": "Control-plane APIs to manage, train, and deploy models"
+        },
+        "bedrock_runtime": {
+          "description": "Data-plane APIs for inference on hosted models"
+        },
+        "bedrock_agent": {
+          "description": "Control-plane APIs for agents, knowledge bases, and prompt management"
+        },
+        "bedrock_agent_runtime": {
+          "description": "Data-plane APIs to invoke agents and flows, query knowledge bases"
+        }
+      },
+      "authentication": {
+        "type": "AWS SigV4",
+        "method": "SDK-based signing (automatic)",
+        "description": "SigV4 cryptographic signing required, most teams rely on SDKs"
+      },
+      "models": [
+        {
+          "provider": "Anthropic",
+          "name": "Claude 3.5 Sonnet",
+          "status": "Public Extended Access (effective Dec 1, 2025)",
+          "pricing": {
+            "on_demand_input": 0.006,
+            "on_demand_output": 0.03,
+            "batch_input": 0.003,
+            "batch_output": 0.015,
+            "currency": "per 1,000 tokens"
+          }
+        },
+        {
+          "provider": "Meta",
+          "name": "Llama 2 Chat 13B",
+          "pricing": {
+            "input": 0.00075,
+            "output": 0.001,
+            "currency": "per 1,000 tokens"
+          }
+        },
+        {
+          "provider": "Meta", 
+          "name": "Llama 2 Chat 70B",
+          "pricing": {
+            "input": 0.00195,
+            "output": 0.00256,
+            "currency": "per 1,000 tokens"
+          }
+        },
+        {
+          "provider": "Mistral AI",
+          "name": "Mistral 7B",
+          "pricing": {
+            "input": 0.00015,
+            "output": 0.0002,
+            "currency": "per 1,000 tokens"
+          }
+        },
+        {
+          "provider": "Mistral AI",
+          "name": "Mixtral 8×7B",
+          "pricing": {
+            "input": 0.00045,
+            "output": 0.0007,
+            "currency": "per 1,000 tokens"
+          }
+        },
+        {
+          "provider": "Mistral AI",
+          "name": "Mistral Large",
+          "pricing": {
+            "input": 0.008,
+            "output": 0.024,
+            "currency": "per 1,000 tokens"
+          }
+        },
+        {
+          "provider": "Stability AI",
+          "name": "Image services",
+          "pricing": {
+            "inpaint_background_removal": 0.07,
+            "upscale": "up to 0.60",
+            "currency": "per image"
+          }
+        },
+        {
+          "provider": "Cohere",
+          "name": "Rerank 3.5",
+          "pricing": {
+            "cost": 2.00,
+            "currency": "per 1,000 queries"
+          }
+        },
+        {
+          "provider": "Amazon",
+          "name": "Titan Text Lite",
+          "pricing": {
+            "input": 0.0003,
+            "output": 0.0004,
+            "currency": "per 1,000 tokens"
+          }
+        },
+        {
+          "provider": "Amazon",
+          "name": "Titan Image Generator",
+          "pricing": {
+            "cost": 0.01,
+            "currency": "per image (1024×1024 standard)"
+          }
+        }
+      ],
+      "pricing": {
+        "modes": [
+          {
+            "name": "On-demand",
+            "description": "Token-based for text, input-token-based for embeddings, per-image for image generation"
+          },
+          {
+            "name": "Batch",
+            "discount": "50%",
+            "description": "For select models, inputs from S3, outputs to S3"
+          },
+          {
+            "name": "Latency-optimized",
+            "description": "Faster response times without separate pricing"
+          },
+          {
+            "name": "Provisioned throughput",
+            "description": "Dedicated capacity measured in max input/output tokens per minute, charged hourly with 1-6 month commitments"
+          },
+          {
+            "name": "Custom model import",
+            "description": "Billed per model copy per minute, with monthly storage, tiered by model copy size"
+          },
+          {
+            "name": "Marketplace",
+            "description": "Software price plus infrastructure for proprietary models, infrastructure-only for public models"
+          }
+        ],
+        "specialized_pricing": {
+          "guardrails": "per 1,000 text units or per image",
+          "knowledge_bases": "per request (GenerateQuery ~$0.002)",
+          "flows": "0.035 per 1,000 node transitions",
+          "prompt_routing": "1.00 per 1,000 requests (up to 30% cost reduction)",
+          "prompt_optimization": "0.030 per 1,000 tokens in prompts"
+        },
+        "examples": {
+          "stability_ai_sdxl_1_0_provisioned": "49.86/hour (1-month commitment)",
+          "amazon_titan_text_express_provisioned": "18.40/hour",
+          "amazon_titan_image_generator_provisioned": "16.20/hour"
+        }
+      },
+      "rate_limits": {
+        "note": "Service quotas exist, but exact per-model TPM/RPM require runtime checks or support cases",
+        "service_quotas": "Available through AWS Service Quotas console",
+        "information_gap": "Quotas page content failed extraction, requires runtime verification"
+      }
+    }
+  },
+  "sources": [
+    {
+      "url": "https://platform.openai.com/docs/guides/rate-limits",
+      "title": "Rate limits - OpenAI API",
+      "publisher": "OpenAI",
+      "info": "Official rate limiting documentation covering units (RPM, TPM, RPD, TPD, IPM), usage tiers, and headers for OpenAI's API platform"
+    },
+    {
+      "url": "https://openai.com/api/pricing/",
+      "title": "API Pricing - OpenAI",
+      "publisher": "OpenAI", 
+      "info": "Comprehensive pricing for all OpenAI models including GPT-5, GPT-4.1, o4-mini, realtime APIs, image generation, video (Sora-2), and built-in tools with batch discounts"
+    },
+    {
+      "url": "https://platform.openai.com/docs/api-reference/introduction",
+      "title": "API Reference - OpenAI Platform", 
+      "publisher": "OpenAI",
+      "info": "Complete API reference documentation covering Responses API, Audio, Images, Video endpoints with authentication methods and request parameters"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/rate-limits",
+      "title": "Rate limits | Gemini API - Google AI for Developers",
+      "publisher": "Google AI for Developers",
+      "info": "Detailed rate limit documentation for Gemini API including tier-based limits, batch processing constraints, and project-level scoping"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "title": "Gemini Developer API Pricing - Google AI for Developers",
+      "publisher": "Google AI for Developers", 
+      "info": "Comprehensive pricing structure for Gemini 2.5 Pro/Flash/Flash-Lite models with context caching, grounding costs, and batch processing discounts"
+    },
+    {
+      "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/pricing",
+      "title": "Vertex AI Pricing | Google Cloud",
+      "publisher": "Google Cloud",
+      "info": "Enterprise pricing and feature tiers for Gemini through Vertex AI including provisioned throughput and volume discounts"
+    },
+    {
+      "url": "https://docs.claude.com/en/api/rate-limits",
+      "title": "Rate limits - Claude Docs",
+      "publisher": "Anthropic",
+      "info": "Detailed rate limiting documentation for Claude API including token bucket algorithm, cache-aware accounting, and workspace-level limits"
+    },
+    {
+      "url": "https://www.cloudzero.com/blog/claude-pricing/",
+      "title": "Claude Pricing: A 2025 Guide To Anthropic AI Costs",
+      "publisher": "CloudZero", 
+      "info": "Third-party pricing analysis for Anthropic Claude models (Opus 4/4.1, Sonnet 4, Haiku 3.5) with batch discounts and prompt caching costs"
+    },
+    {
+      "url": "https://llama.developer.meta.com/docs/rate-limits/",
+      "title": "Rate limits | Llama API",
+      "publisher": "Meta",
+      "info": "Rate limiting documentation for Meta Llama API including team-level aggregation, rate-limit headers, and preview model specifications"
+    },
+    {
+      "url": "https://aws.amazon.com/bedrock/pricing/",
+      "title": "Amazon Bedrock pricing",
+      "publisher": "Amazon Web Services",
+      "info": "Comprehensive pricing for Amazon Bedrock including on-demand, batch, provisioned throughput, custom model import, and marketplace models from multiple providers"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "title": "Amazon Bedrock API Reference", 
+      "publisher": "Amazon Web Services",
+      "info": "API reference documentation for Amazon Bedrock including control plane, runtime, agent, and agent-runtime endpoints"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/quotas-limits",
+      "title": "Azure OpenAI in Azure AI Foundry Models Quotas and Limits",
+      "publisher": "Microsoft Learn",
+      "info": "Detailed quotas and limits documentation for Azure OpenAI including TPM/RPM by model family, deployment types, and batch quotas"
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/",
+      "title": "Azure OpenAI Service - Pricing", 
+      "publisher": "Microsoft Azure",
+      "info": "Pricing details for Azure OpenAI Service including Global vs Data Zone vs Regional pricing, batch discounts, and provisioned throughput"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/general/latest/gr/bedrock.html",
+      "title": "Amazon Bedrock endpoints and quotas - AWS General Reference",
+      "publisher": "Amazon Web Services", 
+      "info": "Regional endpoints and service quotas reference for Amazon Bedrock (note: quotas page content extraction failed)"
+    },
+    {
+      "url": "https://openai.com/index/introducing-the-realtime-api/",
+      "title": "Introducing the Realtime API - OpenAI",
+      "publisher": "OpenAI",
+      "info": "Introduction to OpenAI's Realtime API for low-latency multimodal experiences with text, audio, and vision capabilities"
+    }
+  ],
+  "metadata": {
+    "report_summary": "Comprehensive analysis of six major cloud LLM providers covering API endpoints, authentication, models, pricing, and rate limits",
+    "total_sources": 15,
+    "verification_date": "2025-11-11",
+    "information_gaps": [
+      "OpenAI exact per-model RPM/TPM vary by account and tier, only visible in account portal",
+      "Gemini rate-limit and pricing extraction truncated for some models in underlying source", 
+      "Meta Llama API maintains limited public pricing details, available via partner platforms",
+      "Azure OpenAI region-specific prices vary and require verification per target region",
+      "Amazon Bedrock quotas page content failed extraction, exact per-model limits require runtime checks"
+    ]
+  }
+}

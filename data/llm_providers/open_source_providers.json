@@ -1,0 +1,723 @@
+{
+  "metadata": {
+    "generated_at": "2025-11-11T02:03:27Z",
+    "last_updated": "2025-11-11",
+    "version": "1.0",
+    "description": "Comprehensive overview of open source LLM providers with API endpoints, pricing, and authentication details"
+  },
+  "providers": {
+    "huggingface": {
+      "name": "Hugging Face Inference Providers",
+      "description": "Access to 200+ models from leading AI inference providers with centralized, transparent, pay-as-you-go pricing",
+      "website": "https://huggingface.co/docs/inference-providers",
+      "api_endpoints": {
+        "base_url": "https://router.huggingface.co/v1",
+        "chat_completion": "/v1/chat/completions",
+        "models_list": "/v1/models",
+        "direct_http": "https://router.huggingface.co/v1/chat/completions"
+      },
+      "authentication": {
+        "method": "Bearer Token",
+        "token_type": "Hugging Face User Access Token",
+        "permission_required": "Make calls to Inference Providers",
+        "header_format": "Authorization: Bearer $HF_TOKEN"
+      },
+      "pricing": {
+        "model": "Pay-as-you-go with no markup from Hugging Face",
+        "credits_free_tier": {
+          "free_users": "$0.10 monthly credits",
+          "pro_users": "$2.00 monthly credits",
+          "enterprise": "$2.00 per seat monthly credits"
+        },
+        "calculation": "Compute time (seconds) x price of underlying hardware"
+      },
+      "model_availability": {
+        "count": "200+ models from 18+ providers",
+        "supported_tasks": [
+          "Chat completion (LLM)",
+          "Chat completion (VLM)", 
+          "Feature Extraction",
+          "Text to Image",
+          "Text to Video",
+          "Speech to text"
+        ],
+        "available_providers": [
+          "Cerebras",
+          "Cohere", 
+          "Fal AI",
+          "Featherless AI",
+          "Fireworks",
+          "Groq",
+          "HF Inference",
+          "Hyperbolic",
+          "Nebius",
+          "Novita",
+          "Nscale",
+          "Public AI",
+          "Replicate",
+          "SambaNova",
+          "Scaleway",
+          "Together",
+          "WaveSpeedAI",
+          "Z.ai"
+        ]
+      },
+      "special_features": {
+        "automatic_routing": "Server-side automatic selection based on performance/cost",
+        "provider_selection": "Supports ':fastest', ':cheapest', ':provider_name' suffixes",
+        "openai_compatible": "Drop-in replacement for OpenAI chat completions API",
+        "unified_billing": "Centralized billing for all providers",
+        "organization_billing": "Support for team/enterprise billing with X-HF-Bill-To header"
+      },
+      "sdk_support": {
+        "python": {
+          "package": "huggingface_hub",
+          "installation": "pip install huggingface_hub",
+          "example_usage": "from huggingface_hub import InferenceClient; client = InferenceClient()"
+        },
+        "javascript": {
+          "package": "@huggingface/inference", 
+          "installation": "npm install @huggingface/inference",
+          "example_usage": "import { InferenceClient } from '@huggingface/inference'"
+        }
+      },
+      "rate_limits": "Not explicitly specified in documentation",
+      "notes": [
+        "As of July 2025, HF-Inference focuses mostly on CPU inference",
+        "Generous free tier with monthly credits",
+        "Zero vendor lock-in with consistent API interface"
+      ]
+    },
+    "groq": {
+      "name": "Groq",
+      "description": "Fast, low-cost inference for open source models with extremely low latency",
+      "website": "https://groq.com/",
+      "api_endpoints": {
+        "base_url": "https://api.groq.com",
+        "chat_completion": "/openai/v1/chat/completions",
+        "responses": "/openai/v1/responses",
+        "audio_transcription": "/openai/v1/audio/transcriptions", 
+        "audio_translation": "/openai/v1/audio/translations",
+        "audio_speech": "/openai/v1/audio/speech",
+        "models_list": "/openai/v1/models",
+        "batch_operations": "/openai/v1/batches",
+        "file_operations": "/openai/v1/files",
+        "fine_tuning": "/v1/fine_tunings"
+      },
+      "authentication": {
+        "method": "Bearer Token",
+        "token_type": "Groq API Key",
+        "header_format": "Authorization: Bearer $GROQ_API_KEY",
+        "creation_location": "Console at console.groq.com"
+      },
+      "pricing": {
+        "model": "Transparent, on-demand pricing for Tokens-as-a-Service",
+        "currency": "USD",
+        "large_language_models": [
+          {
+            "model": "Llama 3.1 8B Instant 128k",
+            "input_price_per_million": "$0.05",
+            "output_price_per_million": "$0.08",
+            "speed": "840 TPS"
+          },
+          {
+            "model": "Llama 3.3 70B Versatile 128k", 
+            "input_price_per_million": "$0.59",
+            "output_price_per_million": "$0.79",
+            "speed": "394 TPS"
+          },
+          {
+            "model": "Llama 4 Scout (17Bx16E) 128k",
+            "input_price_per_million": "$0.11",
+            "output_price_per_million": "$0.34", 
+            "speed": "594 TPS"
+          },
+          {
+            "model": "Llama 4 Maverick (17Bx128E) 128k",
+            "input_price_per_million": "$0.20",
+            "output_price_per_million": "$0.60",
+            "speed": "562 TPS"
+          },
+          {
+            "model": "GPT OSS 20B 128k",
+            "input_price_per_million": "$0.075",
+            "output_price_per_million": "$0.30",
+            "speed": "1,000 TPS"
+          },
+          {
+            "model": "GPT OSS 120B 128k",
+            "input_price_per_million": "$0.15", 
+            "output_price_per_million": "$0.60",
+            "speed": "500 TPS"
+          },
+          {
+            "model": "Qwen3 32B 131k",
+            "input_price_per_million": "$0.29",
+            "output_price_per_million": "$0.59",
+            "speed": "662 TPS"
+          }
+        ],
+        "speech_models": [
+          {
+            "model": "Whisper Large v3",
+            "price_per_hour": "$0.111",
+            "speed_factor": "217x"
+          },
+          {
+            "model": "Whisper Large v3 Turbo", 
+            "price_per_hour": "$0.04",
+            "speed_factor": "228x"
+          }
+        ],
+        "text_to_speech": [
+          {
+            "model": "PlayAI Dialog v1.0",
+            "price_per_million_characters": "$50.00",
+            "characters_per_second": "140"
+          }
+        ]
+      },
+      "model_availability": {
+        "count": "13+ open source models available",
+        "special_features": [
+          "Prompt caching with 50% discount on cache hits",
+          "Built-in compound AI tools (web search, code execution, browser automation)",
+          "Batch API processing at 50% lower cost"
+        ]
+      },
+      "special_features": {
+        "ultra_low_latency": "Industry-leading inference speeds",
+        "prompt_caching": "No extra fee for caching, 50% discount on cache hits",
+        "batch_api": "50% lower cost for batch processing, 24-hour to 7-day processing window",
+        "built_in_tools": [
+          "Web search (Basic: $5/1000 requests, Advanced: $8/1000 requests)",
+          "Website visits ($1/1000 requests)",
+          "Code execution ($0.18/hour)", 
+          "Browser automation ($0.08/hour)"
+        ],
+        "enterprise_solutions": "API solutions and on-prem deployments available",
+        "free_tier": "Available with upgrade options"
+      },
+      "sdk_support": {
+        "python": {
+          "package": "groq",
+          "initialization_example": "from groq import Groq; client = Groq(api_key=os.environ.get('GROQ_API_KEY'))"
+        },
+        "javascript": {
+          "package": "groq-sdk",
+          "initialization_example": "import Groq from 'groq-sdk'; const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })"
+        }
+      },
+      "rate_limits": "Not explicitly specified in API documentation",
+      "notes": [
+        "Focus on extremely fast inference with high throughput",
+        "Transparent pricing with no hidden fees",
+        "Strong performance for open source models"
+      ]
+    },
+    "together_ai": {
+      "name": "Together AI",
+      "description": "Run and fine-tune generative AI models with simple APIs and scalable GPU clusters",
+      "website": "https://www.together.ai/",
+      "api_endpoints": {
+        "base_url": "https://api.together.xyz/v1",
+        "chat_completion": "/v1/chat/completions",
+        "images": "/v1/images/generations",
+        "audio_speech": "/v1/audio/speech",
+        "embeddings": "/v1/embeddings",
+        "openai_compatible": true
+      },
+      "authentication": {
+        "method": "API Key",
+        "header_format": "Authorization: Bearer $TOGETHER_API_KEY",
+        "key_management": "https://api.together.xyz/settings/api-keys"
+      },
+      "pricing": {
+        "model": "Per-token, per-MP, per-character, per-video, per-hour billing",
+        "serverless_inference": {
+          "text_vision_models": [
+            {
+              "model": "Llama 4 Maverick",
+              "input_price_per_million": "$0.27",
+              "output_price_per_million": "$0.85"
+            },
+            {
+              "model": "Llama 4 Scout", 
+              "input_price_per_million": "$0.18",
+              "output_price_per_million": "$0.59"
+            },
+            {
+              "model": "Llama 3.1 8B Instruct Turbo",
+              "input_price_per_million": "$0.18",
+              "output_price_per_million": "$0.18"
+            },
+            {
+              "model": "Llama 3.3 70B Instruct-Turbo",
+              "input_price_per_million": "$0.88", 
+              "output_price_per_million": "$0.88"
+            },
+            {
+              "model": "DeepSeek-R1",
+              "input_price_per_million": "$3.00",
+              "output_price_per_million": "$7.00"
+            },
+            {
+              "model": "DeepSeek-V3-1",
+              "input_price_per_million": "$0.60",
+              "output_price_per_million": "$1.70"
+            },
+            {
+              "model": "Qwen3 235B A22B Instruct 2507 FP8",
+              "input_price_per_million": "$0.20",
+              "output_price_per_million": "$0.60"
+            },
+            {
+              "model": "gpt-oss-20B",
+              "input_price_per_million": "$0.05",
+              "output_price_per_million": "$0.20"
+            },
+            {
+              "model": "gpt-oss-120B",
+              "input_price_per_million": "$0.15",
+              "output_price_per_million": "$0.60"
+            }
+          ],
+          "image_models": {
+            "flux_1_dev": "$0.025 per MP",
+            "flux_1_pro": "$0.05 per MP",
+            "flux_1_schnell": "$0.0027 per MP",
+            "google_imagen_4_0_preview": "$0.04 per MP"
+          },
+          "video_models": {
+            "google_veo_3_0": "$1.60 per video (720p/8s)",
+            "kling_2_1_master": "$0.92 per video (1080p/5s)",
+            "sora_2": "$0.80 per video (720p/8s)"
+          }
+        },
+        "dedicated_endpoints": {
+          "1x H200 141GB": "$4.99/hour",
+          "1x H100 80GB": "$3.36/hour", 
+          "1x A100 SXM 80GB": "$2.56/hour",
+          "1x L40S 48GB": "$2.10/hour"
+        },
+        "gpu_cloud": {
+          "instant_clusters": {
+            "nvidia_hgx_h100_sxm": "$2.99/hour/GPU (hourly), $2.20/hour/GPU (1 week - 3 months)",
+            "nvidia_hgx_h200": "$3.79/hour/GPU (hourly), $3.15/hour/GPU (1 week - 3 months)",
+            "nvidia_hgx_b200": "$5.50/hour/GPU (hourly), $4.00/hour/GPU (1 week - 3 months)"
+          },
+          "reserved_clusters": {
+            "nvidia_b200": "Contact for pricing",
+            "nvidia_h200": "Starting at $2.09/hour",
+            "nvidia_h100": "Starting at $1.75/hour",
+            "nvidia_a100": "Starting at $1.30/hour"
+          }
+        }
+      },
+      "model_availability": {
+        "count": "200+ open-source and specialized models",
+        "categories": [
+          "Text & Vision Models",
+          "Image Generation", 
+          "Audio Models",
+          "Video Generation",
+          "Transcription",
+          "Embeddings",
+          "Rerank Models",
+          "Moderation Models"
+        ]
+      },
+      "special_features": {
+        "openai_compatibility": "Fully compatible with OpenAI client libraries",
+        "fine_tuning": "Standard and specialized fine-tuning (LoRA & full)",
+        "batch_inference": "Process billions of tokens at 50% lower cost",
+        "gpu_clusters": "25+ cities with instant, reserved, and frontier clusters",
+        "code_execution": "Sandbox ($0.0446/vCPU/hour) and Interpreter ($0.03/session)",
+        "storage": "$0.16/GiB/month shared filesystem"
+      },
+      "sdk_support": {
+        "python": "Native OpenAI client compatibility",
+        "javascript": "Native OpenAI client compatibility",
+        "curl": "Full REST API support"
+      },
+      "rate_limits": "Not explicitly specified",
+      "notes": [
+        "Full OpenAI API compatibility for easy migration",
+        "Enterprise-grade security and performance guarantees",
+        "Global GPU infrastructure with 25+ data center locations"
+      ]
+    },
+    "replicate": {
+      "name": "Replicate",
+      "description": "Easy ML model deployment in the cloud without complex infrastructure",
+      "website": "https://replicate.com/",
+      "api_endpoints": {
+        "base_url": "https://api.replicate.com/v1",
+        "predictions": "/predictions",
+        "models": "/models",
+        "collections": "/collections", 
+        "deployments": "/deployments",
+        "files": "/files",
+        "search": "/search"
+      },
+      "authentication": {
+        "method": "Bearer Token",
+        "token_type": "Replicate API Token",
+        "header_format": "Authorization: Bearer r8_Hw*******************************************",
+        "management": "https://replicate.com/account/api-tokens"
+      },
+      "pricing": {
+        "model": "Usage-based billing (hardware time or input/output)",
+        "hardware_pricing": [
+          {
+            "hardware": "CPU (Small)",
+            "price_per_second": "$0.000025",
+            "price_per_hour": "$0.09"
+          },
+          {
+            "hardware": "CPU",
+            "price_per_second": "$0.000100", 
+            "price_per_hour": "$0.36"
+          },
+          {
+            "hardware": "Nvidia A100 (80GB)",
+            "price_per_second": "$0.001400",
+            "price_per_hour": "$5.04"
+          },
+          {
+            "hardware": "Nvidia H100 GPU",
+            "price_per_second": "$0.001525",
+            "price_per_hour": "$5.49"
+          },
+          {
+            "hardware": "Nvidia L40S GPU",
+            "price_per_second": "$0.000975",
+            "price_per_hour": "$3.51"
+          },
+          {
+            "hardware": "Nvidia T4 GPU",
+            "price_per_second": "$0.000225",
+            "price_per_hour": "$0.81"
+          }
+        ],
+        "model_specific_examples": [
+          {
+            "model": "anthropic/claude-3.7-sonnet",
+            "cost": "$0.015/thousand output tokens, $3.00/million input tokens"
+          },
+          {
+            "model": "deepseek-ai/deepseek-r1", 
+            "cost": "$0.01/thousand output tokens, $3.75/million input tokens"
+          },
+          {
+            "model": "black-forest-labs/flux-1.1-pro",
+            "cost": "$0.04/output image"
+          }
+        ]
+      },
+      "model_availability": {
+        "count": "Thousands of open-source models + proprietary models",
+        "types": [
+          "Official models (always on, predictable pricing)",
+          "Community models",
+          "Private custom models"
+        ],
+        "categories": [
+          "Text generation",
+          "Image generation",
+          "Video generation",
+          "Audio processing",
+          "Computer vision"
+        ]
+      },
+      "special_features": {
+        "unified_endpoint": "All models use POST /v1/predictions as of August 2025",
+        "cog_packaging": "Open-source tool for packaging ML models",
+        "fast_booting_fine_tunes": "No idle time charges for optimized fine-tunes",
+        "webhook_support": "Asynchronous predictions with webhook notifications",
+        "streaming": "Server-sent events for real-time outputs",
+        "enterprise_features": "Volume discounts, dedicated account manager, performance SLAs"
+      },
+      "sdk_support": {
+        "python": {
+          "package": "replicate",
+          "installation": "pip install replicate"
+        },
+        "javascript": {
+          "package": "replicate",
+          "installation": "npm install replicate"
+        }
+      },
+      "rate_limits": {
+        "create_prediction": "600 requests per minute",
+        "other_endpoints": "3000 requests per minute"
+      },
+      "data_retention": "Input parameters, output values, and logs automatically removed after 1 hour for API predictions",
+      "notes": [
+        "Pay only for what you use",
+        "Easy deployment of custom models with Cog",
+        "Enterprise and volume discounts available",
+        "Model pages include cost estimates for transparent pricing"
+      ]
+    },
+    "reka_ai": {
+      "name": "Reka AI",
+      "description": "Multimodal AI models with focus on efficiency and real-world problem solving",
+      "website": "https://reka.ai/",
+      "api_endpoints": {
+        "base_url": "Not explicitly specified in documentation",
+        "compatible_with": "OpenAI SDK",
+        "quick_start_example": "Single API call for integration"
+      },
+      "authentication": {
+        "method": "API Key (specific details not explicitly detailed on pricing page)"
+      },
+      "pricing": {
+        "model": "Pay as you go with no upfront costs",
+        "reka_research": {
+          "model": "reka-flash-research",
+          "standard_requests": "$25.00 per 1k requests",
+          "parallel_thinking_low": "$35.00 per 1k requests", 
+          "parallel_thinking_high": "$60.00 per 1k requests"
+        },
+        "reka_chat": {
+          "reka_spark": {
+            "input_tokens": "$0.05 per 1M",
+            "output_tokens": "$0.05 per 1M",
+            "image": "$0.005",
+            "video": "$0.01 per min",
+            "audio": "$0.005 per min"
+          },
+          "reka_flash": {
+            "input_tokens": "$0.80 per 1M",
+            "output_tokens": "$2.00 per 1M", 
+            "image": "$0.01",
+            "video": "$0.06 per min",
+            "audio": "$0.015 per min"
+          },
+          "reka_core": {
+            "input_tokens": "$2.00 per 1M",
+            "output_tokens": "$6.00 per 1M",
+            "image": "$0.02",
+            "video": "$0.08 per min", 
+            "audio": "$0.02 per min"
+          }
+        }
+      },
+      "model_availability": {
+        "count": "4 main models",
+        "models": [
+          {
+            "name": "reka-flash-research",
+            "version": "reka-flash-research-20250708",
+            "description": "Supports complex, multi-step research across the web"
+          },
+          {
+            "name": "Reka Spark",
+            "description": "Compact model ideal for on-device execution"
+          },
+          {
+            "name": "Reka Flash", 
+            "description": "Fast and cost-efficient model for most tasks"
+          },
+          {
+            "name": "Reka Core",
+            "description": "Superior capabilities for complex tasks"
+          }
+        ]
+      },
+      "special_features": {
+        "multimodal": "Handles text, images, video, and audio inputs natively",
+        "web_research": "Built-in capability for complex web research tasks",
+        "efficiency_focus": "Designed for real-world problem solving with advanced compression",
+        "open_source": "Regularly open sources technology",
+        "enterprise_deployments": "Enterprise deployment options available"
+      },
+      "sdk_support": {
+        "openai_sdk": "Compatible with OpenAI SDK for easy integration"
+      },
+      "rate_limits": "Not specified in available documentation",
+      "notes": [
+        "Free playground available with 4K token limit",
+        "Focus on multimodal capabilities and efficiency",
+        "New research model with parallel thinking capabilities"
+      ]
+    },
+    "mosaicml_databricks": {
+      "name": "MosaicML (Databricks Foundation Model APIs)",
+      "description": "Enterprise foundation model APIs now integrated into Databricks",
+      "website": "https://docs.databricks.com/aws/en/machine-learning/foundation-model-apis/",
+      "status": "Acquired by Databricks - now available through Databricks platform",
+      "api_endpoints": {
+        "base_url": "Databricks platform endpoints",
+        "model_serving": "Available through Databricks ML Model Serving"
+      },
+      "authentication": {
+        "method": "Databricks authentication",
+        "tokens": "Databricks personal access tokens or service principals"
+      },
+      "pricing": {
+        "model": "Per 1 million tokens (token-based pricing)",
+        "example_pricing": "$0.50 per 1M input tokens (up to 128K context)",
+        "billing": "Billed by the second for active model endpoint time"
+      },
+      "model_availability": {
+        "models": "Various foundation models available through Databricks",
+        "access": "Through Databricks Foundation Model APIs"
+      },
+      "special_features": {
+        "enterprise_integration": "Fully integrated with Databricks ecosystem",
+        "unified_governance": "Unified interface for model governance and management",
+        "real_time_batch": "Support for both real-time and batch inference",
+        "mlflow_integration": "Integrated with MLflow for model tracking and governance"
+      },
+      "sdk_support": {
+        "databricks_sdk": "Full Databricks SDK support"
+      },
+      "notes": [
+        "MosaicML technology now fully integrated into Databricks",
+        "Former MosaicML services are part of Databricks foundation model offerings",
+        "Enterprise-grade platform integration"
+      ]
+    },
+    "lightning_ai": {
+      "name": "Lightning AI",
+      "description": "Deploy AI models, train, and build AI applications with pay-per-token APIs or BYO container",
+      "website": "https://lightning.ai/",
+      "api_endpoints": {
+        "base_url": "https://api.lightning.ai",
+        "documentation": "https://lightning.ai/docs/"
+      },
+      "authentication": {
+        "method": "Lightning AI account authentication"
+      },
+      "pricing": {
+        "model": "Free tier with 80 free GPU hours, then pay-as-you-go",
+        "enterprise": "Bring your own cloud, AWS/GCP support",
+        "pay_per_token": "Available for API usage"
+      },
+      "model_availability": {
+        "models": "Various models available through platform",
+        "deployment": "Support for custom model deployment and optimization"
+      },
+      "special_features": {
+        "pyTorch_experts": "Expert optimization and deployment services",
+        "container_support": "Bring your own container",
+        "no_code_apis": "Deploy no-code APIs",
+        "collaborative_building": "Code together and prototype features",
+        "open_source_focus": "Open source solutions that can be fully self-hosted"
+      },
+      "sdk_support": {
+        "lightning_sdk": "Official Lightning SDK and documentation"
+      },
+      "notes": [
+        "Trusted by 340,000+ developers and AI teams",
+        "Open source approach with commercial options",
+        "Focus on PyTorch-based AI development and deployment"
+      ]
+    },
+    "runpod": {
+      "name": "RunPod",
+      "description": "Transparent GPU cloud pricing for AI deployment with serverless models",
+      "website": "https://runpod.io/",
+      "api_endpoints": {
+        "public_endpoints": "Instant access to state-of-the-art AI models",
+        "documentation": "https://docs.runpod.io/hub/public-endpoints"
+      },
+      "authentication": {
+        "method": "API key authentication"
+      },
+      "pricing": {
+        "model": "Per-second billing for compute and storage",
+        "pods": "No additional fees for data ingress or egress",
+        "serverless": "Pay-per-second pricing with no upfront costs",
+        "transparency": "Granular pricing with no hidden costs"
+      },
+      "model_availability": {
+        "public_endpoints": "State-of-the-art AI models through public endpoints",
+        "custom_deployment": "Deploy custom models on pods"
+      },
+      "special_features": {
+        "per_second_billing": "Revolutionary per-second pricing model",
+        "github_native": "GitHub-native deployment",
+        "transparent_pricing": "No hidden fees or additional costs",
+        "scaling_to_zero": "Scale LLM inference to zero cost during downtime",
+        "serverless_gpus": "Serverless GPU infrastructure for API hosting"
+      },
+      "sdk_support": {
+        "api_client": "Full API client and documentation"
+      },
+      "notes": [
+        "Transparent, granular pricing with per-second billing",
+        "Strong developer experience with GitHub integration",
+        "Good for both development and production workloads"
+      ]
+    },
+    "lambda_labs": {
+      "name": "Lambda Labs",
+      "status": "API DEPRECATED",
+      "description": "Former provider of AI inference API (deprecated September 25, 2025)",
+      "api_endpoints": {
+        "status": "Deprecated - API no longer available"
+      },
+      "authentication": {
+        "status": "No longer applicable"
+      },
+      "pricing": {
+        "status": "No longer available"
+      },
+      "model_availability": {
+        "status": "Historical service only"
+      },
+      "special_features": {
+        "status": "Historical reference"
+      },
+      "notes": [
+        "Lambda Inference API was deprecated on September 25, 2025",
+        "Users need to migrate to alternative providers",
+        "Former service offering low-cost, scalable AI inference"
+      ]
+    }
+  },
+  "summary": {
+    "total_providers": 9,
+    "active_providers": 8,
+    "deprecated_providers": 1,
+    "key_insights": [
+      "Hugging Face provides the broadest model access with 200+ models from 18+ providers",
+      "Groq offers the fastest inference speeds with ultra-low latency",
+      "Together AI provides full OpenAI compatibility for easy migration",
+      "Replicate has the most transparent hardware-based pricing model",
+      "Reka AI focuses on multimodal capabilities with innovative research models",
+      "Lambda Labs API is no longer available as of September 2025"
+    ],
+    "authentication_patterns": {
+      "bearer_token": ["Hugging Face", "Replicate", "Together AI", "Reka AI"],
+      "api_key": ["Groq", "RunPod"],
+      "platform_specific": ["MosaicML (Databricks)", "Lightning AI"]
+    },
+    "pricing_models": {
+      "token_based": ["Hugging Face", "Groq", "Together AI", "Reka AI", "MosaicML"],
+      "hardware_based": ["Replicate"],
+      "hourly_compute": ["RunPod", "Together AI Dedicated Endpoints", "Lightning AI"]
+    }
+  },
+  "recommendations": {
+    "for_developers": {
+      "easiest_integration": "Together AI (full OpenAI compatibility)",
+      "broadest_model_choice": "Hugging Face Inference Providers",
+      "fastest_inference": "Groq (ultra-low latency)",
+      "cost_effectiveness": "RunPod (transparent per-second pricing)"
+    },
+    "for_enterprises": {
+      "enterprise_ready": "MosaicML/Databricks (full enterprise integration)",
+      "governance_compliance": "Databricks Foundation Model APIs",
+      "scaling_support": "Together AI (global GPU infrastructure)"
+    },
+    "for_research": {
+      "multimodal_capabilities": "Reka AI (text, image, video, audio)",
+      "web_research": "Reka AI (built-in web research)",
+      "custom_deployment": "RunPod (transparent pricing, full control)"
+    }
+  }
+}

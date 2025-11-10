@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>GitHub Stars Explorer - Organize Your Starred Repositories</title>
+  <meta name="title" content="GitHub Stars Explorer - Organize Your Starred Repositories">
+  <meta name="description" content="Transform your chaotic GitHub starred repositories into an organized, searchable interface with smart categorization and quality scoring.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github-stars-explorer.vercel.app/">
+  <meta property="og:title" content="GitHub Stars Explorer - Organize Your Starred Repositories">
+  <meta property="og:description" content="Transform your chaotic GitHub starred repositories into an organized, searchable interface with smart categorization and quality scoring.">
+  <meta property="og:image" content="./icon-512.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://github-stars-explorer.vercel.app/">
+  <meta property="twitter:title" content="GitHub Stars Explorer - Organize Your Starred Repositories">
+  <meta property="twitter:description" content="Transform your chaotic GitHub starred repositories into an organized, searchable interface with smart categorization and quality scoring.">
+  <meta property="twitter:image" content="/icon-512.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./icon-192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./icon-192.png">
+  
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="./manifest.json">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#6366F1">
+  <meta name="msapplication-TileColor" content="#6366F1">
+  
+  <!-- Apple Mobile Web App -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="GitHub Stars">
+  
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileImage" content="./icon-192.png">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <script type="module" crossorigin src="./assets/index-ChqHZHbS.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/vendor-BtP0CW_r.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-wLwzyTLJ.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+</body>
+
+</html>
